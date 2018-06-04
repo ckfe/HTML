@@ -1,0 +1,84 @@
+
+关键词和描述的作用：
+			  有利于搜索引擎优化（SEO），即可通过关键词活描述使用用户更容易找到你的网站。
+		
+		 	html:超文本标记语言hyperText Markup Language
+		 	html5:由W3C和WHATWG合作发布
+元素分类：
+          	    块级元素：一个标签就占满其父级元素的一整行
+          	
+          	   行级元素：内容多少，所占位置就有多大
+          	   
+            br:换行标签，是一个单标签，也叫空标签
+            
+相对路径：src="img/..."
+	    	
+	    	绝对路径：src="D:..\..\...jpg"
+	    	
+	    	../(返回上一级目录)
+	    	./（表示当前目录）
+	    	
+	    	sub：定义下标字
+	    	sup：定义上标字
+	    	taiget:定义是否在当前页面（是否要新建窗口）
+                _self:当前页面跳转（默认值）
+                _blank:新建窗口
+                abbr:缩略词
+                bdo:定义文本排列顺序
+                mark:标记文本
+                a标签锚点的使用
+        	     1、在目标位置给一个a链接，给这个链接加上一个name；
+        	     2、在点击的a标签的href属性上加上锚点即#name
+表格（table）
+			    表头：th--字体默认加粗
+			 
+			 cellspacing:单元格之间的距离
+			 cellpadding:内容到边框的距离
+			 align:单元格内容水平对齐方式
+			   left:左对齐
+			   right:右对齐
+			   center:居中对齐
+			 valign:单元格内容的垂直对齐方式
+			   top:顶部对齐
+			   bottom:底部对齐
+			   middle：居中对齐
+			   baseline:基线对齐
+			colspan:列合并   
+			rowspan:行合并
+实体字符
+			 &nbsp:空格符
+			 &gt:大于号
+			 &lt:小于号
+			 &quot:引号
+			 &reg:注册商标
+			 &copy:版权
+			 &amp:&
+ 无序列表
+			  type:属性
+			    circle(空心圆)
+			    square:矩形 
+有序列表
+			  type: 1,i,I,a,A
+			    start:从第几开始
+			ol>li{文字$}*3 
+		<ol type="a" start="6">
+			<li></li>
+			<li></li>
+		</ol>
+定义列表
+		 <dl>
+		 	<dt>标题</dt>
+		 	<dd>内容</dd>
+		 </dl>
+所有表单元素都必须加上名字，单选、复选需定义value值
+			表单：用于提交数据给服务器
+			  action：填写提交的服务器地址
+			  method:定义数据提交的方式
+			     get：提交的数据显示在浏览器的地址栏上，不安全
+			     post:安全性较好
+			     disabled:禁用，不能提交数据
+			     readonly:只读，可以提交数据
+			     hidden:隐藏域
+			     multiple:可以上传多个文件
+			     enctype:设置表单提交的数据格式
+			                默认值:appliction/x-www-form-urlencoded
