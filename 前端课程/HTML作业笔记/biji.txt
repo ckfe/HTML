@@ -10,6 +10,7 @@
           	   行级元素：内容多少，所占位置就有多大
           	   
             br:换行标签，是一个单标签，也叫空标签
+           
             
 相对路径：src="img/..."
 	    	
@@ -45,6 +46,23 @@
 			   baseline:基线对齐
 			colspan:列合并   
 			rowspan:行合并
+			
+		frame:设置表格的外边框
+		    above:只显示顶部边框	
+		    below:只显示下面边框	
+		    lhs：只显示左边边框	
+		    rhs：只显示右边边框	
+		    hsides:只显示上下边框
+		    vsides：只显示左右边框
+		    void：不显示边框
+		rules：设置表格的内部边框
+		    cols：只显示竖边框
+		    rows：只显示横边框
+		    none：没有边框
+		    all:全部显示
+		summary：将文字显示在表格上面
+		tbody：设置表格顶部
+		tfoot：定义表格底部        
 实体字符
 			 &nbsp:空格符
 			 &gt:大于号
@@ -82,3 +100,50 @@
 			     multiple:可以上传多个文件
 			     enctype:设置表单提交的数据格式
 			                默认值:appliction/x-www-form-urlencoded
+			                
+
+常见的块级元素:
+   div、p、h1~h6、dl、dt、dd 、ul、ol、form、header 、footer、table、
+    section、aside、article、hr 、pre
+常见的行内元素:
+   span、a、input、select、textarea、sub、sup、
+   label、img、i、b、em、br、video、audio、 canvas
+
+
+H5新增的表单元素
+     type：color
+           date
+           datetime
+           month
+           week
+           time
+           email
+           range
+           search
+           url
+           tel
+H5移除的元素
+     font
+     bigfont
+     big
+     s
+     u
+     tt
+     center           
+  	语义化元素
+			一个 语义化标签能够描述其代表的意义，比如h1代表一级标题。
+			什么是语义化？
+			       就是能够根据内容，选择相应的语义化标签进行代码书写。
+			语义化的优点：
+			   1.在没有css的情况下，也能够很好的展示我们的内容结构
+			   2.提高用户体验，比如label的使用，title属性的使用
+			   3.有利于SEO，和浏览器建立良好的沟通，有利于爬虫获得更多的信息，可以根据使用的标签来确定各个关键词的权重。
+			   4.有利于其他设备的解析，比如盲人阅读器，可以根据语义化标签进行有感情的朗读。
+			   5.有利于团队开发和维护，语义化更具有可读性。              
+	<!--HTML5新增的语义化标签-->
+		<!--<header>头部</header>
+		<section>（主体内容）代表一个独立的块</section>
+		<article>代表一个独立的内容</article>
+        <aside>（内容较少部分）代表和主要内容相关的信息</aside>
+        <footer>底部</footer>
+        <nav>导航</nav>		       

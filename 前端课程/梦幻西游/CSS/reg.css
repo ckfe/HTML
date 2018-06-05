@@ -2,19 +2,109 @@
 	margin: 0px;
 	padding: 0px;
 }
-body{
+#entirety{
 	width: 100%;
 	height: 100%;
+	margin: 0px;
+	padding: 0px;
 }
-.top-logo{
+header{
+	width: 100%;
+	height: 55px;
+}
+.head-main{
+	width: 1000px;
+	height: 55px;
+	margin: 0px auto;
+}
+.head-main-logo{
+	width: 135px;
+	height: 50px;
+	float: left;
+	
+}
+.head-main-logo a{
 	display: inline-block;
+	margin-top: 5px;
 	width: 133px;
 	height: 44px;
-	background: url("https://nie.res.netease.com/comm/nie.topBar/images/logo_b5525b7.png") no-repeat;
+	background: url("https://nie.res.netease.com/comm/nie.topBar/images/logo_b5525b7.png")no-repeat;
 }
-.top span{
-	width: 1309px;
+.head-main-logo2{
+	width: 420px;
+	height: 56px;
+	float: left;
+	margin-left: 8px;
+}
+.head-main-logo2 img{
+	width: 420px;
 	height: 55px;
-	float: left; 
-	margin: 0px 150px;
+}
+.head-main-menu{
+	float: left;
+	margin-left: 70px;
+}
+.head-main-menu ul{
+	list-style: none;
+	display: block;
+	height: 52px;
+}
+.head-main-menu li{
+	display: inline;
+	line-height: 50px;
+	margin-left: 15px;
+}
+.head-main-menu a{
+	text-decoration: none;
+	font-size: 12px;
+	font-style: normal;
+	color: black;
+}
+section{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	width: 100%;
+	height: 1304px;
+	background: url("https://xyq.res.netease.com/qt/2015/0505_reg/images/bg_fbc10eb.jpg")no-repeat;
+	background-position: center;
+	background-position-y:top;
+}
+section{
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.section-form{
+	float: left;
+	margin-top: 231px;
+	margin-left: 311px;
+}
+.section-form table{
+	width: 350px;
+	height: 300px;
+}
+.section-form-uname{
+	font-size: 24px;
+	color:red;
+	width: 171px;
+	font-family: "微软雅黑";
+}
+.section-form-dw{
+	width: 96px;
+	height: 30px;
+	background:#ff7366;
+	font-family: "微软雅黑";
+	border-radius: 20px;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+}
+.section-form-email{
+	width: 262px;
+	height: 44px;
+}
+.section-form-psw{
+	width: 262px;
+	height: 44px;
 }
