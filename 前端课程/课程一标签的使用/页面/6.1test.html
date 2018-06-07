@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			所有表单元素都必须加上名字，单选、复选需定义value值
+			表单：用于提交数据给服务器
+			  action：填写提交的服务器地址
+			  method:定义数据提交的方式
+			     get：提交的数据显示在浏览器的地址栏上，不安全
+			     post:安全性较好
+			     disabled:禁用，不能提交数据
+			     readonly:只读，可以提交数据
+			     hidden:隐藏域
+			     multiple:可以上传多个文件
+			     enctype:设置表单提交的数据格式
+			                默认值:appliction/x-www-form-urlencoded
+		-->
+		
+		<form action="my.php" method="post" enctype="multipart/form-data">
+			<input type="text" name="uname"  placeholder="请输入账号"/><br />
+			<input type="password" name="psw" placeholder="请输入密码"/><br />
+			<input type="radio"  name="sex" id="nan" checked="checked"/><label for="nan">男</label>
+			<input type="radio" name="sex"id="nv"/><label for="nv">女</label><br />
+			爱好：
+			<input type="checkbox" name="hobby"  id="run"/><label for="run">运动</label>
+			<input type="checkbox" name="hobby"  id="slip"/><label for="slip">睡觉</label>
+			<input type="checkbox" name="hobby" id="eat"/><label for="eat">吃</label><br />
+			
+			请选择所在城市：
+			<select name="city">
+				<option value="请选择" disabled="disabled">请选择</option>
+				<option value="广州">广东</option>
+				<option value="深圳">深圳</option>
+				<option value="东莞">东莞</option>
+			</select><br />
+			
+			<!--多行文本域-->
+			 <textarea name="" rows="10" cols="20"></textarea><br />
+			
+			<input type="submit"  value="提交" />
+			<!--
+				上传文件：必须用post的提交方式
+				表单需设置：enctype="multipart/form-data"
+			-->
+			<input type="file" multiple="multiple"/>
+			<input type="color" name="scolor"/>
+			<input type="date" name="date"/>
+			<!--
+				required:必填项
+			-->
+			<input type="text" placeholder="请输入您的爱好" name="hobby" required="required" />
+		</form>
+	</body>
+</html>
