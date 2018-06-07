@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>第一个前端页面</title>
+		<!--		<link rel="icon" href=".ico"/>-->
+		<meta name="keywords" content="我是用来声明网站的关键词，关键词之间用逗号隔开" />
+		<meta name="description" content="" />
+		<!--
+			关键词和描述的作用：
+			  有利于搜索引擎优化（SEO），即可通过关键词活描述使用用户更容易找到你的网站。
+		-->
+		<!--
+		 	html:超文本标记语言hyperText Markup Language
+		 	html5:由W3C和WHATWG合作发布
+		 -->
+	</head>
+
+	<body>
+		
+		<div>一个容器</div>
+		<h1>我是h1标签</h1>
+		<h2>我是h2标签</h2>
+		<h3>我是h3标签</h3>
+		<h4>我是h4标签</h4>
+		<h5>我是h5标签</h5>
+		<h6>我是h6标签</h6>
+
+		<span>文本内容1</span>
+		<span>文本内容2</span>
+		<span>文本内容3</span>
+		<!--
+          	元素分类：
+          	    块级元素：一个标签就占满其父级元素的一整行
+          	
+          	   行级元素：内容多少，所占位置就有多大
+          	   
+            br:换行标签，是一个单标签，也叫空标签
+          -->
+
+		<p>一个标签就占满其父级元素的一整行</p>
+		<del>定义删除文本</del>
+		<sup>定义上标字</sup>
+		<sub>定义下标字</sub>
+          
+          
+		<strong>加粗</strong>
+		<i>斜体</i>
+		<em>斜体</em>
+		<img src="img/HBuilder.png" alt="图片不存在" />
+	    <!--
+	    	相对路径：src="img/..."
+	    	
+	    	绝对路径：src="D:..\..\...jpg"
+	    	
+	    	../(返回上一级目录)
+	    	./（表示当前目录）
+	    	
+	    	sub：定义下标字
+	    	sup：定义上标字
+	    -->
+	    <!--
+	    	taiget:定义是否在当前页面（是否要新建窗口）
+                _self:当前页面跳转（默认值）
+                _blank:新建窗口
+	    -->
+		<a href="mailto:邮箱地址">邮件链接</a>
+		<a href="tel:183xxxxxxx">一键拨打</a>
+		<a href="sms:139xxxxxxx ">一键发送短信</a>
+        <a href="http://xyq.163.com/" target="_blank">外部链接</a>
+        <a href="about.html">内部链接 </a>
+        
+        <!--<img src="../test/img/HBuilder.png" alt="找不到此图片" />-->
+        
+        <ruby>陈<rt>chen</rt></ruby><br/>
+        <!--
+        	abbr:缩略词
+        -->
+        <abbr title="英雄联盟" style="text-decoration: none;">LOL</abbr><br/>
+        <!--
+        	bdo:定义文本排列顺序
+        -->
+        <bdo dir="rtl">定义文本排列顺序</bdo><br />
+        
+        <!--
+        	mark:标记文本
+        -->
+        <mark>标记文本</mark>
+        <!--
+        	a标签锚点的使用
+        	     1、在目标位置给一个a链接，给这个链接加上一个name；
+        	     2、在点击的a标签的href属性上加上锚点即#name
+        -->
+        <a href="#btn">我在顶部</a>
+        <div style="height:1000px;">
+        	<div style="margin-top: 500px;">
+        		<a href="" name="btm">中间</a>中间
+        	</div>
+        </div>
+        <a href="#btm" name="btn">我在底部</a>
+        
+        
+        
+        
+	</body>
+</html>

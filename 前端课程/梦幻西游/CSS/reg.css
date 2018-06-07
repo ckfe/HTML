@@ -42,7 +42,7 @@ header{
 }
 .head-main-menu{
 	float: left;
-	margin-left: 70px;
+	margin-left: 60px;
 }
 .head-main-menu ul{
 	list-style: none;
@@ -51,21 +51,25 @@ header{
 }
 .head-main-menu li{
 	display: inline;
-	line-height: 50px;
-	margin-left: 15px;
+	line-height: 51px;
+	margin-left: 17px;
+	
+}
+li:nth-child(3) a{
+	color: #bc2e2e;
 }
 .head-main-menu a{
 	text-decoration: none;
 	font-size: 12px;
-	font-style: normal;
-	color: black;
+	font-family: "微软雅黑";
+	color: #333;
 }
 section{
 	margin: 0px;
 	padding: 0px;
 	display: inline-block;
 	width: 100%;
-	height: 1304px;
+	height: 1104px;
 	background: url("https://xyq.res.netease.com/qt/2015/0505_reg/images/bg_fbc10eb.jpg")no-repeat;
 	background-position: center;
 	background-position-y:top;
@@ -75,22 +79,37 @@ section{
 	margin-left: 0px;
 	margin-top: 0px;
 }
+article{
+	width: 877px;
+	height: 780px;
+	padding-left: 123px;
+    margin: 220px auto;
+}
 .section-form{
 	float: left;
-	margin-top: 231px;
-	margin-left: 311px;
+	margin-top: 18px;
+	margin-left: 30px;
 }
 .section-form table{
-	width: 350px;
-	height: 300px;
+	width: 210px;
+	height: 280px;
+}
+.section-reg{
+	width: 262px;
+	height: 35px;
+	margin: 10px 0px 0px 25px;
 }
 .section-form-uname{
 	font-size: 24px;
 	color:red;
 	width: 171px;
 	font-family: "微软雅黑";
+	border: 0;
+	outline: none;
 }
 .section-form-dw{
+	border: 0;
+	outline: none;
 	width: 96px;
 	height: 30px;
 	background:#ff7366;
@@ -99,12 +118,37 @@ section{
 	color: white;
 	font-size: 16px;
 	text-align: center;
+	cursor: pointer;
 }
 .section-form-email{
 	width: 262px;
 	height: 44px;
+	font-family: "微软雅黑";
+	font-size: 14px;
 }
 .section-form-psw{
 	width: 262px;
 	height: 44px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	margin-top: 30px;
+}
+.section-form-reg{
+	width: 262px;
+	height: 48px;
+	background:#ff7366;
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: white;
+	border: 0;
+	outline: none;
+	margin-top: 30px;
+}
+.section-form-pro{
+	width: 261px;
+	height: 37px;
+	color: #666;
+	margin-top: 30px;
+	font-family: "微软雅黑";
+	font-size: 12px;
 }
