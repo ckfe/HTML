@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.btn{
+				width: 100px;
+				height: 50px;
+				background: gray;
+				border-radius: 10px;
+				text-align: center;
+				line-height: 50px;
+				cursor: pointer;
+				color: white;
+			}
+			.test{
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				margin-top: 100px;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="btn">按钮</div>
+		<div class="test">
+			<div class="one"></div>
+		</div>
+		<script type="text/javascript">
+			/**
+			 * 鼠标事件
+			 * click：单击事件
+			 * dblclick：双击事件
+			 * */
+			
+			var btn = document.querySelector(".btn");
+			btn.addEventListener("click",function(){
+				console.log("88");
+			})
+			
+			btn.addEventListener("mousedown",function(){
+				console.log("886");
+			})
+			btn.addEventListener("mouseup",function(){
+				console.log("887");
+			})
+			btn.addEventListener("mouseenter",function(){
+				console.log("鼠标移上去了");
+			})
+			btn.addEventListener("mouseleave",function(){
+				console.log("鼠标移开去了");
+			})
+			
+			/**
+			 * mouseout,mouseover,事件遵循事件冒泡过程
+			 * 	mouseleave，mouseenter，不遵循事件冒泡过程
+			 * */
+			btn.addEventListener("mouseout",function(){
+				console.log("mouseleave鼠标移开去了2");
+			})
+			btn.addEventListener("mouseover",function(){
+				console.log("mouseover鼠标移上去了2");
+			})
+			
+			
+			/*
+			 * 事件冒泡（所有主流浏览器的默认事件触发过程，都为事件冒泡过程）
+			 * 		先触发子元素再触发父元素（事件会进行传递）
+			 * */
+			var test = document.querySelector(".test");
+			var one = document.querySelector(".one");
+			test.addEventListener("mouseover",function(){
+				alert("我是父元素");
+			})
+			one.addEventListener("mouseenter",function(){
+				alert("我是子元素");
+			})
+			
+			
+			btn.addEventListener("mousemove",function(){
+				console.log("我在btn按钮里面移动");
+			})
+			
+			document.addEventListener("contextmenu",function(){
+				console.log("按下右键");
+			})
+			
+			
+			/**
+			 * 键盘事件
+			 * */
+			document.addEventListener("keydown",function(){
+				console.log("键盘被按下了");
+			})
+			document.addEventListener("keyup",function(){
+				console.log("键盘被抬起了");
+			})
+			document.addEventListener("keypress",function(){
+				console.log("键盘按下后抬起了");
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.myColor{
+				color: pink;
+				font-size: 24px;
+			}
+			.one{
+				transition: 1s;
+			}
+			.container{
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				padding: 10px;
+				margin: 10px;
+				border: 1px solid #000000;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../../6.6作业/淘宝布局/img/11.jpg" alt="美少女" width="300"/>
+		<div class="test">
+			<p>我是p标签</p>
+			<h1>我是h1标签</h1>
+		</div>
+		<div class="container">12313</div>
+		<div class="one two three">我有多个类名</div>
+		<script type="text/javascript">
+			/**
+			 * 元素对象---指的就是HTML的所有标签
+			 * 
+			 * 属性
+			 * attributes获取标签的属性，返回一个属性数组
+			 * 
+			 * */
+			
+			var img = document.querySelector("img");			
+			console.log(img.attributes);
+			console.log(img.attributes[0].value);
+			img.attributes[0].value = "../../6.6作业/淘宝布局/img/04.jpg";
+			
+			/**
+			 * element.childNodes获取元素的子节点
+			 * 注意换行符也是一个文本节点
+			 * 	
+			 * 
+			 * */
+			var test = document.querySelector(".test");
+			var son = test.childNodes;
+			console.log(son);//[text, p, text, h1, text]
+			
+			
+			/**
+			 * element.classList
+			 * 获取元素类名，返回一个类名数组
+			 * 
+			 * classList的方法
+			 * add()添加类名，可以一次添加多个类名，类名之间用逗号隔开
+			 * remove()移除类名，可以一次删除多个类名，类名之间用逗号隔开
+			 * contains()检查是否存在某个类名
+			 * toggle()自动切换类名
+			 * item()获取类名数组中具体的某个类名，传入一个下标值
+			 * */
+			var testClass = document.querySelector(".one");
+			//下面两句同样可以获取到元素的第一个类名
+			//如果传入的下标值值其范围之外，通过item得到的值为null,
+			//通过[]得到的值为undefined
+			//console.log(testClass.classList[0]]);
+			console.log(testClass.classList.item(0));
+			testClass.addEventListener("click",function(){
+//				if(this.classList.contains("myColor")){
+//					this.classList.remove("myColor");
+//				}else{
+//					this.classList.add("myColor");
+//				}
+				this.classList.toggle("myColor");
+			})
+			
+			
+			/**
+			 * element.className
+			 * 用来设置或获取元素类名
+			 * 
+			 * 
+			 * */
+			//获取元素类名
+			console.log(testClass.className);
+			//添加元素类名，会覆盖掉原有的所有类名
+			/*
+			 * 为了不覆盖原有的类名可以用
+			 * testClass.className += " myColor";
+			 * 注意：需要值添加类名前面添加一个空格。
+			 * */
+			testClass.className += " myColor";
+			
+			/**
+			 *  element.clientHeight,element.clientWidth
+			 * 	用来获取元素的宽高（不包括边框，滚动条，外边距）;
+			 * offsetHeight，offsetWidth
+			 * 获取元素的宽高，不包括外边距
+			 * 
+			 * offsetTop，offsetLeft
+			 * 获取到元素距离浏览器顶部和左边的距离
+			 * */
+			var container =document.querySelector(".container");
+			console.log(container.clientHeight);//220
+			console.log(container.clientWidth);//220
+			
+			console.log(container.offsetHeight);//222
+			console.log(container.offsetWidth);//222
+			
+			console.log(container.offsetTop);//10
+			console.log(container.offsetLeft);//10
+			
+			/**
+			 * cloneNode(),
+			 * 用来克隆元素，返回一个新元素。
+			 * 可以传入一个参数
+			 * true：克隆元素本身以及其所有子节点
+			 * 
+			 * 不传入参数或者false，则只克隆元素本身，不会克隆其子节点
+			 * */
+			var cloneEle = container.cloneNode(true);
+			//document.body.appendChild(cloneEle);
+			//console.log(cloneEle);
+			
+			/**
+			 * contentEditable
+			 * 设置或者获取元素是否可编辑
+			 * 	true：可编辑状态
+			 * 	false：不可编辑状态
+			 * */
+			container.contentEditable = true;
+			container.dir ="rtl";
+			
+			/**
+			 * firstChild:
+			 * 	获取到元素的第一个子节点
+			 * 
+			 * */
+			console.log(container.firstChild);
+			
+			/**
+			 * element.style
+			 * 	改变元素的样式
+			 * 
+			 * */
+			container.style.background = "pink";
+			container.style.fontSize ="30px";
+			
+			/**
+			 * querySelector~静态获取元素
+			 * 	只能够获取到原来在HTML结构上有的，不能获取到后面通过js添加进去的
+			 * 
+			 * getElement~动态获取元素
+			 * 无论是原来有的，还是后面通过js添加进去的都能获取到。
+			 * 
+			 * **/
+			var div =document.querySelectorAll(".test");
+			console.log(div);
+			var div1 = document.getElementsByClassName("test");
+			console.log(div1);
+			
+			var div2=document.createElement("div");
+			document.body.appendChild(div2);
+			div2.classList.add("test");
+			console.log(div);
+			console.log(div1);
+			
+			
+			
+		</script>
+	</body>
+</html>

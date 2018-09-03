@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<test  ref="child" @receive="receiveData"></test>
+			<!--child是子组件的名字，是由自己定义的-->
+			<p @click="changCont">{{sonData}}</p>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 子组件向父组件传递数据
+			 * 	方法一：
+			 * 		可以通过事件将数据传递给父组件，
+			 * 		还要用到vue提供一个方法$emit()
+			 * 	方法二：
+			 *   通过vm.$refs来获取
+			 * 	   注意：用到这种方法还需要通过ref来设置子组件的名字
+			 * */
+			Vue.component("test",{
+				template:"<h1 @click='toPass'>{{data1}}</h1>",
+				data:function(){
+					return {
+						data1:"我是子组件里面的数据"
+					}
+				},
+				methods:{
+					toPass:function(){
+						//通过$emit方法将数据传递给父组件
+						//$emit(event,data),event:自定义事件类型，data：我们需要传递的数据
+						this.$emit("receive",this.data1)
+					}
+				}
+			})
+			var vm = new Vue({
+				el:".app",
+				data:{
+					sonData:"123"
+				},
+				methods:{
+					receiveData:function(data1){
+						console.log(data1);
+					},
+					changCont:function(){
+						console.log(this.$refs)
+						this.sonData = vm.$refs.child.data1;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

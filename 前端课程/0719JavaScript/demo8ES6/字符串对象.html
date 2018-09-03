@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * string对象
+			 *  可以通过数组的方法拿到字符串里面的每一个字符
+			 * 	可以通过vealueOf（）方法直接拿到字符串对象的值。
+			 * */
+			 
+			 var str = new String("我是字符串");
+			 console.log(str);
+			 
+			 
+			 /*
+			  * string对象的属性
+			  * 	constructor:指向生产string对象的构造函数
+			  * 	length：获取string对象的长度
+			  * 
+			  * string对象的方法
+			  * 	1.charAt()可以返回指定位置的字符。
+			  * 	注意：如果传入的值不在字符串长度范围内，则返回一个空字符串。
+			  * 
+			  * 	2.concat(),用于连接字符串（不限个数）。
+			  * 	注意：拼接后不影响原来的字符串。
+			  * 
+			  * 	3.indexOf()，用于检索字符串中首次出现某个字符的位置
+			  * 		string：代表我们需要检索的字符
+			  * 		value：代表我们从字符串的什么位置开始检索。
+			  * 	       当我们检索的字符不在字符串里面的话，会返回一个-1；
+			  * 
+			  * 	4.match（）:用于检索字符串内指定的值，并返回字符串中第一次出现的值，并返回下标。
+			  * 		以数组的形式输出，可以通过数组的方法拿到检索的字符
+			  * 		通过对象的方法拿到检索的字符在字符串中的首次出现的下标值
+			  * 
+			  * 	5.replace（），用于替换指定的字符串的,替换后返回新的字符串。
+			  * 		oldStr：代表的是需要替换的字符串。
+			  * 		newStr：代表替换后的字符串。
+			  * 
+			  * 	6.slice(start，end)，用于提取字符串中的一段字符， 
+			  * 		start:表示从什么位置开始提取（包括他本身）
+			  * 		end：表示到什么位置结束提取（不包括本身）
+			  * 
+			  * 	7.split()；可以指定字符来把字符串转换分割为数组。
+			  * 		如果用来切割的字符串不存在在原字符串中，则直接返回一个数组，
+			  * 		里面就只有一个值（即原来的字符串）。
+			  * 
+			  * 	8.substr（start，length），用来截取指定字符的开始位置和长度的某段字符
+			  * 		start：代表开始截取的位置的下标值
+			  * 		length：代表需要截取的字符串长度。
+			  * 		
+			  * 	9.trim(),用来清除字符串两端的空格的.
+			  * 
+			  * 	10.toUpperCase(),将字符串转换为大写（限字母）
+			  * 	11.toLowerCase(),将字符串转换为小写（限字母）
+			  * */
+			 console.log(str.constructor);
+			 
+			 var str = "hello world";
+			 console.log(str.charAt(1));
+			 var str1 = "how are you!";
+			 console.log(str.concat(str1));
+			 var str2 ="I'm fine thanks";
+			 var str3=str.concat(str1,str2);
+			 console.log(str3);
+			 console.log(str.indexOf("l"));//2
+			 console.log(str.indexOf("l",6));//9
+			 console.log(str.indexOf("z"));
+			 console.log(str.match("l"));
+			 console.log(str.match("z"));//null
+			 
+			 var strt = "今天天气真好，好！";
+			 console.log(strt.replace("天","日"));
+			 
+			 var strt2=strt.slice(1,3);
+			 console.log(strt2);
+			 
+			 
+			 console.log(strt.split(""));
+			 console.log(strt.split("气"));
+			 
+			 console.log(strt.substr(0,6));//今天天气真好
+			 
+			 var str7 = " 今天晚上有点烦躁! ";
+			 console.log(str7.length);
+			 var str8 = str7.trim();
+			 console.log(str8.length);
+			 
+			 var str9 = "hello world";
+			 console.log(str9.toUpperCase());
+			 
+			 
+			 var str10 = "and in it he says Any damn fool could";
+			 console.log(str10.slice(18));
+			 console.log(str10.slice(0,4));
+			 console.log(str10.slice(32,37));
+			 
+			 var str11="get-element-by-id";
+			 function ziFu (name) {
+			  var arr=name.split("-");
+			 	for(var i=0;i<arr.length;i++){
+			 		arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+			 	}
+			 	name = arr.join(""); //join()返回字符串 
+                return name;
+			 }
+			 console.log(ziFu(str11));
+			 
+			 
+			 
+			 
+			 var stri="今天是什么鬼天气，这么热，明天要去游泳！";
+//			 	var arr1=stri.split("");
+//			 	var arr2 = [];
+//			 	for(var i=0;i<arr1.length;i++){
+//			 		arr2[i]=arr1[i];
+//			 		if(arr1[i] == "天"){
+//			 		arr2[i]=arr1[i].replace("天","日");
+//			 		}
+//			 	}
+//			 	console.log(arr2);
+			 console.log(stri.indexOf("天"));
+			 console.log(stri.indexOf("天",3));
+			 console.log(stri.indexOf("天",7));
+		</script>
+	</body>
+</html>

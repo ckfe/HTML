@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			.nav{
+				width: 500px;
+				margin: 0 auto;
+			}
+			.nav::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.nav>li{
+				width: 100px;
+				height: 50px;
+				background: black;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				cursor: pointer;
+			}
+			.nav li:hover{
+				background: gray;
+			}
+			.nav li a{
+				color: white;
+			}
+			.navTwo{
+				height: 0;
+			}
+			.navTwo li{
+				transform: rotateX(30deg) rotateY(90deg) ;
+				background: gray;
+				transition-property: transform opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+			}
+			.nav li:hover .navTwo li:nth-child(1){
+				transition-delay: 0ms;
+			}
+			.nav li:hover .navTwo li:nth-child(2){
+				transition-delay: 50ms;
+			}
+			
+			.nav li:hover .navTwo li:nth-child(3){
+				transition-delay: 100ms;
+			}
+			.nav li:hover .navTwo li:nth-child(4){
+				transition-delay: 150ms;
+			}
+			.nav li:hover .navTwo li:nth-child(5){
+				transition-delay: 200ms;
+			}
+			.nav li:hover .navTwo li{
+				transform: rotateY(0deg);
+				opacity: 1;
+				
+			}
+			.navTwo li:nth-child(1){
+				transition-delay: 200ms;
+			}
+			.navTwo li:nth-child(2){
+				transition-delay: 150ms;
+			}
+			.navTwo li:nth-child(3){
+				transition-delay: 100ms;
+			}
+			.navTwo li:nth-child(4){
+				transition-delay: 50ms;
+			}
+			.navTwo li:nth-child(5){
+				transition-delay: 0ms;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul class="nav">
+			<li><a href="">首页</a></li>
+			<li>
+				<a href="">首页</a>
+				<ul class="navTwo">
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+					<li><a href="">二级菜单</a></li>
+				</ul>
+			</li>
+			<li><a href="">首页</a></li>
+			<li><a href="">首页</a></li>
+			<li><a href="">首页</a></li>
+		</ul>
+	</body>
+</html>

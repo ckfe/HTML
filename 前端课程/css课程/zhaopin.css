@@ -1,0 +1,82 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.info{
+	width: 320px;
+	height: 267px;
+	font-size: 0;
+	margin: 0 auto;
+}
+.infoDetalis{
+	width: 129px;
+	height: 109px;
+	border: 8px solid #dadfe7;
+	background: url(img/zhao01.jpg)no-repeat;
+	background-position: 80px 62px;
+	display: inline-block;
+	margin-right: 7.5px;
+	margin-left: 7.5px;
+	margin-bottom: 17px;
+	vertical-align: top;
+}
+h1{
+	font-size: 14px;
+	color: #11111;
+	line-height: 14px;
+	margin-top: 11px;
+	margin-left: 10px;
+}
+.infoDetalis p{
+	width: 66px;
+	font-size: 12px;
+	color: #666;
+	line-height: 14px;
+	margin-left: 10px;
+	margin-top: 11px;
+	height: 70px;
+	/*多行文字溢出处理方法*/
+	overflow: hidden; /*超出部分*/
+	-webkit-line-clamp: 5; /*定义文本显示的行数*/
+	display: -webkit-box; /*用来兼容webkit内核的浏览器*/
+	-webkit-box-orient: vertical; /*把超出部分用...显示*/
+}
+/*一行文字溢出处理*/
+.test{
+	width: 220px;
+	border: 2px solid black;
+	overflow: hidden;
+	white-space: nowrap; /*强制文字一行显示*/
+	text-overflow: ellipsis;/*把超出部分用...显示*/
+}
+
+
+/*
+ *伪类选择符：
+ *：nth-child(n),用来选择目标元素的父级元素的第N个元素
+ * */
+.infoDetalis:nth-child(2){
+	background: url(img/zhao02.jpg)no-repeat;
+	background-position: 80px 62px;
+}
+.infoDetalis:nth-child(3){
+	background: url(img/zhao03.jpg)no-repeat;
+	background-position: 80px 62px;
+}
+.infoDetalis:nth-child(4){
+	background: url(img/zhao04.jpg)no-repeat;
+	background-position: 80px 62px;
+}
+/*
+ *css类名的命名：
+ * 多个单词组成时：
+ *   1.第一个单词用小写字母，其他单词的开头的字母用大写，叫“驼峰命名法”
+ *   2.所有单词首字母都大写叫大驼峰命名法。
+ *   3.用下划线链接单词
+ * 	 4.用中划线链接单词“串烧命名法”
+ * */
+/*
+ *HTML的嵌套
+ *  1.块级元素嵌套行内元素/行内块元素/块级元素，注意：p标签不能嵌套块级元素
+ *  2.行内元素不能嵌套块级元素/行内块元素
+ * */

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>BOM浏览器对象模型</title>
+		<style type="text/css">
+			.btn{
+				width:100px;
+				height: 50px;
+				text-align: center;
+				border-radius: 5px;
+				line-height: 50px;
+				background: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test" style="height: 1000px;">
+			<div class="btn">按钮</div>
+		</div>
+		<script type="text/javascript">
+			/**
+			 *  BOM(borwser object model的简写)，浏览器对象模型
+			 * 		浏览器对象模型提供了一些方法使得我们能够操作浏览器
+			 * 		或者获得浏览器的信息。
+			 * 
+			 * 	1.window对象
+			 * 	一个浏览器的窗口就代表一个window对象，如果一个页面中嵌套有框架，
+			 * 	该框架也有自己的window对象
+			 * 
+			 * 所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+			 *	全局变量是 window 对象的属性。
+			 *	全局函数是 window 对象的方法。
+			 * 	doucument(html文档)也是window下的一个属性
+			 * 
+			 * 	获取window对象下的方法或属性，大部分可以忽略window前缀。
+			 * */
+			var clo = window.confirm("你确定关闭页面吗？");
+			//window.prompt("请输入用户名");
+			//关闭浏览器窗口
+			/**
+			 * window.close();火狐浏览器不兼容
+			 * */
+			if(clo){
+				window.close();
+			}
+			
+			/***
+			 *  window.open(),打开窗口
+			 * 	默认在新窗口打开
+			 * 	可以传入多个参数
+			 * 	可以设置新窗口的大小，前提不是在当前窗口跳转。
+			 * 
+			 * */
+			//window.open("http://www.baidu.com","","width=300px,height=300px");
+			window.open("test.html","","width=300px,height=300px");
+			/**
+			 *  计时器
+			 * */
+			//window.setInterval();
+			//window.setTimeout();
+			
+			
+			/**
+			 * window.moveBy(150,150);可以设置打开新窗口的位置
+			 * 
+			 * window.scrollBy(x,y);可以设置内容滚动的位置
+			 * window.scrollTo(x,y);
+			 * 注意：通过事件才能触发这个方法
+			 * scrollBy和scrollTo的区别
+			 * scrollTo跟相对于浏览器顶部的位置进行移动
+			 * scrollBy是根据文档的原来位置进行移动。
+			 * */
+			//获取元素
+			var btn = document.getElementsByClassName("btn")[0];
+			//添加一个点击事件
+			btn.addEventListener("click",function(){
+				window.scrollBy(0,200);
+			})
+			
+			
+			/**
+			 * 
+			 * BOM没有统一标准，所以以下拿到的数据在不同浏览器上会有偏差
+			 * window对象属性
+			 * innerWidth,innerHeight,获取浏览器窗口的宽高
+			 * 注意：这里获取到的宽高不包括工具栏和地址栏。
+			 * 
+			 * document.body.clientWidth
+			 * document.body.clientHeight 拿到HTML文档的高度
+			 * document.documentElement.clientHeight  拿到浏览器窗口的高度
+			 * 
+			 * */
+			document.write(window.innerWidth);
+			document.write(window.innerHeight);
+			//ie中可以通过以下方法拿到浏览器窗口大小
+			var w= document.body.clientWidth || document.documentElement.clientWidth;
+			var h=document.body.clientHeight || document.documentElement.clientHeight;
+			
+			console.log(w,h);
+			function getW(){
+				return document.body.clientWidth || document.documentElement.clientWidth ||document.body.clientHeight || document.documentElement.clientHeight;
+			}
+			
+			/**
+			 * window.outerHeight,window.outerWidth获取到浏览器整个窗口的大小
+			 * 包括工具栏和滚动条。
+			 * 
+			 * */
+			console.log(window.outerHeight);
+			console.log(window.outerWidth);
+			
+			/**
+			 * window.pageXOffset,window.pageYOffset
+			 * 用于获取文档向下滚动的距离。
+			 * */
+			console.log(window.pageXOffset);
+			console.log(window.pageYOffset);
+			
+			/**
+			 * window.screenLeft,window.screenTop获取到浏览器到屏幕左上角的距离
+			 * 不兼容火狐
+			 * 
+			 * 
+			 * 火狐用window.screenX,window.screenY来获取
+			 * 
+			 * */
+			console.log(window.screenLeft);
+			console.log(window.screenTop);
+		</script>
+	</body>
+</html>

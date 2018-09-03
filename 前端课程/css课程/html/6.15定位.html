@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/dingwei.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	</head>
+	<body>
+		<!--
+			定位position
+			    absolute绝对定位
+			     	会脱离正常文档流 ，不占位置。
+			     	是根据其祖辈元素具有定位信息最近的那一个
+			    	
+			    relative相对定位
+			    	不会脱离正常文档流 ，占位置。
+			       	根据自身原来的位置来定位的。
+			       	 
+			       	 
+			    fixed 固定定位
+			          	是根据浏览器窗口进行定位
+			          	会脱离正常文档流 		
+		-->
+		<div class="test"></div>
+		
+		<div class="test2"></div>
+		
+		<div class="test3"></div>
+		
+		
+		
+		
+		<div class="web">
+			<ul class="clear_fix">
+				<li><a href="#">首页1</a></li>
+				<li>
+					<a href="#">首页2</a>
+					
+					<!--二级导航-->
+					<ul class="two">
+						<li><a href="#">二级导航1</a></li>
+						<li><a href="#">二级导航2</a></li>
+						<li><a href="#">二级导航3</a></li>
+						<li><a href="#">二级导航4</a></li>
+					</ul>
+				</li>
+				<li><a href="#">首页3</a></li>
+				<li><a href="#">首页4</a></li>
+				<li><a href="#">首页5</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

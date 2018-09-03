@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+				font-size: 0;
+			}
+			.warp,.warp1{
+				width: 200px;
+				height: 275px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+			.imgBox{
+				width: 1000px;	
+			}
+			.imgBox::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.imgBox li{
+				float: left;
+				width: 200px;
+				height: 275px;
+			}
+			.imgBox li img{
+				width: 100%;
+			}
+			.next,.pre{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background: rgba(0,0,0,0.2);
+				font-size: 20px;
+				line-height: 30px;
+				text-align: center;
+				color: #fff;
+				cursor: pointer;
+			}
+			.next:hover,.pre:hover{
+				background: rgba(0,0,0,0.5);
+			}
+			.next{
+				right: 0;
+			}
+			.pre{
+				left: 0;
+			}
+			.tran{
+				transition: 500ms;
+			}
+			.pager{
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.pager span{
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #fff;
+				margin: 0 3px;
+				cursor: pointer;
+			}
+			.pager .active{
+				background: #00BFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<!--图片区-->
+			<ul class="imgBox">
+				<li><img src="img/02.jpg"/></li>
+				<li><img src="img/04.jpg"/></li>
+				<li><img src="img/11.jpg"/></li>
+			</ul>
+			<!--左右按钮-->
+			<div class="next">&gt;</div>
+			<div class="pre">&lt;</div>
+			<!--分页器-->
+			<div class="pager">
+				<!--<span class="active"></span>
+				<span></span>
+				<span></span>-->
+			</div>
+		</div>
+		<div class="warp1">
+			<!--图片区-->
+			<ul class="imgBox">
+				<li><img src="img/02.jpg"/></li>
+				<li><img src="img/04.jpg"/></li>
+				<li><img src="img/11.jpg"/></li>
+			</ul>
+			<!--左右按钮-->
+			<div class="next">&gt;</div>
+			<div class="pre">&lt;</div>
+			<!--分页器-->
+			<div class="pager">
+				<!--<span class="active"></span>
+				<span></span>
+				<span></span>-->
+			</div>
+		</div>
+		<script src="js/lb.js"></script>
+		<script type="text/javascript">
+			//实例化轮播图对象
+			var lunbo = new LunBoTu(".warp");
+			lunbo.init();
+			var lunbo2 = new LunBoTu(".warp1");
+			lunbo2.init();
+			console.log(lunbo);
+		</script>
+	</body>
+</html>
+

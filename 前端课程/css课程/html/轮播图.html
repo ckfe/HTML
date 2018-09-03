@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-4.3.3.min.css"/>
+		<style type="text/css">
+			.swiper-slide{
+				height: 200px;
+				background: cyan;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="../js/swiper-4.3.3.min.js"></script>
+		
+		
+		
+		 <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../../6.6作业/淘宝布局/img/11.jpg"/></div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+  
+   <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      autoplay:true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+    //鼠标滑过pagination控制swiper切换
+	for(i=0;i<swiper.pagination.bullets.length;i++){
+	  swiper.pagination.bullets[i].index=i
+	  swiper.pagination.bullets[i].onmouseover=function(){
+	    swiper.slideTo(this.index);
+  };
+}
+  </script>
+	</body>
+</html>

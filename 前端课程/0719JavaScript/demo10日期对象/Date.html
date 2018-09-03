@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="test">
+			
+		</div>
+		<script type="text/javascript">
+			/**
+			 * Date()对象
+			 * 
+			 * JavaScript获取到的时间都是从1970的1月1日00：00开始计算的。
+			 * */
+			//直接获取到当前的时间
+			var data =new Date();
+			console.log(data);
+			
+			//获取指定时间的日期，如果只传入年月日，则返回指定日期的早上8点（即东八区）
+			var data1 =new Date("2017-07-31");
+			console.log(data1);
+			/**
+			 * 当我们用2018-02-05这种中划线连接的日期格式并将时分秒
+			 * 也传入date对象时，值IE浏览器上不能识别
+			 * 在safari浏览器上也是不能识别的
+			 * 用2017/07/31这种格式是可以的
+			 * */
+			var data2 =new Date("2018-02-05 12:12:12");
+			//toLocaleString()转换为本地日期的格式
+			console.log(data2.toLocaleString());
+			
+			//第三种获取时间的方法，可以传入一个毫秒数
+			var data3 = new Date(1000);
+			console.log(data3.toLocaleString());
+			
+			
+			//第四种
+			//JavaScript获取到的月份是从0开始计算的。
+			var date4 = new Date(2014,11,12,23,12);
+			console.log(date4.toLocaleString());
+			
+			
+			
+			/**
+			 * 方法：
+			 * 	toLocaleString()，转换为本地日期格式
+			 * 
+			 * 
+			 * */
+			var  data = new Date();
+			var  year = data.getFullYear();
+			console.log(year);//2018--获得年份
+			console.log(data.getMonth());//6--获得月份
+			console.log(data.getDate());//31 --日
+			console.log(data.getDay());//2-- 周
+			console.log(data.getHours());//11 --时
+			console.log(data.getMinutes());//27 --分
+			console.log(data.getSeconds())// 28 --秒
+			console.log(data.getMilliseconds());//毫秒
+			//获取到的是从1970开始到当前时间的毫秒数
+			console.log(data.getTime());//1533007835605 
+			
+			var strTime ="121767622";
+			function setTime (strTime) {
+				//将毫秒数转换为秒
+				strTime = parseInt(strTime/1000);
+				var day = parseInt(strTime/(60*60*24));
+				//总小时数24求余，计算的结果就是不足一天的小时数。
+				var hour =parseInt(strTime/(60*60)%24);
+				var minutes = parseInt(strTime/60)%60;
+				var seconds = parseInt(strTime%60);
+				return "还剩"+day+"天"+hour+"小时"+minutes+"分"+seconds+"秒";
+			}
+			console.log(setTime (strTime));
+			
+			
+			
+			/**
+			 * 生日倒计时
+			 * */
+			function setTime (strTime) {
+				//将毫秒数转换为秒
+				strTime = parseInt(strTime/1000);
+				var day = parseInt(strTime/(60*60*24));
+				//总小时数24求余，计算的结果就是不足一天的小时数。
+				var hour =parseInt(strTime/(60*60)%24);
+				var minutes = parseInt(strTime/60)%60;
+				var seconds = parseInt(strTime%60);
+				return "还剩"+day+"天"+hour+"小时"+minutes+"分"+seconds+"秒";
+			}
+//			console.log(setTime(str));
+			
+			var div = document.querySelector(".test");
+			setInterval(function () {
+				var date2= new Date(2019,3,3);
+				var res=date2.getTime();
+				var date3= new Date();
+				var res2=date3.getTime();
+				var str=res-res2;
+				//调用函数并把结果赋值给tot
+				var tot=setTime(str);
+				//把tot赋值给div
+				div.innerText = tot;
+			},100)
+			
+			
+			/**
+			 * parse(),获取1970年1月1日到指定日期的毫秒数。
+			 * 
+			 * */
+			var data = Date.parse(2015,5,9);
+			console.log(data);
+			
+			var data1=new Date();
+			console.log(data1.getFullYear());//2018
+			data1.setFullYear("2016");//输入字符串或数字都可以
+			console.log(data1.getFullYear());//2016
+			/**
+			 * setMonth(month,day);
+			 * month:代表月份（值：0~11）
+			 * day：代表一个月中的第几天。
+			 * 两个参数必须填写。
+			 * */
+			data1.setMonth(2,23);			//设置月份、日期
+			data1.setHours(22);			//设置小时
+			data1.setMinutes(20);		//设置分钟
+			data1.setSeconds(46);		//设置秒
+			data1.setMilliseconds(12);	//设置毫秒
+			console.log(data1.toLocaleString());
+			
+			Date.prototype.toLocaleString =function () {
+				return this.getFullYear()+"-"+(this.getMonth()+1)+"-"+this.getDate();
+			}
+			var data3 =new Date();
+			console.log(data3.toLocaleString());
+			console.log(data3.toDateString());
+			console.log(data3.toLocaleDateString());
+			console.log(data3.toLocaleTimeString());
+			
+			var d=new Date();
+			var time = d.getTime();
+			var res=0;
+			for(var i=1;i<1000000;i++){
+				res+=i;
+			}
+			var d2=new Date();
+			var time2 = d2.getTime();
+			console.log(time2);
+			var fianl=time2-time;
+			console.log(fianl);
+		</script>
+	</body>
+</html>

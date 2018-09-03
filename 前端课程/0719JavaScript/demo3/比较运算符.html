@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 比较运算符
+			 * >  <   >=   <=  !=（不等于）  !==（完全不等）  ==  ===（完全相等）
+			 * 
+			 * */
+			
+			var num =0.1;
+			var num2=0.2;
+			var num3=0.3;
+			console.log(num3 == num +num2);//false 浮点数进行计算时，存在不准确性。
+			
+			console.log(2 != "2");//false
+			//完全不等于，不仅要比较转换后的值，还要比较转换前的数据类型。
+			console.log(2 !== "2");//true
+			
+			var obj ={
+				"name":"123"
+			}
+			var obj2 ={
+				"name":"123"
+			}
+			var obj3 = obj2;
+			console.log(obj == obj2);//false
+			console.log(obj2 == obj3);//true
+			
+			//只要操作的数值有一个为NaN，则返回false
+			console.log(NaN == NaN);//false
+			console.log(0 == -0);//true
+			
+			/*
+			 * 如果比较的数据都为字符串的话，会进行字符串比较
+			 * 字符串比较是根据Unicode来比较的，从左到右
+			 * 一个字符对应一个字符来比较，如果第一个字符比较出结果，就直接返回结果，以此类推
+			 * */
+			console.log("23" > "5");// false  
+			console.log("23" > "2");//true
+			console.log("23" > "25");//false
+			//大写字母小于小写字母
+			console.log("A" > "a");//false
+		</script>
+	</body>
+</html>

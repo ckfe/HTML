@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [12,3,5,32,28]
+			//冒泡排序法
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[i]<arr[j]){
+						//把比较大的值用变量存起来
+						var tem =arr[j];
+						//把小的值赋值给大的值
+						arr[j]=arr[i];
+						//再把存起来的大的值赋值给小的值
+						arr[i]=tem;
+					}
+				}
+			}
+			console.log(arr);
+		</script>
+	</body>
+</html>

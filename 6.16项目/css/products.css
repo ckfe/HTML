@@ -1,0 +1,157 @@
+section{
+	width:100%;
+	font-size: 0;
+	min-width: 1280px;
+	margin: 0 auto;
+}
+.section-pc img{
+	width: 100%;
+	min-width: 1280px;
+}
+.section-pro{
+	width: 977px;
+	margin: 0 auto;
+	margin-top: 21px;
+	overflow:hidden ;
+}
+.section-pro span{
+	font-size: 14px;
+	font-family: "宋体";
+	color: #626262;
+	margin-left: 5px;
+}
+.section-pro-mg{
+	margin-top: 33px;
+}
+.section-pro-mg ul{
+	height: 129px;
+}
+.section-pro-mg li{
+	display: inline-block;
+	vertical-align: top;
+	width: 208px;
+	height: 129px;
+	background: #cac9c9;
+	text-align: center;
+	margin-left: 5px;
+}
+.section-pro-mg li:nth-child(3){
+	width: 233px;
+}
+.section-pro-mg li:nth-child(4){
+	width: 222px;
+}
+.section-pro-mg h1{
+	font-size: 18px;
+	font-family: "微软雅黑";
+	color: #434343;
+	margin-top: 36px;
+}
+.section-pro-mg li:first-child{
+	width: 292px;
+}
+.section-pro-mg img{
+	width: 29px;
+	height: 29px;
+	margin-top: 10px;
+	display: none;
+}
+/*鼠标移到li上的效果*/
+.section-pro-mg li:hover,
+.section-pro-mg li:hover h1
+{
+	background: #2072f9;
+	color: white;
+}
+.section-pro-mg li:hover img{
+	
+	display: block;
+}
+.search{
+	margin-top: 29px;
+	width: 358px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid black;
+	float: right;
+	/*margin: 68px 76px 0px 0px;*/
+	/*background: url(../img/t2.png)no-repeat;
+	background-position:181px 4px;*/
+}
+.search input{	
+	vertical-align: middle;
+	border: none;
+	outline: none;
+}
+.search input[type="text"]{
+	height: 45px;
+	width: 299px;
+	padding-left: 5px;
+}
+.search input[type="image"]{
+	/*margin: 4px 7px 0px 0px;*/
+	margin-left: 7px;
+	width: 33px;
+	height: 30px;
+}
+.search input:nth-child(2){
+	width: 50px;
+	height: 48px;
+	background: #434343;
+	vertical-align: top;
+	padding: 10px 10px 10px 10px;
+}
+.section-products ul{
+	width: 974px;
+	margin-top: 105px;
+	text-align: center;
+	border: 0.5px solid #dcdcdc;
+}
+.section-products li{
+	font-size: 0;
+	width: 324px;
+	height: 266px;
+	display: inline-block;
+	border: 0.5px solid #dcdcdc;
+	vertical-align: top;
+}
+.section-products-pc img{
+	width: 110px;
+	height: 136px;
+	margin-top: 23px;
+}
+.section-products li h1{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #2072f9;
+	/*margin-top: 21px;
+	margin-bottom: 19px;*/
+}
+.section-products li span{
+	font-size: 13px;
+	line-height: 13px;
+	font-family: "微软雅黑";
+	color: #3e3e3e;
+	display: inline-block;
+	width: 286px;
+	overflow: hidden;
+	white-space: nowrap; /*强制文字一行显示*/
+	text-overflow: ellipsis;/*把超出部分用...显示*/
+}
+.page{
+	margin-top: 54px;
+	text-align: center;
+	margin-bottom: 242px;
+}
+.page a{
+	width: 60px;
+	height: 48px;
+	line-height: 48px;
+	font-size: 17px;
+	font-family: "微软雅黑";
+	color: #787777;
+}
+.page a:hover{
+	background: #2072f9;
+	color: white;
+}

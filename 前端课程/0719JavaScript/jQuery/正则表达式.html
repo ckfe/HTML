@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 正则表达式
+			 * 	用来匹配以来数据的模式
+			 * 
+			 * 	语法
+			 * 	1.new RegExp(n)
+			 * 		n:表示需要匹配的模式
+			 * 	2./n/
+			 * 		n:表示需要匹配的模式
+			 * */
+			
+			var reg1 = new RegExp("a");
+			//^表示匹配以什么开头的字符
+			//^a$表示以a开头，以a结尾且只有一个a，
+			
+			var reg2 = /^a$/;
+			var str = "vdad";
+			console.log(reg1.test(str));//true
+			console.log(reg2.test(str));//true
+			
+			var str2 = "absda";
+			console.log(reg2.test(str2));
+			
+			var reg3 = /[0-9]/;
+			var str3 = "123";
+			console.log(reg3.test(str3));//true
+			
+			//匹配一个四位数的验证码
+			// | 表示或
+			var reg4 = /^[0-9][0-9][0-9][0-9]$/;
+			var str = "1234";
+			console.log(reg4.test(str));//true
+			
+			var reg5 = /^1[3-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+			var str ="18858971239";
+			console.log(reg5.test(str));
+			
+			/**
+			 * 方括号
+			 * 	用于匹配某个范围内的字符
+			 * 	[0-9]
+			 * 	[a-zA-Z]:字母类型
+			 * 	[a-z]：小写字母
+			 * 	[A-Z]:大写字母
+			 * 	[^a-z]:除了小写字母之外的字符=》^符号在中括号里面表示非。
+			 * 	
+			 * */
+			
+			var str ="今天天气真好";
+			var str1 = str.replace("天","日");
+			console.log(str1);
+			
+			
+			/**
+			 * 修饰符
+			 * i:不区分大小写
+			 * m：识别一个换行符
+			 * g全局匹配
+			 * 
+			 * */
+			var str2 = str.replace(/天/g,"日");
+			console.log(str2);
+			var str = "hello worLd";
+			console.log(str.replace(/l/img,"z"));
+			
+			/**
+			 * 元字符
+			 * 				 相当于
+			 * \d 表示一个数子=》 [0-9]
+			 * \D表示非数子	  =》 [0-9]
+			 * \w单词字符        =》  [a-zA-Z0-9_]
+			 * \W非单词字符	=》  [^a-zA-Z0-9_]
+			 * \s空白字符（比如空格，换行符。。这些看不见的符号）
+			 * \S非空白字符
+			 * \b单词边界 
+			 * \B非单词边界
+			 * . 表示任意字符，除了换行符（\n）和结束符（\r）
+			 * */
+			
+			var reg = /\d/;
+			var str = "12241";
+			console.log(reg.test(str));
+			
+			var reg = /\D/;//只要存在有一个非数字类型字符，则返回true
+			var str = "12241";
+			console.log(reg.test(str));
+			
+			
+			var str = "hwow old are you?";
+			var reg = /w\b/;//匹配一个在单词右边界上的w
+			console.log(str.match(reg));//["w", index: 3, input: "hwow old are you?", groups: undefined]
+			
+			console.log(str.replace(/w\b/,"W"));
+			
+			var str3 = "\r数量";
+			var reg = /./;
+			console.log(reg.test(str3));
+			
+			
+			/**
+			 * 量词
+			 *  {n}表示有n个
+			 *  {n,m}表示有n到m个
+			 *  {n,}表示大于等于n个
+			 * 	?   表示0个或1个
+			 * 	+  表示1个或多个=>{1,}
+			 * 	*  表示0到正无穷
+			 * */
+			//匹配手机号码
+			var reg =/^1[3-9]\d{9}$/
+			var str = "15948267531";
+			console.log(reg.test(str));
+			var reg = /^\d{4,6}$/;
+			var str = "1234";
+			console.log(reg.test(str));
+			
+			var reg = /^\d{6,}$/;
+			var str ="12331313";
+			console.log(reg.test(str));
+			var reg =/^\d.?$/;//表示匹配数字后面跟着一个或0个任意字符
+			
+			var reg = /^\d+$/;//表示匹配一个或多个数字
+			var reg = /^.*/;//表示匹配0到无穷个数字
+			
+			
+			
+			/**
+			 * 正则表达式的方法
+			 * 	1.test（）用来匹配正则表达式中指定的字符，返回布尔值。
+			 * 	2.exec()匹配字符串中指定的值，并返回该字符和该字符串的下标值
+			 * 		注意：该方法只能匹配一次只能获取到第一个目标字符
+			 * 			如果要匹配到所有的字符需要全局匹配，然后再进行多次匹配
+			 * 			就能够获取到所有目标字符
+			 * 
+			 * */
+			
+			var str = "今天天气很好";
+			var reg = /天/g;
+			console.log(reg.exec(str));
+			console.log(reg.exec(str));
+			
+			/**
+			 * 方法：
+			 * 	toSting（）
+			 * 		返回正则表达式匹配的字符串,不是用来匹配的
+			 * */
+			
+			var reg =/我们来上课了/;
+			console.log(reg.toString());
+			
+			
+			
+			/**
+			 * 字符串中具有正则匹配的方法
+			 * 1.replace()
+			 * 
+			 * 2.math()，找到一个或多个正则表达式的匹配
+			 * 	返回一个数组
+			 * 
+			 * 3.search()，检索与正则表达式相匹配的值
+			 * 		返回第一个出现目标元素的下标值。
+			 * 
+			 * 4.split()，把字符串分割为字符串数组。
+			 * 
+			 * */
+			var str = "天啊，今天天气很好";
+			var reg = /天/;
+			console.log(str.match(reg));
+			console.log(str.search(reg));
+			console.log(str.split(/,/));
+			
+			//高级应用=>反向应用
+			
+			/**
+			 * 如果我们需要用到匹配到的数据
+			 * 	可以在匹配模式的数据上添加一个小括号
+			 * 	小括号里面的盒子可以通过$数字来拿到
+			 * 第一个括号里面的内容用加数字1，第二个括号里面的内容用数字2
+			 * 以此类推
+			 * 	比如：
+			 * 	/(.{3})/g =>$1
+			 *  /(.{3})(\d)/g =>$1 $2
+			 * */
+			var str = "123abc789";// ==>123 abc 789
+			var newS= str.replace(/(.{3})/g,"$1 ");
+			console.log(newS);
+			
+		</script>
+	</body>
+</html>

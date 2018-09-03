@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.web{
+				width: 300px;
+				height: 300px;
+				border: 2px solid black;
+				margin: 0 auto;
+			}
+			ul{
+				overflow: hidden;
+			}
+			li{
+				float: left;
+				width: 100px;
+				box-sizing: border-box;
+				border: 1px solid black;
+				text-align: center;
+				cursor: pointer;
+			}
+			li:active{
+				background: #87CEEB;
+			}
+			.con{
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			.con div{
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.con div:nth-child(1){
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<ul class="menu">
+				<li>html</li>
+				<li>css</li>
+				<li>js</li>
+			</ul>
+			<div class="con">
+				<div>超文本标记语言</div>
+				<div>css是添加色彩</div>
+				<div>js是一种弱类型语言</div>
+			</div>
+		</div>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			//index()可以获取到元素对应的下标值
+			$("ul li").on("click",function(){
+				var index = $(this).index();
+				$(".con div").eq(index).css("display","block").siblings().css("display","none");
+			})
+		</script>
+	</body>
+</html>

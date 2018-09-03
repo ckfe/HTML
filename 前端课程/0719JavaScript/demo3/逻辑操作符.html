@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 逻辑操作符
+			 * &&（与） ||（或） !（非）
+			 * 
+			 * 逻辑与（&&）
+			 * 只有当两个条件同时满足的时候才会返回true，即：一假即假
+			 * 当逻辑与操作的数据不是布尔值的时候，返回值就不一定是布尔值，
+			 * 可分为以下几种
+			 * 		1.当第一个操作数为对象时，返回第二个操作数的值。
+			 * 		2.当第二个操作数为对象时，如果第一个操作数的值为true，
+			 * 			则返回对象的值，如果为false则返回false。
+			 * 		3.当两个操作数都为对象时，会返回第二个操作数据的值。
+			 * 		4.如果操作数里面有一行为null，则最终结果为null。
+			 * 		5.如果操作数里面有一个为NaN,则最终结果为NaN。
+			 *		6.如果操作数里面有一个为undefined,则最终结果为undefined。
+			 * 
+			 * 逻辑或（||）
+			 * 只有当两个条件有一个满足的时候才会返回true，即：一真即真
+			 * 当逻辑与操作的数据不是布尔值的时候，返回值就不一定是布尔值，
+			 * 可分为以下几种
+			 * 	1.当第一个操作数为对象时，则返回第一个操作数。
+			 * 	2.当第二个操作数为对象时，第一个操作数为true，返回true，
+			 * 		为假的时候，返回第二个操作数。
+			 *	3.当两个操作数都为对象时，会返回第一个操作数。
+			 * 
+			 * 
+			 * 
+			 * 逻辑非（!）
+			 * 就是取反。即 true =》false
+			 * 
+			 * 	可以通过！！把其他类型的值转换为布尔值。
+			 * */
+			
+			var bool = true;
+			var bool2 = false;
+			var obj = new Object();
+			console.log(bool && obj);//{}
+			
+			
+			var obj1 ={
+				"name":"test"
+			}
+			console.log(obj && obj1);
+			var str = null;
+			console.log(str && bool);
+			
+			var str ="123";
+			console.log(Boolean(str));//true
+		</script>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.web{
+				width: 65px;
+				text-align: center;
+			}
+			.tanke{
+				position: relative;
+			}
+			.img{
+				height:40px;
+				opacity:1;
+				transition:1s;
+				position:absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<div class="tanke">
+				<img src="img/tanke.png"/>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var div =document.querySelector(".tanke img");
+			var div2 = document.querySelector(".tanke");
+			var img = document.createElement("img");
+			div2.appendChild(img);
+			img.src="img/zidan.png";
+			//img.style = "width: 100%;";
+			img.classList.add("img");
+			document.addEventListener("keydown",function(e){
+				if(e.keyCode == 37 ){
+					//transform能够通过+=来叠加，因为有多个参数。
+					div.style.transform += "translateX(-10px)";
+					//width不能通过+=来叠加，因为宽度只有一个参数
+					//div.style.width不能通过style方法获取元素的属性值
+				}
+				if(e.keyCode == 38 ){
+					div.style.transform += "translateY(-10px)";
+				}
+				if(e.keyCode == 39 ){
+					div.style.transform += "translateX(10px)";
+				}
+				if(e.keyCode == 40 ){
+					div.style.transform += "translateY(10px)";
+				}
+				if(e.keyCode == 13){
+					div.style.top = "-500px"
+					div.style.background = "black"
+					div.style.opacity = "0"
+				}
+
+			})
+		</script>
+	</body>
+</html>

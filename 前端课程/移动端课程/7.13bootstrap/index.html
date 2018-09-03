@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<!--
+			响应式布局：
+				原理： 1.媒体查询
+					 2.百分比
+					 3.flex布局
+		 	
+		 	bootstrap框架提供了两种容器
+		 		1.container：定宽
+		 		2.container-fluid：宽度为百分百
+		 		
+		 		
+ 			栅格系统
+ 				把容器分为12份。
+ 				
+ 				
+ 			类名前缀					设备范围				设备的宽度范围
+ 				.col-				超小屏				<576px
+ 				.col-sm-			小屏					>=576px
+ 				.col-md-			中等屏幕				>=768px
+ 				.col-lg-			大屏					>=992px
+ 				.col-xl-			超大屏				>=1200px
+		-->
+		 <div class="container"></div>
+		 <div class="container-fluid"></div>
+		 
+		 
+		 <div class="container">
+		 	<div class="row">
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">1</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">2</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">3</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">4</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">5</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">6</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">7</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">8</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">9</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">10</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">11</div>
+		 		<div class="col-1 col-sm-2 col-md-3 col-lg-4 col-xl-6">12</div>
+		 		
+		 	</div>
+		 	
+		 	<div class="container">
+		 		<div class="row">
+			 		<div class="col-4">1</div>
+			 		<div class="col-4">2</div>
+			 		<div class="col-4">3</div>
+		 		</div>
+			 	<div class="row">
+			 		<div class="col-6">1</div>
+			 		<div class="col-6">2</div>
+			 	</div>
+		 	</div>
+		 </div>
+		 
+		 <style type="text/css">
+		 	.test1{
+		 		margin-top: 200px;
+		 	}
+		 	.col{
+		 		border: 1px solid red;
+		 	}
+		 	.rowH{
+		 		height: 100%;
+		 		border: 1px solid red;
+		 	}
+		 	.rowH .col{
+		 		height: 30px;
+		 	}	
+		 </style>
+		 
+		 <!--
+		 	常用的类名
+		 		w-100:宽百分百的元素
+		 		col-auto或col-*-auto:宽度自可以自己设置或由内容撑开
+		 -->
+		<div class="container test1">
+			<div class="row">
+				<div class="col">1</div>
+				<div class="col">2</div>
+				<div class="w-100"></div>
+				<div class="col">3</div>
+				<div class="col">4</div>
+			</div>
+			
+			<div class="row">
+				<div class="col">1</div>
+				<div class="col-auto">2</div>
+				<div class="col col-lg-auto">3</div>
+			</div>
+			<!--
+				项目的对齐方式
+					align-self-start：交叉轴顶部对齐
+					align-self-center：交叉轴居中对齐
+					align-self-end：交叉轴底部对齐
+					
+				容器上的对齐方式
+					align-items-start：交叉轴顶部对齐
+					align-items-center：交叉轴居中对齐
+					align-items-end：交叉轴底部对齐
+					
+					justify-content-start:主轴开始的位置
+					justify-content-center:主轴居中的位置
+					justify-content-end:主轴结束的位置
+					justify-content-around:主轴两端对齐留白
+					justify-content-between:主轴两端对齐不留白
+					
+				no-gutters:清除row的外边距，同时也清除col的内边距
+				d-none或d-*-none:隐藏元素
+				d-block或d-*-block:显示元素
+				
+				offset-*或offset-*-*:偏移量
+				ml-auto,ml-*-auto:向右自动偏移
+				mr-auto,mr-*-auto:向左自动偏移
+				*可以设置为屏幕类名
+				mx-auto:居中显示
+			-->
+			<div class="row rowH  no-gutters">
+				<div class="col align-self-start">1</div>
+				<div class="col align-self-center d-none d-lg-block">2</div>
+				<div class="col align-self-end">3</div>
+				<div class="col ">4</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-4">1</div>
+				<div class="col-4 offset-4">2</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-4">1</div>
+				<div class="col-4 ml-auto">2</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-4">3</div>
+				<div class="col-4 mx-auto">4</div>
+			</div>
+		</div>
+		<script src="js/jquery-slim.min.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="js/popper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

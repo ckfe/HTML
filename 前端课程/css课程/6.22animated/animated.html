@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">
+			.test{
+				width: 200px;
+				height: 200px;
+				background: cadetblue;
+				animation-iteration-count: infinite;
+				/*animation-duration: 10ms;*/
+				/*
+				 *浏览器内核
+				 * trident：IE浏览器
+				 * blink：谷歌浏览器
+				 * Gecko:火狐浏览器
+				 * webkit:safari(苹果)
+				 * 
+				 * 360，QQ浏览器，遨游浏览器，搜狗浏览器都是双核的
+				 * */
+				
+				/*
+				 *webkit兼容谷歌浏览器，QQ，360，safari
+				 * moz  兼容火狐浏览器
+				 * ms   兼容ie浏览器
+				 * */
+				-webkit-animation-duration: 10ms;
+				-moz-animation-duration: 10ms;
+				-ms-animation-duration: 10ms;
+				/*-o-animation-duration: 10ms;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test animated bounce"></div>
+	</body>
+</html>

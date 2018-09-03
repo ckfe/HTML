@@ -148,6 +148,7 @@ H5移除的元素
         <footer>底部</footer>
         <nav>导航</nav>		       
         
+        <mylove>自定义标签</mylove>
 ---------------------------CSS-------------------------------
   css的引入方式：
 			   1、行内样式：直接在元素的开头标签里面写相应的样式
@@ -158,3 +159,167 @@ H5移除的元素
 			    行内样式>页内样式>外部引入(就近原则)
 			
 			页面渲染：从上到下
+			
+	letter-spacing:设置字与字之间的间距
+	word-spacing：设置单词之间的间距
+	/*
+			 *border:设置元素的边框，第一个值为边框的大小
+			 *  第二个值边框的样式，第三个值为边框的颜色
+			 * 
+			 * border-width：设置边框的大小
+			 * border-style：设置边框的样式
+			 *              solid：实线
+			 *              dotted:点虚线
+			 *              dashed：虚线
+			 * 				      double:双实现
+			 * border-color:设置边框的颜色 
+			 * border-top:  设置上边框   
+			 * border-left: 设置左边框 
+			 * border-right: 设置右边框 
+			 * border-bottom: 设置下边框 
+			 * 
+			 * 外边距(用来设置元素与元素之间的距离)
+			 *    margin-left：左外边距
+			 *    margin-top:上外边距
+			 *    margin-right:右外边距
+			 *    margin-bottom:下外边距
+			 *    
+			 *    margin：只设置一个值时，这个值代表了四个方向上的外边距值
+			 *            有两个值时，第一个代表上下，第二个代表左右
+			 *            有三个值时，第一个代表顶部方向上的外边距值，第二个代表左右方向上的外边距值，第三个代表底部方向上的外边距值
+			 *            有四个值时，代表上右下左四个方向的外边距值。
+			 *    padding内边距（设置内容与边框直接的距离）
+			 *       padding-left：左内边距
+			 *       padding-top:上内边距
+			 *       padding-right:右内边距
+			 *       padding-bottom:下内边距
+			 * 
+			 * */
+			<!--
+			元素的盒子模型
+			  w3c盒子模型： content（内容）+padding+border+margin
+			   容器真正的宽度包括：content（自己设置的宽高大小）+padding+border
+			   margin（最外围）》border（边框）》padding（边距）》内容
+			   低版本IE盒子模型：把padding和border包括在content里面
+			   
+			   元素类型：（在css中用display来表示元素类型）
+			           块级元素（在css中用block来表示）   
+			    	1.块级元素独占其父级元素的一整行
+			    	2.可以设置宽高
+			           
+			           
+			           行内元素    （在css中用inline来表示）   
+			        1.内容多少就占多大的位置，行内元素可以并排排列
+			        2.行内元素不能设置宽高
+			        3.不能设置顶和底部部外边距
+			        4.设置的上下方向内边距值是不占位置的
+			        5.不能设置行高
+			        
+			           行内块级元素：(在css中用inline-block来表示)
+			                      有块级和行内元素的特性
+			           	比如：即可设置宽高，元素之间也可以在同一行排列。
+			           	例如：img、input、
+			           	
+			           	
+			           	
+			    vertical-align垂直对齐方式
+			                      相对于其副局级的行高来进行对齐的，
+			                      这个属性只适用于行内元素或者行内块元素
+		-->
+		/*多行文字溢出处理方法*/
+	overflow: hidden; /*超出部分*/
+	-webkit-line-clamp: 5; /*定义文本显示的行数*/
+	display: -webkit-box; /*用来兼容webkit内核的浏览器*/
+	-webkit-box-orient: vertical; /*把超出部分用...显示*/
+	/*一行文字溢出处理*/
+.test{
+	width: 220px;
+	border: 2px solid black;
+	overflow: hidden;
+	white-space: nowrap; /*强制文字一行显示*/
+	text-overflow: ellipsis;/*把超出部分用...显示*/
+}
+
+/*
+ *伪类选择符：
+ *：nth-child(n),用来选择目标元素的父级元素的第N个元素
+ * */
+/*
+ *css类名的命名：
+ * 多个单词组成时：
+ *   1.第一个单词用小写字母，其他单词的开头的字母用大写，叫“驼峰命名法”
+ *   2.所有单词首字母都大写叫大驼峰命名法。
+ *   3.用下划线链接单词
+ * 	 4.用中划线链接单词“串烧命名法”
+ * */
+/*
+ *HTML的嵌套
+ *  1.块级元素嵌套行内元素/行内块元素/块级元素，注意：p标签不能嵌套块级元素
+ *  2.行内元素不能嵌套块级元素/行内块元素
+ * */
+css选择符：
+      群组选择符
+      
+
+    当相邻当父子元素需要设置顶部外边距时，需给父元素一个overflow:hidden;或者一个边框
+    /*
+ * 选择符：
+ *   1、元素选择符/器，直接把元素名当做选择符，比如：div
+ *   2、通配符，用*表示，通配符可以选择到所有的元素。
+ *   3、类名选择符，用class来定义，类名可以重复使用
+ *   4、id选择器，用id来定义，id是唯一的，不能重复使用
+ *   .p1{
+ * 	  表示选择到了具有p1这个 类名的元素
+ * }
+ * 
+ * font-weight:100~500正常字体粗细
+ *             600~900加粗效果
+ * font-style:italic,oblique;设置字体斜体
+ * line-height:行高
+ *             通常会设置1.5倍的行高，这个1.5倍指的是自身字体大小的1.5倍。
+ *  font:itali bold 20px/1.5  "微软雅黑"
+ * 		（style）（weight）（size/height） (family)
+ * 
+ *  color:rgb(44,234,44);
+ *  opacity:0.5;半透
+ *  
+ *  background:设置元素的背景图片或者背景颜色
+ *  background-color：设置元素的背景颜色
+ *  background-image:设置元素的背景图片
+ *  background-size：设置背景图片的大小。当只设置一个值的时候，表示只设置了背景图片的宽度，有两个的话，第二个是高度
+ *             cover=宽度100%，背景可能会超出容器范围
+ *             contain：默认图片大小（将图片等比例的缩放到和容器的高度或宽度相等的大小，只满足一个条件）
+ *             
+ *  background-repeat：设置背景是否重复出现
+ *           no-repeat：不重复
+ *  background-position：right bottom将图片定到右下角（可用像素定位，即x,y轴）
+ *             left top：左上角
+ *             right top：右上角
+ *             left  bottom：左下角
+ *             center：居中
+ * 文字水平对齐方式：text-align
+ *          left、right、center
+ * 
+ * 注意*：当容器里面只有一行文字的时候，设置行高等于高可以使容器里面的文字垂直居中
+ * 
+ *   cursor:设置光标样式
+ *        pointer：小手
+ *  
+ * */
+/*.btn{
+	width: 50px;
+	height: 30px;
+	border-radius: 10px;
+	background: orange;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+/*伪类效果(元素：hover)
+ 
+ * 即当鼠标放到目标元素上的时候，会触发一些事情
+ *  比如改变元素背景颜色
+ * 
+ * */
+---------------------------------移动端------------------------------------
+用padding-top来代替高度，图片高度除去其父级宽度

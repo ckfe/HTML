@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 100px;
+				height: 100px;
+				background:#80BDFF;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+		<script type="text/javascript">
+			var test = document.querySelector(".test");
+			function addDB(el,callback){
+				var isc = false;
+				el.addEventListener("click",function(){
+					if(isc == true){
+						callback();						
+						isc = false;
+						clearTimeout(t);
+					}else{
+						isc = true;
+						var t = setTimeout(function(){
+							isc =false;
+						},500)
+					}
+				})
+			}
+			addDB(test,function(){
+				console.log(123);
+			});
+			
+			//元素跟随鼠标移动
+			test.onmousedown = function(){
+				document.onmousemove = function(e){
+					test.style.left = e.clientX-50 + "px";
+					test.style.top = e.clientY-50 + "px";
+				}
+				document.addEventListener("mouseup",function(){
+					document.onmousemove = null;
+				})
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * html5本地存储
+			 *  用于本地存储用户浏览器信息
+			 * 	可以存储大量的数据，而不影响性能
+			 * 	存储大小可达5M。
+			 * 
+			 * 	localStorage：长久保存网站的数据，保存数据没有过期时间，直接手动删除。
+			 * 	sessionStorage：临时保存数据，当浏览器关闭或窗口关闭就会被清除掉。
+			 * 
+			 * 
+			 * 	方法：
+			 * 	setItem（key,value）：设置缓存
+			 * 	getItem（key）：获取缓存
+			 * 
+			 * 	siteName：设置缓存，自己就代表键名。
+			 * 	removeItem:移除缓存
+			 * 	clear(),清空所有缓存。
+			 * */
+			localStorage.setItem("username","css");
+			console.log(localStorage.getItem("username"));
+			localStorage.siteName="html";
+			console.log(localStorage.siteName);
+			localStorage.removeItem("username");
+			console.log(localStorage.getItem("username"));
+			
+			console.log(localStorage.key(0));//siteName
+			
+			
+			//可以通过key（）方法遍历输出缓存
+			for(var i=0;i<localStorage.length;i++){
+				document.write(localStorage.key(i)+":"+localStorage.getItem(localStorage.key(i)));
+			}
+		</script>
+	</body>
+</html>

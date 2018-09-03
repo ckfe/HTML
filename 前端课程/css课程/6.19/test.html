@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+                width: 111px;
+                height: 92px;
+                background: url(img/xb.png);
+                animation-name: kugou;
+                background-size:auto 100%;
+                animation-duration: 10s;
+             	animation-timing-function: steps(1,start);
+                /*animation-timing-function: steps(1,end);*/
+                animation-iteration-count: infinite;
+                animation-fill-mode: forwards;
+			}
+			@keyframes kugou{
+			    0%{
+			        background-position-x: 0px;
+			    }
+			    10%{
+			        background-position-x: -111px;
+			    }
+			    20%{
+			        background-position-x: -222px;
+			    }
+			    30%{
+			        background-position-x:-333px;
+			    }
+			    40%{
+			        background-position-x:-444px;
+			    }
+			    50%{
+			        background-position-x:-555px;
+			    }
+			    60%{
+			        background-position-x:-666px;
+			    }
+			    70%{
+			        background-position-x:-777px;
+			    }
+			    80%{
+			        background-position-x:-888px;
+			    }
+			    100%{
+			        background-position-x:0px;
+			    }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+	</body>
+</html>

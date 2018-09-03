@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0 0 0 15px;	
+				padding: 0;
+			}
+			.tp img{
+				width: 150px;
+				height: 200px;
+				transform: translateY()(100%);
+				transition: 1s;
+			}
+			.tp1 img{
+				transform: translateY(-100%);
+				transition: 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="img"><img src="../../6.6作业/淘宝布局/img/04.jpg"/></div>	
+		<input type="button" class="takeUp" value="收起" />
+		<input type="button" class="open" value="展开" />
+		<input type="button" class="sw" value="切换" />
+		<script type="text/javascript">
+			var imgs=document.querySelector(".img");
+			var up =document.querySelector(".takeUp");
+			var kai=document.querySelector(".open");
+			var ws=document.querySelector(".sw");
+			up.addEventListener("click",function(){
+				imgs.classList.add("tp1");
+			})
+			kai.addEventListener("click",function(){
+				imgs.classList.remove("tp1");
+			})
+			ws.addEventListener("click",function(){
+				imgs.classList.toggle("tp1");
+			})
+		</script>
+	</body>
+</html>

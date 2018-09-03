@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app">
+			<ul>
+				<li v-for="(val,name,index) in obj">{{index}}---{{name}}-----{{val}}</li>
+			</ul>
+			<p v-for="num in 10">{{num}}</p>
+			<ul>
+				<li v-for="item in arr" @click="changCont">{{item}}</li>
+			</ul>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 1.循环数组
+			 * 2.循环对象
+			 * v-for循环对象
+			 * 	v-for="(val,name,index) in obj"；
+			 * 	val:表示对象的属性值
+			 * 	name：表示对象的属性名
+			 * 	index：每个对象属性对应的下标值
+			 * 
+			 * 3.循环数字
+			 * 		v-for="num in 10"
+			 * 		表示循环10这个数值，并将1-10每一个数值赋值给num。
+			 * */
+			
+			new Vue({
+				el:'.app',
+				data:{
+					obj:{
+						"name":"小明",
+						"age":"15",
+						"sex":"男",
+						"爱好":"女"
+					},
+					arr:["html","css","js"]
+				},
+				methods:{
+					//es6语法，相当于changCont：function(){}
+					changCont(){
+//						this.arr[0] = "java";
+						/**
+						 * 通过set方法来设置数组内容可以触发试图更新
+						 * 有以下两种方法：
+						 * 	this.$set（arr/obj,index/name,更改后的内容）
+						 * 	Vue.set（arr/obj,index/name,更改后的内容）
+						 * 	arr/obj：表示需要更改的数组或对象
+						 * 	index/name：表示需要更改的数组或对象里面的具体哪个元素或属性
+						 * */
+						//this.$set(this.arr,0,"java");
+						Vue.set(this.arr,0,"java");
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

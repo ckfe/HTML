@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" />
+			<input type="submit" value="提交"/>
+		</form>
+		<ul class="menu">
+			<li><span>排名</span><span>姓名</span><span>分数</span></li>
+		</ul>
+		<script type="text/javascript">
+			/**
+			 * ajax 全称（Asynchronous JavaScript And XML）
+			 * 	ajax用于数据发送请求，获取数据
+			 * 	与页面的刷新无关，只会进行局部的刷新。
+			 * 
+			 * 怎么进行ajax的数据请求
+			 * 	1.通过new关键词来实例化一个XMLHttpRquest对象
+			 *  2.设置请求方式和地址
+			 * 	open(type,url,async)
+			 * 		type:请求方式
+			 * 		url:请求的地址
+			 * 		async:是否异步请求（true，异步，false:同步）
+			 * 			可选：默认值为true
+			 * 	3.发送请求，send()
+			 * 	4.监听请求过程，然后获取结果
+			 * 	
+			 * 	请求数据时，当需要传递参数，post请求可将参数设置在send()中
+			 * 	get请求可以拼接在open的url地址上
+			 * 
+			 * readyState：表示发送请求过程中的状态，有四个值
+			 * 	0：请求未初始化
+			 * 	1：服务器连接已建立
+			 * 	2：请求接收
+			 * 	3：请求处理中
+			 * 	4：请求完成
+			 * 
+			 * status：HTTP状态码
+			 * 		200：请求成功
+			 * 		300：请求没有成功
+			 * 		304：表示请求的数据没有更新
+			 * 		404：没有找到请求的文件
+			 * 		500：服务器错误
+			 * 		
+			 * ajax缺点：
+			 * 		1.ajax干掉了浏览器的回退按钮
+			 * 		2.安全问题
+			 * 		
+			 * 
+			 * */
+			var xhr = new XMLHttpRequest();//readyState：1
+			xhr.open("GET","js/index.json");//readyState：2
+			xhr.send(null);					//readyState：3
+			xhr.addEventListener("readystatechange",function(){
+				if(xhr.readyState ==4){
+					if(xhr.status == 200){
+						console.log(xhr);
+						//JSON.parse()将字符转换为对象
+						var res = JSON.parse(xhr.responseText);
+						//JSON.stringify()将对象转换为字符串
+						//res = JSON.stringify(res);
+						paiHang(res);
+					}else{
+						console.log("请求失败");
+					}
+				}
+			})
+			
+			var ul = document.querySelector(".menu");
+			function paiHang(res){
+				for(var i=0;i<res.length;i++){
+					var li = "<li><span>排名</span><span>"+res[i].name+"</span><span>"+res[i].num+"</span></li>"
+					ul.innerHTML += li;
+				}
+			}
+		</script>
+	</body>
+</html>

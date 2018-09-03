@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			.nav{
+				overflow:auto;
+			}
+			.nav li{
+				float: left;
+				width: 60px;
+				text-align: center;
+				/*line-height:50px;*/
+				/*display: inline-block;*/
+			}
+			/*.clear{
+				clear: both;
+			}*/
+			.test{
+				background: red;
+			}
+			/*.nav::after{  这个伪对象会作为.nav这个元素的最后一个子元素添加到HTML结构里面
+				content: "";
+				clear: both;
+				display: block;
+			}*/
+		
+			.nav li a{
+				font-size: 14px;
+				color: #000000;
+			}
+			.nav li::after{
+				content: "";
+				width: 10px;
+				height: 1px;
+				background: black;
+				margin: 5px auto;
+				display: none;
+			}
+			.nav li:hover::after{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		 <!--
+		 	横向布局方法
+		 		1.行内块级元素布局
+		 		2.浮动布局
+		 		     float:具有方向的行内块布局
+		 		        left：左浮动
+		 		        right:右浮动
+		 		        	元素设置了浮动后，该元素会脱离文档流,导致的后果，是浮动元素不受其父级元素的控制，其父级元素的高度塌陷。
+		 		        	解决方法：清除浮动
+		 		        		1.直接在其父级元素上添加overflow属性设置为auto或hidden
+		 		        		2.在浮动元素的最后面添加一个空的块级元素，给其添加clear：both属性
+		 		        		3.给其父级元素添加一个伪对象，然后给这个伪对象添加clear：both属性
+		 		        		
+		 		        		
+		 		3.伪对象：相当于动态的向HTML结构中添加行内元素
+		 		    ::after:在。。之后可添加内容也可清除浮动
+		 		    ::before:在。。。之前只能添加内容
+		 		    	
+		 -->
+		 
+		 <ul class="nav">
+		 	<li><a href="">首页</a></li>
+		 	<li><a href="">首页首页</a></li>
+		 	<li><a href="">首页</a></li>
+		 	<li><a href="">首页</a></li>
+		 	<div class="clear"></div>
+		 </ul>
+		 <div class="test">
+		 	31315634
+		 </div>
+	</body>
+</html>

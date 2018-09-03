@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>TK科技有限公司首页</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/head.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/swiper-4.3.3.min.js"></script>
+		<div class="web">
+			<header>
+				<div class="top">
+					<div class="top1">
+						<p>全国服务热线：400-000-0000</p><div class="top-page"><a href="#">设为首页</a><a href="#">加入收藏</a></div>
+					</div>
+				</div>
+				<div class="nav">
+					<div class="nav-logo">
+						<div class="nav-logo-img"><img src="img/未标题-1.png" alt="logo" /></div><div class="nav-company"><h1>TK科技有限公司</h1><p>cer dcd keo Holdings Co., Ltd.</p></div>
+					</div>
+					<div class="nav-right">
+						<ul>
+							<li>
+								<a href="index.html">首页</a>
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="products.html">关于我们</a>
+								<a href="products.html">About</a>
+							</li>
+							<li>
+								<a href="massage.html">产品中心</a>
+								<a href="massage.html">Products</a>
+							</li>
+							<li>
+								<a href="#">服务支持</a>
+								<a href="#">Service</a>
+							</li>
+							<li>
+								<a href="#">新闻中心</a>
+								<a href="#">News</a>
+							</li>
+							<li>
+								<a href="#">在线商店</a>
+								<a href="#">Shop</a>
+							</li>
+							<li>
+								<a href="#">联系我们</a>
+								<a href="#">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
+					 <!-- Swiper -->
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					      <div class="swiper-slide"><img src="img/daoh.png"/></div>
+					      <div class="swiper-slide"><img src="img/daoh.png"/></div>
+					      <div class="swiper-slide"><img src="img/daoh.png"/></div>
+					      <div class="swiper-slide"><img src="img/daoh.png"/></div>
+					    </div>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					</div>
+					 <!--轮播图脚本-->
+						<script>var swiper = new Swiper('.swiper-container', {
+								autoplay: true,
+								pagination: {
+									el: '.swiper-pagination',
+								},
+							});
+							//鼠标滑过pagination控制swiper切换
+							for(i = 0; i < swiper.pagination.bullets.length; i++) {
+								swiper.pagination.bullets[i].index = i
+								swiper.pagination.bullets[i].onmouseover = function() {
+									swiper.slideTo(this.index);
+								};
+							}
+						</script>
+				        
+			<!--中间内容-->	        
+			<section>
+				<div class="infor">
+					<ul class="infor-mag">
+						<li>
+							<div class="infor-one">
+								<div class="infor-one-top">
+									<div class="infor-one-top-logo"><img src="img/icon1.png" alt="" /></div>
+									<div class="infor-one-top-cent"><h1>新闻中心</h1><p>NEWS.CENTER</p></div>
+								</div>
+								<div class="sanjiao"></div>
+								<div class="infor-one-bottom">
+									<div class="infor-one-bottom-cent"><span>CeBIT 2015</span><img src="img/未标题-2.png" alt="" /></div>
+									<div class="infor-one-bottom-rt"><p>创新ICT共建全联接 世界德国汉诺威展览中心<br />3月16日-20日</p></div>
+									<div class="infor-one-ft">
+										<ul>
+											<li>上海国际智能建筑展览会</li>
+											<li>2014德国柏林国际消费类电子产品展览会</li>
+											<li>2014中国（贵阳）公告安全防范产品博览会</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="infor-two">
+								<div class="infor-two-top">
+										<div class="infor-two-top-logo"><img src="img/icon2.png" alt="" /></div>
+										<div class="infor-two-top-cent"><h1>新品发布</h1><p>NEW.PRODUCTS</p></div>
+									</div>
+									<div class="sanjiao2"></div>
+									<div class="infor-two-bottom">
+										<div class="infor-two-bottom-lt"><img src="img/未标题-4.png" alt="" /></div>
+										<div class="infor-two-bottom-logo">
+											<img src="img/未标题3.png" alt="" />
+										</div>
+										<div class="infor-two-bottom-lt2"><img src="img/未标题-5.png" alt="" /></div>
+										<div class="infor-two-bottom-cent">
+											<h1>s6213w-y</h1><p>海思3518E方案，多码流技术，百万高清</p>
+										</div>
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="infor-three">
+								<div class="infor-three-top">
+										<div class="infor-three-top-logo"><img src="img/icon3.png" alt="" /></div>
+										<div class="infor-three-top-cent"><h1>品牌介绍</h1><p>INFORMATION</p></div>
+									</div>
+									<div class="sanjiao3"></div>
+									<div class="infor-three-bottom">
+										<div class="infor-three-bottom-logo"><img src="img/未标题-6.png" alt="" /></div>
+										<div class="infor-three-bottom-cent"><p>"siepem"品牌是广州市TK科技有限公司推出的自有品牌</p></div>
+									</div>
+										
+								</div>
+							</div>	
+						</li>
+					</ul>
+					<!--关于我们-->
+				<div class="aboutus">
+					<h1>关于我们</h1>
+					<p>STORE DISPLAY</p>
+				</div>
+				
+				<div class="center">
+					 <p>&nbsp;&nbsp;&nbsp;&nbsp;广州市TK科技有限公司是领先的监控产品供应商和解决方案服务商，面向全球提供领先的网络视频监控系列产品及专业的行业解决方案。
+   TK公司自创立以来, 一直持续加大研发投入和不断致力于技术创新。现拥一批技术尖端的研发团队，创造安防行业众多高品质、高性价比的精品
+                                                                           持续为客户创造最大价值。 </p>
+                    <div class="pc">
+                    	<div class="pc1"><img src="img/未标题-11.png" alt="" /></div>
+                    	<div class="pc2"><img src="img/未标题-9.png" alt="" /></div>
+                    	<div class="pc2"><img src="img/未标题-3.png" alt="" /></div>
+                    	<div class="pc2"><img src="img/未标题-10.png" alt="" /></div>
+                    	<div class="pc3"><img src="img/未标题-12.png" alt="" /></div>
+                    </div>                                                     
+				</div>
+				
+				<!--联系我们-->
+				    	<div class="aboutus">
+				    		<h1>联系我们</h1>
+					        <p>STORE DISPLAY</p>
+				    	</div>
+				    <div class="tous">
+				    	<div class="tous-left">
+				    		<div class="tous-left-pc">
+				    			<img src="img/未标题-13.png" alt="" /><span>微信扫一扫</span><span>关注我们的相关信息</span>
+				    		</div>
+				    		<div class="tous-left-center">
+				    			<ul>
+				    				<li><img src="img/dianhua.png" alt=""><span>服务热线：400-000-0000</span></img></li>
+				    				<li><img src="img/toux.png" alt=""><span>联 系 人：某先生</span></img></li>
+				    				<li><img src="img/xin.png" alt=""><span>公司邮箱：www.tk.com</span></img></li>
+				    				<li><img src="img/dayin.png" alt=""><span>公司传真：000-12345678</span></img></li>
+				    				<li><img src="img/text.png" alt=""><span>邮政编码：467000</span></img></li>
+				    				<li><img src="img/ding.png" alt=""><span>公司地址：广州市某某区某某路某号</span></img></li>
+				    			</ul>
+				    		</div>
+				    		<div class="tous-left-map"><img src="img/未标题-14.png" alt="" /></div>
+				    	</div>
+				    	<div class="tous-right">
+				    		<div class="tous-right-form">
+				    			<form action="" method="post" enctype="multipart/form-data">
+					    			<ul>
+					    				<li>
+					    					<p>昵称</p><br />
+					    					<input type="text" name="uname"/>
+					    				</li>
+					    				<li>
+					    					<p>联系电话</p><br />
+					    					<input type="number" />
+					    				</li>
+					    				<li>
+					    					<p>电子邮箱</p><br />
+					    					<input type="email" />
+					    				</li>
+					    				<li>
+					    					<p>内容</p><br />
+					    					<textarea></textarea>
+					    				</li>
+					    				<li>
+					    					<br />
+					    					<input type="submit" value="提交"/>
+					    				</li>
+					    			</ul>
+				    			</form>
+				    		</div>
+				    		
+				    	</div>
+				    </div>
+				
+	
+			</section>
+				        
+					<!--脚注-->
+					<footer>
+						<div class="footer-top">
+							<div class="footer-top1"><span>关注我们：</span><img src="img/us.png" alt=""  class="qq"/>
+							<img src="img/weixin.png" alt=""  class="weixin"/>
+							</div>
+							<div class="footer-top2">
+								<ul>
+									<li>网站首页</li>
+									<li>新闻动态</li>
+									<li>关于我们</li>
+									<li>团队风采</li>
+									<li>联系我们</li>
+									<li>在线留言</li>
+								</ul>		
+							</div>
+						</div>
+						<div class="footer-bottom">
+							<span>
+								 &copy;2015 TK科技有限公司  版权所有沪ICP证13022560号-7 All Rights Reserved
+							</span>
+						</div>
+					</footer>
+			
+			
+		</div>
+	</body>
+</html>

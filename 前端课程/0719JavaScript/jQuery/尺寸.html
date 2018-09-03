@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.test{
+				width:200px;
+				height:200px;
+				background:skyblue;
+				padding: 10px;
+				margin: 10px;
+				border: 1px solid black;
+				/*box-sizing: border-box;*/
+				/*position: absolute;
+				top: 10px;
+				left: 10px;*/
+			}
+			.web{
+				position: relative;
+				margin-top: 100px;
+				height: 600px;
+				width: 300px;
+				overflow: auto;
+			}
+			.one{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				margin: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web" data-item = "1">
+			<div style="height: 800px;" class="one"></div>
+			<div class="test"></div>
+		</div>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * height(),width()
+			 * 获取到的是内容的高度和宽度
+			 * 	不包括内外边距，边框
+			 * 
+			 * 
+			 * innerWidth(),innerHeight()
+			 * 获取元素的高度，包括内边距，不包括边框和外边距
+			 * 
+			 * outerWidth(),outerHeight()
+			 * 获取元素的宽高，包括内边距和边框，
+			 * 当传入参数为true的时候，也包括外边距
+			 * */
+			console.log($(".test").height());
+			console.log($(".test").width());
+			//获取到我们写死在CSS中的像素大小
+//			console.log($(".test").css("height"));
+//			var numH = $(".test").css("height");
+//			var res = numH.slice(0,-2);
+//			console.log(res);
+//			var res2 = parseInt(numH);
+//			
+//			$(".test").on("click",function(){
+//				//$(this).height(100);
+//				$(this).animate({
+//					"height":"100px"
+//				},1000)
+//				console.log($(this).height());
+//			})
+//			$(".test").height(function(index,height){
+//				console.log(index,height);
+//				return 250
+//			})
+			
+			
+			console.log($(".test").innerWidth());
+			console.log($(".test").innerHeight());
+			
+//			$(".test").innerHeight(function(index,curHeight){
+//				return 200;
+//			});
+			console.log($(".test").outerWidth(true));
+			console.log($(".test").outerHeight(true));
+			
+			
+			
+			/**
+			 * 位置
+			 * offset()，获取到元素距离文档左上角的距离
+			 * */
+			
+			$(window).scroll(function(){
+				console.log($(".test").offset());
+			})
+			//可以设置元素的位置
+			$(".test").offset({
+				"top":"200",
+				"left":"200"
+			})
+			
+			console.log($(".test").offsetParent());
+			console.log($(".web").offsetParent());
+			
+			
+			
+			/**
+			 * position()
+			 *  获取匹配元素中第一个元素的当前坐标，
+			 * 	相对于offsetParent的坐标。
+			 * 	不受外边距影响。
+			 * 
+			 * 	scrollTop(),scrollLeft()
+			 * 	获取到元素/文档滚动条的位置
+			 * 
+			 * */
+			console.log($(".one").position());//{top: 10, left: 10}
+			
+			$(window).scroll(function(){
+				console.log($(window).scrollTop());
+			})
+			
+			
+			/**
+			 * data()
+			 *  获取或者设置自定义属性
+			 * 
+			 * 	removeData（），删除自定义属性
+			 * 	可以传入一个字符串，或者数组
+			 * 
+			 * */
+			$(".web").data("isclick","true");
+			console.log($(".web").data());
+			//原生方法设置/获取自定义属性
+//			$(".web")[0].setAttribute("data-index","0");
+//			console.log($(".web")[0].getAttribute("data-index"));
+//			console.log($(".web")[0].dataset);
+			
+			//jq方法
+			$(".web").data({
+				"id":"12",
+				"text":"我是div"
+			});
+			console.log($(".web").data());
+			$(".web").removeData("id");
+			$(".web").removeData(["id","item"]);
+			console.log($(".web").data());
+		</script>
+	</body>
+</html>

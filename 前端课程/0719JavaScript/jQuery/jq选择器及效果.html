@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*选择到所有类名中具有col-标识符的元素*/
+			li[class*="clo-"]{
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<p>我是p标签</p>
+			<ul>
+				<li class="clo-1">1</li>
+				<li class="clo-2">2</li>
+				<li class="clo-3">3</li>
+				<li class="clo-4">4</li>
+			</ul>
+			<div id="test">我是ID为test</div>
+			<a href="#test">我是a</a>
+			<div><em>13</em></div>
+		</div>
+		<div><i>1324</i></div>
+		
+		<div class="step" style="background: greenyellow;">看我</div>
+			
+		<img src="img/cc.png" class="img" style="width: 20px;height: 20px;"/>
+		<button>点我</button>
+		<div class="show">我要进行渐变</div>
+		
+		<div class="ani">点我变大</div>
+		
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 选择器
+			 * 	1.:animated,获取正在运动的元素
+			 * 	注意：需要用jQuery提供的动画才能获取到。
+			 * 	2.:eq(index)匹配集合中选择索引值为index的元素。
+			 * 	3.:even:选择到下标值为偶数的元素
+			 * 	4.:odd:选择到下标值为基数的元素
+			 * 	5.:gt(index)选择到大于下标值的所有元数
+			 * 	6.:lt(idnex)选择到小于下标值的所有元数
+			 * 	7.:not(sel)
+			 * 		sel:代表一个选择器
+			 * 		用来选择到所有除了sel选择到的元素之外的元素。
+			 * 	8.:contains(text)选择到包含文本为text的元素
+			 * 	9.:has(sel)
+			 * 		sel：代表选择器
+			 * 		用来选择到所有包含sel选择到的元素的标签
+			 * */
+			$("p,li").css("color","red");
+			$("p").animate({
+				"font-size":"35px"
+			},1000)
+			$("p").on("click",function(){
+				$("p:animated").css("color","gainsboro");
+			})
+			
+			$("li:eq(1)").css("color","blue");
+			$("li:even").css("color","gainsboro");
+			$("li:odd").css("color","greenyellow");
+			$("li:first").css("color","brown");
+			
+			$("li:gt(0)").css("color","#007AFF");
+			$("li:not(:nth-child(2))").css("font-size","25px");
+			
+			$("a").on("click",function(){
+				$(":target").css("font-size","35px");
+			})
+			
+			$("li:contains('2')").css("font-size","50px");
+			
+			$("div:has(i)").css("background","skyblue");
+			
+			/**
+			 * 隐藏效果
+			 * 	1.hide(duration,easimg,complete)隐藏元素
+			 * 		duration:可选，动画持续时间
+			 * 		easimg:可选，代表动画的时间函数，只要2个值
+			 * 		默认值：swing
+			 * 			  linear
+			 * 		complete：动画结束后的回调函数
+			 * 
+			 * 
+			 * 	2.show(duration,complete)显示元素
+			 * 		用法和hide一样
+			 * 
+			 * 	3.toggle:显示或隐藏匹配元素
+			 * 	
+			 * 	滑动效果
+			 * 	4.slideUp()收起
+			 * 	5.slideDown()展开
+			 * 	6.slidToggle()，收起展开
+			 * 
+			 * 
+			 * 	渐变效果
+			 * 	7.fadeOut()渐渐消失
+			 * 	8.fadeIn()渐渐显示
+			 * 	9.fadeToggle()渐渐显示或消失
+			 * 	10.fadeTo(duration,opacity,complete)
+			 * 		可以指定元素渐变到某个透明度
+			 * 
+			 * 	自定义动画（不支持所有的属性，比如颜色类型，变换）
+			 * 	11.animate(property,duration,easing,complete)
+			 * 		property:需要变换的属性，是一个对象
+			 * 		duration：变换的持续时间
+			 * 		easing：时间函数
+			 * 		complete：动画结束后的回调函数
+			 * */
+			$("p").on("click",function(){
+				$("li:first").hide(1000,function(){
+					//text（）不传入参数，就是获取元素内容
+					//传入参数，就是设置元素内容
+					$("li:nth-child(2)").text("一大把");
+					console.log($("li:nth-child(2)"));
+				});
+			})
+			$("li:nth-child(2)").on("click",function(){
+				$("li:first").show(2000,"swing",function(){
+					$("li:nth-child(2)").text("钱还你")
+				})
+			})
+			
+			$("li:nth-child(3)").on("click",function(){
+				$("li:last").toggle(1000);
+			})
+			$("div:has(i)").on("click",function(){
+				$(".img").slideUp();
+			})
+			
+			$("button").on("click",function(){
+				$(".show").fadeOut();
+				$(this).fadeTo(1000,0.5,function(){
+					console.log("sdasd")
+				})
+			})
+			
+			$(".ani").on("click",function(){
+				$(".ani").animate({
+					"width":"200px",
+					"height":"200px",
+				},1000,"linear",function(){
+					console.log("dsafadf")
+				})
+			})
+			
+			/**
+			 * step方法，可以传入两个参数
+			 * 	第一个参数，代表当前的动画的变换值
+			 * 	第二个参数，获取到所有元素动画的参数
+			 * 	比如：可以获取到进行动画变换的属性，获取到变换的元素自身等。
+			 * 
+			 * */
+			$('.step').animate({
+			  opacity: .5,
+			  height: '50%'
+			},
+			{
+			  step: function(now, fx) {
+			    var data = fx.elem.id + ' ' + fx.prop + ': ' + now;
+			    $('body').append('<div>' + data + '</div>');
+			  }
+			});
+		</script>
+	</body>
+</html>

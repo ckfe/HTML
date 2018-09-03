@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+		<style type="text/css">
+			.web{
+				text-align: center;
+				font-size: 30px;
+			}
+			.section3 p{
+				text-align: center;
+				position: relative;
+				left: -100%;
+			}
+			.menu{
+				position: fixed;
+				top:0;
+				left: 0;
+				display: flex;
+				z-index: 1;
+			}
+			.menu li{
+				width: 100px;
+				height: 35px;
+				background: #000000;
+				text-align: center;
+				line-height: 35px;
+				list-style: none;
+			}
+			.menu li a{
+				color: white;
+				text-decoration: none;
+			}
+			.menu li:hover{
+				background: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="menu">
+			<li data-menuanchor = "page1"><a href="#page1">第一屏</a></li>
+			<li data-menuanchor = "page2"><a href="#page2">第二屏</a></li>
+			<li data-menuanchor = "page3"><a href="#page3">第三屏</a></li>
+		</ul>
+		<div class="web">
+			<div class="section section1">第一屏</div>
+			<div class="section section2">
+				<div class="slide">第二屏的第一屏</div>
+				<div class="slide">第二屏的第二屏</div>
+				<div class="slide">第二屏的第三屏</div>
+			</div>
+			<div class="section section3">
+				<p>第三屏</p>
+			</div>
+		</div>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.easing.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".web").fullpage({
+					//设置背景颜色
+					sectionsColor:["skyblue","pink","gray"],
+					//循环滚动
+					continuousVertical:true,
+					anchors:["page1","page2","page3"],
+					menu:".menu",
+					//进入到第三屏的效果
+					afterLoad:function(anchorLink,index){
+						$(".section3").find("p").delay(1000).animate({
+							left:"0"
+						},1500,"easeOutExpo")
+					},
+					//离开到第三屏的效果
+					onLeave:function(index,direction){
+						if(index==3){
+							$(".section3").find("p").animate({
+								left:"-100%"
+							},1000,"easeOutExpo")
+						}
+					}
+				})
+					
+					
+					//自动滚动
+//					  setInterval(function(){
+//				        $.fn.fullpage.moveSectionDown();
+//				    }, 1500);
+
+			})
+		</script>
+	</body>
+</html>

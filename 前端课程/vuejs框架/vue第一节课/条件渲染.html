@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<button v-if="isShow">提交</button>
+			<button v-else @click="conf">确定</button>
+			
+			<p v-if="type=='A'">A</p>
+			<p v-else-if="type=='B'">B</p>
+			<p v-else>C</p>
+			<ul>
+				<li v-for="(item,index) in list" @click="changCont">{{item}}</li>
+			</ul>
+			<!--<ul>
+				<li v-for="(item,index) in newList">{{item.name}}</li>
+			</ul>-->
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 指令：
+			 *  v-else：要配合v-if使用
+			 * 	v-else-if:相当于原生js的else if
+			 * 
+			 * 	列表渲染
+			 * 		v-for
+			 * 
+			 * 
+			 * 
+			 * 	key值的作用
+			 * 	1.高效的渲染虚拟DOM
+			 * 	2.另外vue中在使用相同标签名元素的过渡切换时，也会使用到key属性，
+			 * 		其目的也是为了让vue可以区分它们。
+			 * */
+			var vm = new Vue({
+				el:".app",
+				data:{
+					isShow:false,
+					type:"A",
+					list:[
+						"html是超文本标记语言",
+						"css是层叠样式表"
+					],
+//					newList:[
+//						{"id":1,"name":"bgg"},
+//						{"id":2,"name":"css"}
+//					]
+				},
+				methods:{
+					conf:function(){
+						this.isShow = true;
+					},
+					changCont:function(){
+						/**
+						 * 当我们通过数组下标值来改变数组内容的话，是不会
+						 * 触发视图更新的
+						 * 会触发视图更新的有以下几种方法:
+						 * 	1.splice()
+						 * 	2.push()
+						 * 	3.pop()
+						 * 	4.shift()
+						 * 	5.unshift()
+						 * 	6.sort()
+						 * 	7.reverse()
+						 */
+//						this.list[0] = "javascript";
+						this.list.splice(0,1,"javascript")
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

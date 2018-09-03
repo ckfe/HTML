@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<inp v-model="msg" @input="getData"></inp>
+			<p>{{msg}}</p>
+		</div>
+		
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component("inp",{
+				props:["value"],
+				//模板里面的字符串拼接
+				template:`<input :value='value' @input="$emit('input',$event.target.value)"/>`,
+				data:function(){
+					return {
+						cont:"789"
+					}
+				}
+			})
+			new Vue({
+				el:".app",
+				data:{
+					msg:"123"
+				},
+				methods:{
+					getData:function(Data){
+						this.msg = Data;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

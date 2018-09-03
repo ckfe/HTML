@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul class="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<script src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript">
+			/**
+			 * eq(index),获取下标值为index的jq对象
+			 * 	可以传入负数，-1代表最后一个元素
+			 * 
+			 * */
+			var ali =$(".list li");
+			console.log(ali.eq(2));
+			ali.eq(-1).css("color","pink");
+			ali.eq(2).css("color","pink");
+			console.log(-0 == 0);//true
+			
+			/**
+			 * filter()
+			 * 	用来筛选符合条件的元素
+			 * */
+			ali.filter(":odd").css("background","#eee");
+//			$(".list li:odd").css("background","#eee");
+			ali.filter(function(index){
+				if(index&2 == 0){
+					$(this).css("font-size","50px");
+					
+				}  
+			})
+			ali.filter(function(index){
+				return index%2!=0; 
+			}).css("font-size","30px")
+			
+			var res =$("li").map(function(index,domEle){
+				console.log(index,domEle);
+				if(index%2==0){
+					return domEle
+				}
+			})
+			console.log(res);
+			
+			/**
+			 * get(index)匹配到jQuery对象得到的对应的DOM元素
+			 * 	index：可选
+			 * 
+			 * map()遍历jq对象
+			 * */
+			var res1 = $("li").map(function(index,domEle){
+				return $(this).index
+			}).get().join("");
+			console.log(res1);
+			
+			
+			$("li:first").css("opacity","0.2").siblings().css("border","1px solid #000");
+		</script>
+	</body>
+</html>

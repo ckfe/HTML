@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			.head{
+				width: 200px;
+				background: gray;
+			}
+			.foot{
+				width: 200px;
+				background: gray;
+			}
+			.left{
+				background: red;
+			}
+			.cent{
+				background: blue;
+			}
+			.right{
+				background:#000;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 head">head</div>
+			</div>
+			<!--第二行-->
+			<div class="row">
+				<div class="col-lg-4 left col-md-4">left</div>
+				<div class="col-lg-8 col-md-8">
+					<div class="row">
+						<div class="col-lg-6 cent">
+							cent
+						</div>
+						<div class="col-lg-6 right">right</div>
+					</div>
+				</div>
+				
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-12 foot">foot</div>
+			</div>
+		</div>
+		<script src="js/jquery-slim.min.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="js/popper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

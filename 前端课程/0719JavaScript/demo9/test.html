@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var arr=[1,2,3,4,2];
+			var res=arr.filter(function(item){
+				return item!=2;
+			})
+			console.log(res);
+			
+			//var arr2=arr1；浅拷贝
+//			function seven (arr) {
+//				//对象的深拷贝
+//				var newArr= [].concat(arr);
+//				var index=0;
+//				for(var i=0;i<newArr.length;i++){
+//					if(newArr.indexOf(2,index)!=-1){
+//						index=newArr.indexOf(2,index)+1;
+//						newArr.splice(index,0,"Melon");
+//					}
+//				}
+//				console.log(newArr);
+//			}
+//			seven(arr);
+			
+			//方法二
+			function seveTwo (arr) {
+				var newArr =[];
+				for(var i=0;i<arr.length;i++){
+					newArr.push(arr[i]);
+					if(arr[i]==2){
+						newArr.push("Melon");
+					}
+				}
+				console.log(newArr);
+			}
+			seveTwo (arr)
+			
+			
+			//8.统计数组 arr[1, 2, 3, 4, 2] 中2出现的次数
+				function seveTh (arr) {
+					var count=0;
+					for(var i=0;i<arr.length;i++){
+						if(arr[i]==2){
+							count++;
+						}
+					}
+					console.log(count);
+				}
+				seveTh (arr)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<p v-fontcolor>今天天气真好！</p>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 自定义指令
+			 * 	 可以通过Vue.directive(name,callback（el,binding）)来自定义指令
+			 * 	 name：指令名，用的时候通过v-name来添加指令
+			 * 	 callback：指令的回调函数
+			 * 		el:代表我们要添加该指令的元素
+			 * 		binding：代表一个对象，用于接收用户调用指令时传入的参数
+			 * 		
+			 * */
+			Vue.directive("fontcolor",function(el,binding){
+				if( binding.value){
+					color =  binding.value;
+				}else{
+					color = "skyblue";
+				}
+				el.style.color = color;
+			})
+			var vm = new Vue({
+				el:".app",
+				
+			})
+		</script>
+	</body>
+</html>

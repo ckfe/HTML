@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.col{
+				color: skyblue;
+				font-size: 30px;
+				transition: 1s;
+			}
+			/**
+			 * img标签里面设置的宽高
+			 * 一般用来设置图片的真实宽高
+			 * 展示宽高用css写
+			 * 
+			 * */
+		</style>
+	</head>
+	<body>
+		<div class="test">我是div1</div>
+		<div class="test">我是div2</div>
+		<div class="test">我是div3</div>
+		<div id="d">我是div4</div>
+		<img src="../../6.6作业/淘宝布局/img/04.jpg" alt="美女" width="80" height="120"/>
+		<img src="../../6.6作业/淘宝布局/img/11.jpg"/>
+		<script type="text/javascript">
+			/**
+			 * DOM (document object model)文档对象模型
+			 * DOM把HTML文档分为一个个节点
+			 * 1.元素,元素节点
+			 * 2.属性，属性节点
+			 * 3.文本，文本节点
+			 * 4.注释，注释节点
+			 * 
+			 * 一、document对象
+			 * 当HTML文档载入浏览器的时候，会把HTML文档自动添加到document对象下。
+			 * */
+			//输出内容到HTML文档中
+			//document.write("123");
+			//writeln之间有空格，writeln后面会添加一个换行符。
+			//document.writeln("345");
+			//document.writeln("345");
+			
+			
+			/**
+			 * 1.document.querySelector(n);
+			 * n代表CSS的选择器
+			 * 如果选择有多个同样选择器的元素时，只能获取到第一个具有该选择器的元素
+			 * 
+			 * 2.document.querySelectorAll(n)；
+			 * n代表CSS的选择器
+			 * 用来获取到所有具有该选择器的元素，返回一个节点列表（类数组）。
+			 * 要获取节点列表里面的元素，可以通过数组获取元素的方法。
+			 * 
+			 * 3.document.getElementsByTagName（element）;
+			 * element代表标签名
+			 * 可以通过标签名来获取到所有具有该标签名的元素，返回值是一个HTML集合。
+			 * 
+			 * 4.document.getElementsByClassName(class)
+			 * class代表类名
+			 * 获取到所有具有该类名的元素，返回值是一个HTML集合
+			 * 
+			 * 5.document.getElementById(ID)
+			 * ID代表ID名
+			 * 用来获取具有该ID名的元素，返回值就是指该元素。
+			 * 
+			 * 
+			 * 用querySelector和get~方法来获取元素的区别
+			 * 1.性能不一样
+			 * 	get~方法比querySelector方法好
+			 * 2.querySelector静态获取元素
+			 * 	get~动态获取元素
+			 * */
+			var test= document.querySelector("div:first-child");
+			console.log(test);
+			
+			var allTest = document.querySelectorAll("div")[1];
+			console.log(allTest);
+			
+			
+			var allTarge =document.getElementsByTagName("div");
+			console.log(allTarge);
+			
+			var ele=document.getElementsByClassName("test");
+			console.log(ele[0]);
+			
+			var tow = document.getElementById("d");
+			console.log(tow);
+			
+			
+			/**
+			 * 添加监听事件（添加事件句柄）
+			 * document.addEventListener(event,callback);
+			 * event:代表我们需要添加的事件类型，比如单击事件（click），双击事件（dbclicl）...
+			 * callback代表一个回调函数，就是我们做的事情都定义值该函数里面。
+			 * */
+//			document.addEventListener("click",function(){
+//				alert("未成年人请在父母陪同下观看");
+//			})
+			
+			
+			/**
+			 * 创建元素节点
+			 * document.createElement(elName);
+			 * elName代表需要创建的标签名
+			 * 添加元素
+			 * parent.appendChild(child);
+			 * parent代表需要添加元素的父级元素
+			 * child我们创建的元素/文本
+			 * 
+			 * 创建一个文本节点
+			 * document.createTextNode（str）;
+			 * str代表我们需要填入的内容
+			 * */
+			var p=document.createElement("p");
+			var txt=document.createTextNode("我是通过文本节点创建出来的内容");
+			var txt2=document.createTextNode("我是通过文本节点创建出来的内容2");
+			p.appendChild(txt);
+			var isClick = true;
+			d.addEventListener("click",function(){
+				if(isClick){
+					d.appendChild(txt);
+				}else{
+					d.appendChild(txt2);
+				}
+				//取反，把原来正确的变为错误的，把错误的变成正确的
+				isClick =!isClick;
+			})
+			
+			
+			/**
+			 * innerText,innerHTML
+			 * 向元素添加文本内容，再次添加会覆盖掉原来的内容。
+			 * 
+			 * 区别：
+			 * 	innerText不能识别标签
+			 * 	innerHTML可以识别标签
+			 * */
+			var h1 = document.createElement("h1");
+			h1.innerText = "我是通过innerText添加的文本";
+			document.body.appendChild(h1);
+			
+			h1.addEventListener("click",function(){
+				if(isClick){
+					h1.innerText = "我是点击进来的内容";
+				}else{
+					h1.innerText = "我是通过innerText添加的文本";
+				}
+				isClick =!isClick;
+			})
+			
+			var h2=document.createElement("h2");
+			document.body.appendChild(h2);
+			h2.innerHTML = "我是通过innerHTML添加进来的";
+			h2.innerHTML = "<a>我是通过innerHTML添加进来的2</a>";
+			
+			
+			/**
+			 * 创建属性节点（给标签添加类名）
+			 * document.createAttribute（attr）;
+			 * attr:代表我们需要创建的属性名
+			 * 
+			 * 通过value给属性节点赋值，例如：clName.value = "h2";
+			 * 
+			 * 
+			 * 给元素添加属性节点
+			 * setAttributeNode(attrName);
+			 * attrName代表我们创建节点的属性节点名。
+			 * */
+			var clName =document.createAttribute("class");
+			clName.value = "h2";
+			h2.setAttributeNode(clName);
+			
+			h2.addEventListener("click",function(){
+				clName.value ="col";
+			})
+			//document.documentElement返回文档根节点
+			console.log(document.documentElement);
+			
+			
+			/**
+			 * 获取所有img标签
+			 * document.images
+			 * 
+			 * */
+			var imgs=document.images;
+			console.log(imgs[0].src);
+			
+			imgs[0].addEventListener("click",function(){
+				if(isClick){
+					imgs[0].src="../../6.6作业/淘宝布局/img/02.jpg";
+				}else{
+					imgs[0].src="../../6.6作业/淘宝布局/img/04.jpg";
+				}
+				isClick=!isClick;
+			})
+			
+			/**
+			 * 移除事件句柄
+			 * document.removeEventListener(event,callback);
+			 * 和添加事件句柄的参数一样。
+			 * */
+			document.addEventListener("click",myFun)
+			function myFun(){
+				console.log("添加事件监听");
+			}
+			document.removeEventListener("click",myFun);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="test">123</div>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/*
+			 * jQuery:是JavaScript的一个工具库
+			 * 
+			 * 	$()/jQuery():工厂函数，
+			 *  传入一个css选择器，用来选择元素的，返回一个数组。
+			 * 	
+			 * */
+			//选择元素
+			var test = $(".test");
+			//将jq对象转换为原生的DOM对象。
+			var test1 = test[0];
+			console.log(test1);
+			//将原生对象转换为jq对象
+			var test2 = document.querySelector(".test");
+			var test3 = $(test2);
+			console.log(test3);
+			
+			test3.on("click",function(){
+				console.log("12");
+			})
+			
+			
+			/**
+			 * 当用户声明的变量也为$会和jQuery冲突
+			 * 	解决方法：
+			 * 	1.直接使用jQuery代替$
+			 * 	2.将jQuery写入函数里面来使用
+			 * 	3.jQuery提供的方法，来改变jQuery的操作符
+			 * 
+			 * */
+			var $ = "123";
+			function muFun($){
+				var test5 = $(".test");
+				console.log("123");
+			}
+			muFun(jQuery);
+			
+			//自执行的匿名函数
+			(function($){
+				var test = $(".test");
+				console.log(test);
+			})(jQuery);
+			
+			var _ = jQuery.noConflict(true);
+			var test6 = _(".test");
+			console.log(test6);
+		</script>
+	</body>
+</html>

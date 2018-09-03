@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*
+			 *  数据类型：
+			 * 		简单数据类型
+			 * 			1.字符串（String）
+			 * 			2.数值（number）
+			 * 			3.布尔值（boolean）
+			 * 			4.undefined 在定义变量后未赋值的时候，JavaScript会自动给变量赋值为undefined。
+			 * 			5.null JavaScript有垃圾回收机制，在变量不需要使用的时候，系统会自动把此变量赋值为null（即清空该变量）
+			 * 
+			 * 
+			 * 		复杂数据类型
+			 *  		1.对象（object），是属性和方法的集合。
+			 * 			 语法：键值对写法,即："键名": "键值"
+			 * 			我们可以通过.(点操作符)来访问对象上的属性或方法
+			 * 			怎么来调用对象里面的方法？
+			 * 				可以通过对象的方法名后面加小括号来执行这个方法
+			 * 			return用来定义函数的返回值。
+			 * 
+			 * 			2.数组（array），也是数据的集合
+			 * 				数组的下标值（即生活中所说的序列号）是从0开始的，数组长度的计算是从1开始计算。
+			 * 				通过数组名来获取例如：arr[0],获取arr数组中下标为0的数据
+			 * 			
+			 * 			3.函数（function），具有一定功能的代码块。
+			 * 				语法：通过关键字function来定义，如下：
+			 * 				函数名和参数是可选的
+			 * 					function 函数名(参数){
+			 * 						书写功能代码区域
+			 * 					}
+			 * 			   return用来定义函数的返回值，结束函数的执行
+			 * */
+			
+			var obj = {
+				"name":"小芳",
+				"age":"18",
+				"skill":function(){
+					console.log("做菜");
+					return "我是一个方法"
+				}
+			}
+			console.log(obj.age,obj.name);
+			console.log(obj.skill);
+			console.log(obj.skill()); //调用skill方法
+			
+			//两个数据“123” “678”
+			var arr = ["123","678"];
+			console.log(arr[0]);
+			//获取数组长度
+			console.log(arr.length);
+			
+			var arr1 = [123, true,"string",["a","b"],{"name":"小明"}];
+			console.log(arr1[4].name);
+			
+			var str="123";
+			//获取字符串的字符长度
+			console.log(str.length);
+			
+			//定义了一个函数，就相当于生产了一台机器。
+			function myFun(){
+				//alert弹窗会阻止js代码的运行
+				alert("hello world!");
+				return "你好";
+			}
+			//执行函数，相当于按下机器的运作开关。
+			console.log(myFun());
+			/*
+			 *匿名函数
+			 * 	不能直接定义匿名函数，需要有事件触发的时候才可以或者复制给一个变量。
+			 * 	匿名函数只能在函数定义的后面进行使用
+			 * 	具有函数无论哪里都可以调用
+			 * */
+//			fun(); 会报错
+			var fun = function(){
+				console.log("匿名函数");
+			}
+			fun();
+			
+			/*
+			 * 不能调换函数参数顺序，可以有多个参数，用逗号隔开
+			 * 定义函数时写的参数称为形参
+			 * 调用函数时传入的参数为实参
+			 * */
+			function testFun(userName,age,sex){
+				return "你好，我是"+userName+"，今年"+age+"岁"+"，性别"+sex+"!";
+			}
+			console.log(testFun("小明",18,"男"));
+		</script>
+	</body>
+</html>

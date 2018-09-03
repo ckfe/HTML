@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<test :content="data1"></test>
+			<test2></test2>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 父组件向子组件传递数据可以通过 props
+			 * 	 props数组里面的元素（元素名称是自定义的）则是承载从
+			 * 		父组件种传递过来的数据变量
+			 * 怎么将数据传递过来
+			 * 		通过v-bind:绑定props数组中的元素，并将父组件中的数据赋值给该元素。
+			 * 
+			 * 	方法二：
+			 * 	通过$root来获取，如下例子：
+			 * */
+			Vue.component("test",{
+				props:["content"],
+				template:`<div>我在子组件里面:{{content}}
+							<h1>{{$root.data1}}</h1>
+						</div>`
+			})
+			
+			var test2 = {
+				template:"<p>{{$root.data2}}</p>"
+			}
+			
+			var vm = new Vue({
+				el:".app",
+				components:{
+					"test2":test2
+				},
+				data:{
+					data1:"我是父组件里面的数据",
+					data2:"我是子组件里面的数据"
+				}
+				
+			})
+		</script>
+	</body>
+</html>

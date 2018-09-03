@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-size: 0;
+			}
+			body{
+				background: gray;
+			}
+			em{
+				font-style: normal;
+				width: 40px;
+				height: 40px;
+				background: #00BFFF;
+				display: inline-block;
+				text-align: center;
+				line-height: 40px;
+				color: white;
+				font-size: 16px;
+				vertical-align: middle;
+			}
+			span{
+				display: inline-block;
+				width: 200px;
+				height: 40px;
+				background: white;
+				font-size: 18px;
+				vertical-align: middle;
+				padding-left: 15px;
+				line-height: 40px;
+			}
+			.web ul{
+				margin-top: 50px;
+				position: absolute;
+				right: 0;
+				/*display: none;*/
+			}
+			.web li{
+				margin-bottom: 2px;
+				cursor: pointer;
+				transform: skewX(0deg) translateX(220px);
+				transition-property: transform;
+				transition-duration: 300ms;
+			} 
+			.web ul:hover li{
+				transform:translateX(0px);
+				transition-property: transform;
+				transition-duration: 300ms;
+				
+			}
+			
+			.web li:nth-child(2){
+				transition-delay: 50ms;
+			}
+			.web li:nth-child(3){
+				transition-delay: 100ms;
+			}
+			.web li:nth-child(4){
+				transition-delay: 150ms;
+			}
+			.web li:nth-child(5){
+				transition-delay: 200ms;
+			}
+			.web li:nth-child(6){
+				transition-delay: 250ms;
+			}
+			.web li:nth-child(7){
+				transition-delay: 300ms;
+			}
+			.web li:nth-child(8){
+				transition-delay: 350ms;
+			}
+			.web li:nth-child(9){
+				transition-delay: 400ms;
+			}
+			.web li:nth-child(10){
+				transition-delay: 450ms;
+			}
+			.web li:nth-child(11){
+				transition-delay: 500ms;
+			}
+			.web li:nth-child(12){
+				transition-delay: 550ms;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<ul>
+				<li>
+					<em>0</em>
+					<span>站长素材</span>
+				</li>
+				<li>
+					<em>1</em>
+					<span>站长素材</span>
+				</li>
+				<li>
+					<em>2</em>
+					<span>站长素材</span>
+				</li>
+				<li>
+					<em>3</em>
+					<span>站长素材</span>
+				</li>
+				<li><em>4</em><span>站长素材</span></li>
+				<li><em>5</em><span>站长素材</span></li>
+				<li><em>6</em><span>站长素材</span></li>
+				<li><em>7</em><span>站长素材</span></li>
+				<li><em>8</em><span>站长素材</span></li>
+				<li><em>9</em><span>站长素材</span></li>
+				<li><em>10</em><span>站长素材</span></li>
+				<li><em>11</em><span>站长素材</span></li>
+			</ul>
+		</div>
+	</body>
+</html>

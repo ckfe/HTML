@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 *  1.for循环
+			 * 	 for(语句1;语句2;语句3){
+			 * 	   需要执行内容
+			 * 	}
+			 * 1语句1：初始化条件判断的初始值
+			 * 2语句2：条件判断语句
+			 * 3语句3：初始值的自增量
+			 * 
+			 * 循环过程：先进行条件判断，为true的时候，进入循环体
+			 * 执行我们定义的代码，然后进行自增，自增后又进入条件判断，
+			 * 为true的时候，进入循环体，然后执行我们定义的代码，如此循环，
+			 * 当自增后的值不小于条件判断的值时，返回false，循环结束。
+			 * */
+			
+			for(var i=1;i<=5;i++){
+				console.log(i);
+			}
+			for(var j=2;j<=10;j+=2){
+				console.log(j);
+			}
+			//同上
+//			for(var j=1;j<=10;j++){
+//				if(j%2==0){
+//				 console.log(j);
+//				}
+//			}
+
+			/*for(var q=1;q<=9;q+=2){
+				console.log(q);
+			}*/
+			var num=1;
+			for(var i=1;i<=5;i++){
+				num *=i;	
+			}
+			console.log(num);
+			
+			var num=0;
+			for(var i=1;i<=10;i++){
+				num+=i;
+			}
+			console.log(num);
+			
+		</script>
+		
+		<!--break-->
+		<script type="text/javascript">
+			/**
+			 * break,用于switch语句和循环里面
+			 * 用于终止语句。
+			 * 
+			 * continue,用于循环语句，
+			 * 用于跳过某一次循环语句，进入下一次循环
+			 * 
+			 * */
+			
+			
+			for(var i=0;i<5;i++){
+				console.log(i);
+				if(i==2){
+					break;
+				}
+			}
+			
+			
+			
+//			for(var i=0;i<4;i++){
+//				for(var j=0;j<6;j++){
+//					document.write("*");
+//				}
+//				document.write("</br>");
+//			}
+			
+			/*for(var i=0;i<=5;i++){
+				document.write(" ")
+				for(var j=0;j<i;j++){
+					document.write("*");
+				}
+				document.write("</br>")
+			}*/
+			
+			for(var i=1;i<=5;i++){
+				document.write("</br>")
+				for(var j=0;j<=5;j++){
+					if(j>(5-i)){
+						document.write("*");
+					}else{
+						document.write("-")
+					}
+				}
+			}
+			
+			for(var i=1;i<=5;i++){
+				document.write("</br>")
+				for(var j=1;j<=9;j++){
+					if(j==6-i || j==4+i || i==5){
+						document.write("*")
+					}else{
+						document.write("-")
+					}
+				}
+			}
+			document.write("</br>")
+			var num=1000;
+			for(var i=1;i<=30;i++){
+				num = num+ (num *0.01)
+			}
+			document.write(parseInt(num));
+
+
+		
+         
+		</script>
+	</body>
+</html>

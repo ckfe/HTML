@@ -1,0 +1,110 @@
+.pro_img{
+	width: 481px;
+	overflow: hidden;
+	background: #f6f6f6;
+	border-right: 1px solid #b9b9b9;
+}
+/*大图样式*/
+.big_img{
+	width: 189px;
+	height: 251px;
+	margin: 0 auto;
+	margin-bottom: 14px;
+	margin-top: 57px;
+}
+.big_img img{
+	height: 100%;
+	display: none;
+}
+/*小图*/
+.small_img{
+	overflow: hidden; /*把超出部分隐藏*/
+}
+.img{
+	float: left;
+	width: 96px;
+	height: 91px;
+	overflow: hidden;
+	border: 1px solid #b9b9b9;
+	border-right: none;
+	position: relative;
+}
+.img img{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.pro_img input[type="radio"]{
+	display: none;
+}
+.pro_img input[type="radio"]:checked + img{
+	display: block;
+}
+
+
+
+
+
+/*方法二的整体样式*/
+/*最外围边框*/
+.section{
+	margin-top: 300px;
+	width: 481px;
+	overflow: hidden;
+	background: #f6f6f6;
+	border-right: 1px solid #b9b9b9;
+	position: relative;
+	height: 410px;
+}
+/*大图样式*/
+.section-big{
+	width: 189px;
+	height: 251px;
+	margin: 0 auto;
+	/*display: none;*/
+	position: absolute;
+	top:0px;
+	left: 153px;
+}
+.section-big img{
+	width: 100%;
+	display: none;
+}
+/*.section-big:nth-child(2){
+	display: block;
+}*/
+.section .section-big:nth-child(2) img{
+	display: block;
+}
+
+/*小图边框*/
+.section span{
+	float: left;
+	width: 96px;
+	height: 91px;
+	overflow: hidden;
+	border: 1px solid #b9b9b9;
+	border-right: none;
+	position: relative;
+	margin-top: 320px;
+}
+.section span img{
+	position: absolute;
+	top: -9999px;
+	bottom: -9999px;
+	left: -9999px;
+	right: -9999px;
+	margin: auto;
+}
+/*小图与大图之间*/
+/*方法一*/
+/*.section span:hover + .section-big {
+	display: block;
+}*/
+/*方法二*/
+.section span:hover + .section-big img{
+	display: block;
+}

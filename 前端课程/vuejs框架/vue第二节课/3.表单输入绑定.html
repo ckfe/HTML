@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<input type="text" v-model="inpVal"/>
+			<button @click="add">增加</button>
+			<ul>
+				<li v-for="item in arr">{{item}}</li>
+			</ul>
+			<textarea v-model="textVal"></textarea>
+			<p>{{textVal}}</p>
+			<!--<p>{{inpVal}}</p>-->
+			
+			<!--
+				checkbox复选框的value值必须填写而且不能相同，否则会选择到所有的复选框
+				绑定的数据是一个数组
+			-->
+			<input type="checkbox" id="playBall" value="打球" name="hobby" v-model="checkeds"/>
+			<label for="playBall">打球</label>
+			<input type="checkbox" id="swimming" name="hobby" value="游泳" v-model="checkeds"/>
+			<label for="swimming">游泳</label>
+			<input type="checkbox" id="coding" name="hobby" value="打代码" v-model="checkeds"/>
+			<label for="coding">打代码</label>
+			<p>{{checkeds}}</p>
+			
+			<!--
+				单选按钮
+					绑定的数据可以是字符串也可以是数组（通常直接用字符串）
+			-->
+			<input type="radio" name="sex" value="男"  v-model="sel"/>
+			<input type="radio" name="sex" value="女"  v-model="sel"/>
+			<p>{{sel}}</p>
+			
+			<!--
+				选择下拉框
+					绑定的数据是字符串
+					如果设置了属性为multiple，则需要把绑定的数据变为数组
+					multiple：多选
+					disabled：禁止选择
+			-->
+			<select name="city" v-model="selOp" multiple>
+				<option value="" disabled>请选择</option>
+				<option value="广州">广州</option>
+				<option value="深圳">深圳</option>
+				<option value="杭州">杭州</option>
+			</select>
+			<p>{{selOp}}</p>
+			
+			<select name="provinces" v-model="selected">
+				<option value="" disabled>请选择</option>
+				<option v-for="item in list" :value="item">{{item}}</option>
+			</select>
+			<p>{{selected}}</p>
+			
+			<!--复选框-->
+			<input type="checkbox"
+				   v-model="toggle" 
+				   true-value="yes" 
+				   false-value="no"
+				   @click="inpChang"
+				   />
+			<p>{{toggle}}</p>
+			
+			<!--单选按钮-->
+			<input type="radio" v-model="pick" :value="'a'" />
+			<p>{{pick}}</p>
+			
+			
+			<!--下拉框-->
+			<select name="" v-model="sels">
+				<option :value="{name:123}">123</option>
+			</select>
+			<p>{{sels.name}}</p>
+			
+			
+			<input type="text" v-model.lazy="test"/>
+			<p>{{test}}</p>
+			
+			<input type="number" v-model.number="num"  @input="changNum"/>
+			<p>{{num}}</p>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * v-model:双向绑定指令
+			 * 
+			 * 	修饰符
+			 * 	  .lazy：当表单元素触发chang事件时，才触发数据跟新
+			 * 	  .number:将表单的值转换为数值类型
+			 * 	  .trim:清除用户输入首尾空格符。
+			 * */
+			var vm = new Vue({
+				el:".app",
+				data:{
+					inpVal:"123",
+					arr:[],
+					textVal:"",
+					checkeds:["游泳"],
+					sel:"男",
+					selOp:[],
+					list:["广东省","广西省","浙江省"],
+					selected:"",
+					toggle:"",
+					pick:"",
+					sels:"",
+					test:"",
+					num:""
+				},
+				methods:{
+					add:function(){
+						this.arr.push(this.inpVal);
+						//可以通过this.$data获取到data里面的所有数据
+						console.log(vm.$data)
+					},
+					inpChang:function(e){
+						console.log(this.toggle,e.toggle.checked)
+					},
+					changNum:function(){
+						console.log(typeof(this.num))
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>

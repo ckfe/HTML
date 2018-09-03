@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.app{
+				background: #0056B3;
+				width: 280px;
+				height: 200px;
+				text-align: center;
+				margin: 0 auto;
+				overflow: hidden;
+				border-radius: 10px;
+			}
+			.name{
+				margin-top: 20px;
+			}
+			.age{
+				margin-top: 20px;
+			}
+			.sex{
+				margin-top: 20px;
+			}
+			.btn{
+				margin-top: 30px;
+				text-align: right;
+				margin-right: 30px;
+			}
+			button{
+				font-style: normal;
+				width: 70px;
+				height: 30px;
+				border-radius: 10px;
+				line-height: 30px;
+				text-align: center;
+				background: gray;
+				color: white;
+				border: 0;
+				outline:none;
+			}
+			.msg table{
+				width:280px;
+				background:#0056B3;
+				margin: 0 auto;
+				text-align: center;
+				margin-top: 20px;
+				border-radius: 10px;
+			}
+			th{
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<div class="app">
+				<div class="name">姓名：<input type="text" v-model="name"/> </div>
+				<div class="age">年龄：<input type="text" v-model="age"/> </div>
+				<div class="sex">性别：<input type="text" v-model="sex"/> </div>
+				<div class="btn">
+					<button @click="order">排序</button>
+					<button @click="delall">删除选中</button>
+					<button @click="add">增加</button>
+				</div>
+			</div>
+			<div class="msg">
+				<table>
+					<tr><th>id</th><th><input type="checkbox" @change="allsel" v-model="isallinp"/>全选</th><th>姓名</th><th>年龄</th><th>性别</th><th>操作</th></tr>
+					<!--在表格或者有严格规定元素的位置的标签需要通过is属性来引入组件（比如li,dd,dt）-->
+					<tr v-for="(item,index) in list" @changeinp="choose" @toindex="receive" :idx="index" :obj="item" is="add"></tr>
+				</table>
+			</div>
+		</div>
+		
+		
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component("add",{
+				props:{obj:Object,idx:Number},
+				template:`
+							<tr>
+								<th>{{obj.id}}</th>
+								<th><input v-model="obj.isclick" @change="inpsta" type="checkbox"/></th>
+								<th>{{obj.name}}</th>
+								<th>{{obj.age}}</th>
+								<th>{{obj.sex}}</th>
+								<th><button @click="del">删除</button></th>
+							</tr>
+						`,
+				methods:{
+					del:function(){
+						this.$emit("toindex",this.idx);
+					},
+   					inpsta:function(){//监听复选框的状态
+   						this.$emit("changeinp",this)
+   					}
+				}
+			})
+			
+			new Vue({
+				el:".web",
+				data:{
+					id:0,
+					name:"",
+					age:"",
+					sex:"",
+					isClick:false,//绑定表单元素checkbox
+					isallinp:false,//绑定表头的表单元素checkbox
+					list:[]
+				},
+				methods:{
+					add:function(){//添加条目
+						var obj={
+							"id":this.id+=1,
+							"name":this.name,
+							"age":this.age,
+							"sex":this.sex,
+							"isclick":this.isClick,
+						};
+						this.list.push(obj);
+   					},
+   					receive:function(res){//删除条目
+   						this.list.splice(res,1);
+   					},
+   					delall:function(){
+   						this.list = this.list.filter(function(item){
+   							return !item.isclick;
+   						})
+   						this.isallinp = false;//取消全选功能按钮的选中状态
+   					},
+   					allsel:function(){//全选
+   						for(var i=0;i<this.list.length;i++){
+   							this.list[i].isclick = this.isallinp;
+   						}
+   					},
+   					choose:function(){//反选
+   						var that = this;
+   						var arr=[];
+   						this.list.forEach(function(item){
+   							if(!item.isclick){
+   								that.isallinp = false;
+   								arr.push(item);
+   							}
+   							if(arr.length<=0){
+   								that.isallinp = true;
+   							}
+   						})
+   					},
+   					order:function(){//排序
+   						this.list.sort(function(a,b){
+   							return a.age - b.age;
+   						})
+   					}
+				}
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

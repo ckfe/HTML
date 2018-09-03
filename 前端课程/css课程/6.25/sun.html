@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画雪碧图</title>
+	</head>
+	<body>
+		<style type="text/css">
+			.swk{
+				width: 200px;
+				height: 180px;
+				background: url(img/孙悟空.png)no-repeat;
+				animation-name: donghua;
+				animation-duration: 1.5s;
+				animation-timing-function: steps(1,start);
+				animation-iteration-count: infinite;
+			}
+			@keyframes donghua{
+				0%{
+					background-position-x:0;
+				} 
+				12.5%{
+					background-position-x:-200px;
+				}
+				25%{
+					background-position-x:-400px;
+				}
+				37.5%{
+					background-position-x:-600px;
+				}
+				50%{
+					background-position-x:-800px;
+				}
+				62.5%{
+					background-position-x:-1000px;
+				}
+				75%{
+					background-position-x:-1200px;
+				}
+				87.5%{
+					background-position-x:-1400px;
+				}
+				100%{
+					background-position-x:0px;
+				}
+				
+			}
+			.bg{
+				margin-top: 20px;
+				width: 200px;
+				height: 180px;
+				background: url(img/猪八戒.png)no-repeat;
+				animation-name: walk;
+				animation-duration: 10ms;
+				animation-timing-function: steps(1,start);
+				animation-iteration-count: infinite;
+			}
+			@keyframes walk{
+				0%{
+					background-position-x:0;
+				} 
+				12.5%{
+					background-position-x:-200px;
+				}
+				25%{
+					background-position-x:-400px;
+				}
+				37.5%{
+					background-position-x:-600px;
+				}
+				50%{
+					background-position-x:-800px;
+				}
+				62.5%{
+					background-position-x:-1000px;
+				}
+				75%{
+					background-position-x:-1200px;
+				}
+				87.5%{
+					background-position-x:-1400px;
+				}
+				100%{
+					background-position-x:0px;
+				}
+				
+			}
+		</style>
+		<div class="swk"></div>
+		<div class="bg"></div>
+	</body>
+</html>

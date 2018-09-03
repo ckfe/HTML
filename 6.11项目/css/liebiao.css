@@ -1,0 +1,99 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.web{
+	width: 1000px;
+}
+section{
+	width: 900px;
+	margin: 0 auto;
+}
+.section-top{
+	width: 900px;
+	overflow: hidden;
+}
+.address{
+	font-size: 16px;
+	font-family: "微软雅黑";
+	margin: 45px 0px 0px 0px;
+	vertical-align: middle;
+	background: url("../img/t29.png")no-repeat;
+}
+.section-top span{
+	color:#ffffff;
+}
+.section-top-bot{
+	margin-top: 30px;
+}
+.section-top-bot p{
+	font-size: 12px;
+	font-family: "微软雅黑";
+	width: 621px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.section-top-bot img{
+	vertical-align: middle;
+	margin:0px 9px 8px 0px;
+}
+.section-top-bot strong{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.section-top-bot em{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	color: #6db6ff;
+	margin-right: 4px;
+	font-style: normal;
+}
+table{
+	width: 760px;
+	height: 685px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 12px;
+	font-family:"微软雅黑";
+}
+.section-tab{
+	width: 900px;
+	background: url("../img/t18.png")no-repeat;
+	margin-top: 16px;
+	overflow: hidden;
+}
+.section-tab tr>td:first-child{
+	width: 168px;
+}
+.section-tab thead{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.page{
+	border-top: 1px solid #b6daff;
+	text-align: center;
+	padding-top: 18px;
+	font-size: 0;
+}
+.page a{
+	font-size: 12px;
+	font-family: "微软雅黑";
+	border: 1px solid #c9c9c9;
+	width: 18px;
+	height: 18px;
+	margin-right: 4px;
+	display: inline-block;
+	color: black;
+}
+.page a:first-child,.page a:last-child{
+	width: 49px;
+	height: 18px;
+}
+.page a:hover{
+	color: white;
+	background: #6db6ff;
+	border: 1px solid #aaaaaa;
+}

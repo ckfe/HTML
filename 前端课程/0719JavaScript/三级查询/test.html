@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="province" class="province">
+			<option value="">请选择</option>
+		</select>
+		<select name="city" class="city">
+			<option value="">请选择</option>
+		</select>
+		<select name="county" class="county">
+			<option value="">请选择</option>
+		</select>
+		<script type="text/javascript">
+			var xhr =new XMLHttpRequest();
+			xhr.open("GET","province.json");
+			xhr.send(null);
+			xhr.addEventListener("readystatechange",function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var res = JSON.parse(xhr.responseText);
+						paiLie(res);
+					}else{
+						console.log("请求失败");
+					}
+				}
+			})
+			
+			var se = document.querySelector(".province");
+			function paiLie(res){
+				for(var i=0;i<res.length;i++){
+					var op = "<option>"+res[i].name+"</option>"
+					se.innerHTML += op;
+				}
+			}
+			
+			var xhrs =new XMLHttpRequest();
+			xhrs.open("GET","city.json");
+			xhrs.send(null);
+			xhrs.addEventListener("readystatechange",function(){
+				if(xhrs.readyState == 4){
+					if(xhrs.status == 200){
+						var ress = JSON.parse(xhrs.responseText);
+						console.log(ress);
+						paie(ress);
+					}else{
+						console.log("请求失败");
+					}
+				}
+			})
+			var ci = document.querySelector(".city");
+			function paie(ress){
+				for(var i=0;i<ress.length;i++){
+					var ops = "<option>"+ress[i].name+"</option>"
+					ci.innerHTML += ops;
+				}
+			}
+		</script>
+	</body>
+</html>

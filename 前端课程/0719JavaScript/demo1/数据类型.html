@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				background: skyblue;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="web">
+			<div class="test" id="test">点我改变颜色</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			var onColor=true;
+			//一个等号是赋值，两个等号是判断
+			document.getElementById("test").onclick = function(){
+				if(onColor == true){
+					document.getElementById("test").style.background = "pink";
+//					onColor =false;
+				}else{
+					document.getElementById("test").style.background = "skyblue";
+//					onColor = true;
+				}
+				//!表示取反，即真取反后为假。
+				onColor = !onColor;
+			}
+			
+			
+			/*
+			 * JavaScript的数据类型（2种）
+			 * 	原始类型和引用类型他们的储存方式不一样，原始类型的值是储存在栈里面，
+			 * 	引用类型是储存在堆里面。
+			 * 
+			 *  1.简单数据类型(基本数据类型)
+			 *  	a.字符串（string）：用引号括起来的就是字符串（包括双引号和单引号）
+			 * 		 注意：双引号不能嵌套双引号，单引号不能嵌套单引号，可以交叉嵌套
+			 * 
+			 *  	b.数值类型（Number）
+			 * 			var num= 123；
+			 * 			var num=12.31；
+			 * 
+			 * 			也可以用其他进制表示，比如16进制等
+			 *    	有三个特殊值
+			 * 			+Infinity，正无穷大
+			 * 			-Infinity，负无穷大
+			 * 			NaN,表示不是一个数值，但是是数值类型。
+			 * 			isNaN（）函数用于检查其参数是不是非数子值。
+			 * 			//数子的字符串类型的变量用于判断的时候会隐私转换为数值类型
+			 * 		c.布尔值（boolean）
+			 * 			只有两个值：true（真），false（假）
+			 * 
+			 * 		d.undefined,表示变量未赋值的默认值,也可以代表空
+			 * 
+			 * 		e.null,空，表示对空对象的引用。
+			 * 			通常可以用null来清空数据。
+			 * 
+			 * 	2.复杂数据类型（引用数据类型）
+			 *		 a.对象（object），是属性和方法的集合。
+			 * 
+			 * 
+			 * 
+			 * 	判断数据类型，可以通过typeof（）方法来得到。
+			 * */
+			
+			var str ="";
+			var str1= ' ';
+			console.log(typeof str1);
+			
+			var str2 = "welcome to 'hangzhou'";
+			console.log(str2);
+			
+			var num=123;
+			console.log(typeof(num),num);
+			var num1="123";
+			var num2 =789;
+			//代表加法运算
+			console.log(num+num2);//912
+			//字符串的拼接
+			console.log(num+num1);
+			
+			var person = "英雄";
+			
+			console.log(num1+person+num+num2);//直接字符串拼接
+			console.log(num+num2+num1+person);//先数值相加，然后拼接
+			document.write("我是一个"+person+"!");
+			
+			var good="好";
+			var friend="女朋友";
+			var go="嘿嘿嘿";
+			
+			//document.write是可以识别标签的
+			document.write("今天天气真" + good + "，我要和"+ friend + "去" + go + "!");
+			
+			var bool=true;
+			console.log(typeof bool);
+			
+			
+			var age=undefined;
+			console.log(typeof age);
+			
+			var sex=null;
+			console.log(typeof sex);
+			
+			console.log(undefined == null);//判断等于，只判断值。
+			console.log(undefined === null);//绝对等于或全等于，即判断值，也判断类型是否相等
+			
+			/*
+			 *十六进制由0~9和A~F表示，A~F就代表数值10~15，
+			 * 通常开头为0x就表示为一个十六进制的数。
+			 * */
+			var num = 0x123;
+			//十六进制转换成10进制：1*16^2 + 2*16^1 + 3*16^0=291
+			console.log(typeof num,num);//number 291  
+			
+			
+			//8进制，逢8进1.
+			//十进制的8用八进制来代表
+			var num2 = 010;
+			console.log(num2);
+			console.log(isNaN(num2));//false isNaN（）函数用于检查其参数是不是非数子值。
+			
+			var num3 = + Infinity;//正无穷大
+			var num4 = - Infinity;//负无穷大
+			
+			var num5 =NaN;
+			console.log(typeof num5);
+			
+			var obj={
+				name:"html",
+				age:"18"
+			}
+			console.log(typeof(obj));//object
+			
+			var obj1 = obj;
+			var num=123;
+			var num1=num;
+			console.log(num,num1);
+		</script>
+	</body>
+</html>

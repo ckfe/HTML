@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+			}
+			.test1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app">
+			<p :style="{fontSize:fontSize+'px',color:aColor}">我是一个p标签</p>
+			<h1 :style="styleObj">我是</h1>
+			<h2 :style="[styleObj,bColor]">123154</h2>
+			<div  :class="{test:isClick,test1}"></div>
+			<div :class="classObj" @click="chang">{{message}}</div>
+			<div :class="classObj">{{order}}</div>
+			<button @click="changColor">点击</button>
+			
+			<div :class="[isShow?'test':'',two]"></div>
+		</div>
+		
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 添加类名
+			 * 	1.对象语法
+			 * 	 通过v-bind绑定类名
+			 * 	例如：:class="{cName1,cName2...}"
+			 * 	cName1:表示类名，需要在vue实例的data中声明
+			 * 
+			 * 	2.数组语法
+			 * 	:class="[cName1,cName2...]"
+			 * 	数组里面可以应用表达式
+			 * 	:class="[isShow?'test':'',two]"三元运算符
+			 * 
+			 * 	添加样式
+			 * 	1.对象语法
+			 * 	例如： :style="{pName:pValue,pName1:pValue1}"
+			 * 	pName:属性名
+			 *  pValue：属性值
+			 * 	 :style="obj"
+			 * 		obj:是一个由css属性构成的对象
+			 * 
+			 * 	2.数组语法
+			 * 		列如： :style="[styleObj1,styleObj2...]"
+			 * 		styleObj1,styleObj2是一个由css属性构成的对象
+			 * */
+			var cl = new Vue({
+				el:'.app',
+				data:{
+					isClick:true,
+					isShow:false,
+					message:"hello",
+					test1:"test1",
+					one:"one",
+					two:"two",
+					fontSize:50,
+					aColor:"yellow",
+					bColor:{color:"blue"},
+					styleObj:{
+						fontSize:30+"px",
+						color:"red",
+						transform:"scale(1.1)"
+					}
+				},
+				methods:{
+					changColor:function(){
+						this.isClick=!this.isClick;
+						this.isShow=!this.isShow;
+					},
+					chang:function(){
+						this.message = this.order;
+					}
+				},
+				computed:{
+					order:function(){
+						return this.message.split("").reverse().join("");
+					},
+					classObj:function(){
+						return "test";
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align:center;
+			}
+			img{
+				width: 888px;
+				height: 666px;
+			}
+			.lazyLoad{
+				opacity: 0;
+				transition: 2s;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<img class="lazyLoad" data-src = "img/long.jpg"/>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 1.浏览器可视高度
+			 * 2.文档滚到浏览器外的高度
+			 * 3.图片相对文档左上角的高度
+			 * 
+			 * */
+			
+			var winH = $(window).innerHeight();
+			$(".lazyLoad").load(function(){
+				if($(".lazyLoad").prop("src")){
+					$(this).css("opacity",1);
+				}
+			})
+			$(document).scroll(function(){
+				var scrT = $(this).scrollTop();
+				$(".lazyLoad").each(function(index,item){
+					var imgT = $(this).offset().top;
+					if(imgT-scrT-winH<-50){
+						var _src = $(this).data("src");
+						if(!$(this).prop("src")){
+							$(this).prop("src",_src);
+						}
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

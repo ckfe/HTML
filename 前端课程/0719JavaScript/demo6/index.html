@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * for...in循环
+			 * */
+			var arr = [1,2,3,4,5];
+			for(item in arr){
+				console.log(item,arr[item]);
+			}
+			var person ={
+				name:"刘亦菲",
+				age:"20",
+				sex:"女",
+				skill:function(){
+					console.log("电影明星!");
+				}
+			}
+			for(item in person){
+				console.log(item,person[item]);
+			}
+			var arr1 = [];
+			/**
+			 * for-in循环的有趣用法
+			 * 可以通过for-in循环把对象的键名保存到数组里面。
+			 * */
+			var j=0;
+			for(arr1[j++] in person){}
+			console.log(arr1);
+			
+			//清空数组
+			//方法1： arr1= [];
+			//方法2： arr1.length = 0;
+		</script>
+	</body>
+</html>

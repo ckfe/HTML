@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1.有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和。
+			//(程序分析：请抓住分子与分母的变化规律。)
+			function three(){
+				var result = 0;
+				var fenzi =2,
+					fenmu =1;
+				for(var i=0;i<20;i++){
+					result +=fenzi/fenmu;
+					//第二个值的分母
+					var oldFenzi = fenzi;
+					//下一个值的分子
+					fenzi = fenzi + fenmu;
+					//下一个值的分母
+					fenmu = oldFenzi;
+				}
+				console.log(result);
+			}
+			three();
+			
+			//复用性
+//			function threeNew(fenzi,fenmu，lang){
+//				var result = 0;
+//				for(var i=0;i<lang;i++){
+//					result +=fenzi/fenmu;
+//					//第二个值的分母
+//					var oldFenzi = fenzi;
+//					//下一个值的分子
+//					fenzi = fenzi + fenmu;
+//					//下一个值的分母
+//					fenmu = oldFenzi;
+//				}
+//				console.log(result);
+//			}
+//			threeNew(8,5,20);
+
+//			4.有一座桥，当你身上所拥有的钱大于30000时，每过一次桥则需要支付3000元。
+//			当你身上的钱小于或等于30000时，每过一次桥则需要支付你身上10%的钱。
+//			已知有一个人身上有33000元，问此人能过这座桥多少次之后，身上的钱会少于100块?
+			function four(){
+				var money = 33000;
+				var num = 0;
+				if(money>30000){
+					money = money -3000;
+					num++;
+				}
+				
+				while (money>100){
+					//money=money-money*0.1; 
+					money*=0.9;
+					num++;
+				}
+				console.log(num);
+			}
+			four();
+			
+			
+			//6.小明题目升级版，小明拿着1000块在周一买入基金，一开户立给10块红利，
+			//逢周六日没有利息，平时利息为1%，请问30天后，小明可以拿回多少钱？
+			//本息和=本金+本金*利率
+			function six () {
+				var money =1000;
+				var redBag= 10;
+				var totalMoney = money+redBag;
+				for(var i=1;i<=30;i++){
+					if(i%7==0||i%7==6){
+						continue;
+					}
+					//totalMoney = totalMoney+totalMoney*0.01
+					totalMoney*=1.01;
+				}
+				console.log(totalMoney);
+			}
+			six();
+			
+			
+			//7.乘法口诀表:
+			//让学生输出4种方向的乘法口诀表
+			for(var i=1;i<=9;i++){
+				document.write("</br>");
+				for(var j=1;j<=9;j++){
+					if(j<=i){
+						document.write("<div style='width: 70px;display: inline-block ;'>"+j+"*"+i+"="+i*j+"</div>");
+					}
+				}
+			}
+			document.write("<hr/>");
+			//第二种
+			for(var i=9;i>0;i--){
+				document.write("</br>");
+				for(var j=1;j<=9;j++){
+					if(j<=i){
+						document.write("<div style='width: 70px;display: inline-block ;'>"+j+"*"+i+"="+i*j+"</div>");
+					}
+				}
+			}
+			document.write("<hr/>");
+			//第三种
+			for(var i=1;i<=9;i++){
+				document.write("</br>");
+				for(var j=9;j>0;j--){
+					if(j<=i){
+						document.write("<div style='width: 70px;display: inline-block ;'>"+j+"*"+i+"="+i*j+"</div>");
+					}else{
+						document.write("<div style='width: 70px;display: inline-block;opacity: 0;'>"+j+"*"+i+"="+i*j+"</div>");
+					}
+				}
+			}
+			document.write("<hr/>");
+			//第四种
+			for(var i=9;i>0;i--){
+				document.write("</br>");
+				for(var j=9;j>0;j--){
+					if(j<=i){
+						document.write("<div style='width: 70px;display: inline-block ;'>"+j+"*"+i+"="+i*j+"</div>");
+					}else{
+						document.write("<div style='width: 70px;display: inline-block;opacity: 0;'>"+j+"*"+i+"="+i*j+"</div>");
+					}
+				}
+			}
+			
+			
+			//8.给一个不多于5位的正整数，要求：
+			//一、求它是几位数，二、逆序打印出各位数字。
+			var num = 12345;
+			var str=num.toString();
+			var str1="";
+			for(var i=str.length-1;i>=0;i--){
+				console.log(str[i]);
+				str1 +=str[i];
+			}
+			console.log(str1);
+			
+			//9.求100个随机数之和，随机数要求为0—9的整数
+			//Math.random();随机数生成范围0~1(包括0，不包括1)。
+			 var result = 0;
+			 for(var i=0;i<100;i++){
+			 	var ran = parseInt(Math.random()*10);
+			 	result +=ran;
+			 }
+			 console.log(result);
+			 
+			 document.write("<hr/>");
+			//10.通过键盘输入一个任意的正整数（建议这个数比3大），
+			//在网页中输出3至这个数之间所有能被3整除的数字。 
+			//alert(),警告框，prompt(),输入框，返回两个值，
+			//可以设置默认值：var num = prompt("请输入一个大于3的正整数",5);
+			//当用户按确认按钮返回输入内容或者是空字符串，当用户按取消按钮返回null。
+			//confirm(),信息确认框，按下确定返回true，按下取消，返回false。
+			var con =confirm("你确定要提交吗？");
+			console.log(con);
+			function ten () {
+				var num = prompt("请输入一个大于3的正整数",5);
+				console.log(num);
+				if(num == null || num==""){
+					alert("你取消了计算或者输入了无效的数值，将结束程序!");
+					return;
+				}else if(num<=3){
+					alert("输入的值必须大于3")
+				}else{
+					for(var i=3;i<=num;i++){
+						if(i%3==0){
+							document.write(i);
+						}
+					}
+				}
+			}
+			ten();
+			
+			
+			
+			//小弹窗
+//			function test () {
+//				var num = confirm("做我女朋友吧");
+//				if(num == true){
+//					alert("嘻嘻");
+//				}else{
+//					while (!num){
+//						var num1 = confirm("做我女朋友吧");
+//						num = num1;
+//						if(num==true){
+//							alert("嘻嘻");
+//						}
+//							
+//						
+//					}
+//				}
+//			}
+//			test();
+
+
+
+			//11.黑白棋   奇数行 && 奇数列 || 偶数行 && 偶数列
+			document.write("<table border='1'>");
+			for(var i=0;i<8;i++){
+				document.write("</tr>");
+				for(var j=0;j<8;j++){
+					if(i%2!=0&&j%2!=0 || i%2==0&&j%2==0){
+						document.write("<td width='50' height='50' style='background: black;'></td>")
+					}else{
+						document.write("<td width='50' height='50' style='background: white;'></td>")
+					}
+				}
+				document.write("</tr>");
+			}
+			document.write("</table>");
+			
+			
+			//12.(提高题)输入一整数A，判断它是否素数（除了自己和1之外，不能被其它数整数）
+			function twelve () {
+				var num = prompt("请输入一个正整数");
+				if(num == 1){
+					alert(num+"不是素数");
+				}
+				if(num>1){
+					if(num ==2){
+						alert(num+"是素数");
+					}else{
+						for(var i=2;i<num;i++){
+							if(num%i ==0){
+								alert(num+"不是素数");
+								break;
+							}
+						}
+						if(i==num){
+							alert(num+"是素数");
+						}
+					}
+				}
+			}
+			twelve();
+			
+			
+			//13.(提高题)将100元整钞换成20元、10元、5元、2元、1元零钱，要求零钱总张数为30张，
+			//求有多少种换法？假如要求每种纸币必须至少有一张，又有多少种换法呢？
+			function thirteen () {
+				var one,two,five,ten,twenty;//表示每种纸币的张数
+				var count = 0;
+				for(var one= 0;one<30;one++){
+					for(var two= 0;two<30;two++){
+						for(var five= 0;five<20;five++){
+					         for(var ten= 0;ten<10;ten++){
+								 for(var twenty= 0;twenty<5;twenty++){
+									if(one+two+five+ten+twenty==30 && one*1+two*2+five*5+ten*10+twenty*20==100){
+										count++;
+									}
+								}
+							}	       
+						}
+					}
+				}
+				console.log(count);
+			}
+			thirteen(); 
+		</script>
+	</body>
+</html>

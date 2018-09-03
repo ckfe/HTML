@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 函数：具有一定功能的代码块
+			 * 	通过函数名加小括号或者通过一个事件来触发函数，
+			 * 
+			 * 	当我们创建函数后，会有一个默认的属性arguments,
+			 *  他是用来接收我们转入的参数的。
+			 * 
+			 *  可以用arguments模拟函数重载，用同一个函数名实现多种功能的函数。
+			 * 	函数的属性和方法：
+			 * 	length：获取到函数的形参个数
+			 * 	toString(),valueOf(),都可以拿到原函数
+			 * 
+			 * eval()可以将eval里面的字符串解析成JavaScript代码，建议少用
+			 * */
+			function myFun (num1,num2,fu) {
+					return eval(num1+fu+num2);
+			}
+			console.log(myFun(10,5,"/"));
+			//console.log(myFun.length);获取到函数的形参个数
+			//console.log(myFun.toString());拿到原函数。
+			//console.log(myFun.valueOf());拿到原函数
+			
+			function jisuan (num1,num2,num3,way) {
+				console.log(arguments);
+			}
+			jisuan(1,2,3,"*");
+			
+			function newJi(way) {
+				//console.log(arguments);
+				var result=arguments[1];
+				for(var i = 2;i<arguments.length;i++){
+					result =eval(result + way + arguments[i]);
+				}
+				return result;
+			}
+			console.log(newJi("*",1,2,3));
+			
+			/**
+			 *  闭包：函数里面嵌套函数
+			 * 	可以使得局部变量可以在其他函数体内进行访问。
+			 * 
+			 * 	缺点：当大量使用闭包的时候，会发生内存泄漏的问题
+			 * 	（内存泄漏是指：有大量的局部变量的内存无法得到释放）。
+			 * 
+			 * 	作用域：在函数体内定义的变量叫局部变量
+			 * 			在函数体外定义的变量叫全局变量
+			 * 注意:局部变量只能在函数体内进行访问。
+			 * 		全局变量在哪里都可以访问。
+			 * 
+			 * 生命周期
+			 * 	全局变量：当浏览器关闭的时候就会销毁。
+			 * 	局部变量：当函数执行完后就销毁。
+			 * */
+			
+			var num=0;
+			function test () {
+				var str="我是一个字符串";
+				num=3;
+				function test1 () {
+					return str;
+				}
+				return test1();
+			}
+			console.log(test());
+			console.log(num);
+			
+			/*
+			 * 递归函数
+			 * 	函数里面调用函数，但是调用的是自己。
+			 * 	
+			 * 
+			 * */
+			//计算5的阶乘
+			function idGui (num) {
+				if(num == 1){
+					return 1;
+				}
+				return num*idGui (num-1);
+			}
+			console.log(idGui (5));
+			
+			function cun (day) {
+				if(day == 0){
+					return  1000;
+				}
+				return cun(day-1)*1.01;
+			}
+			console.log(cun(30));
+			
+			
+			function tao (day) {
+				if(day == 10){
+					return 1;
+				}
+				return (tao(day+1)+1)*2;
+			}
+			console.log(tao(1));
+			
+			function tuZi (n) {
+				if(n<2){
+					return 1;
+				}
+				return tuZi(n-2)*2
+			}
+			console.log(tuZi(10));
+			
+			
+			function ya (day) {
+              if(day == 8){
+                return 2;
+              }
+              return (ya(day+1)+1)*2;
+            }
+            console.log(ya(0));
+            
+            function cun (day) {
+              if(day == 0){
+                return  1010;
+              }
+              return cun(day-1)*1.01;
+            }
+            console.log(cun(22));
+            
+            
+            function age (num) {
+            	if(num==1){
+            		return 10;
+            	}
+            	return age(num-1)+2;
+            }
+            console.log(age(5));
+            
+            
+            
+	          //赶鸭子,数组可以通过下标值来获取里面的元素，也可以通过下标来设置数组的每一个值。
+	          var result = [];
+	          var next = 2;
+	          var i = 0;
+	          function yaZ (num) {
+	          	if(num ==7){
+	          		return 2;
+	          	}
+	          	var res = (yaZ(num +1)+1)*2;
+	          	result[i]=res-next;
+	          	i++;
+	          	next = res;
+	          	return res;
+	          }
+	          console.log(yaZ(0),result);
+              
+		</script>
+	</body>
+</html>

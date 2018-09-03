@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.web{
+				width: 1000px;
+				height: 350px;
+				border: 1px solid #000000;
+				display: flex;
+			}
+			.test{
+				width: 200px;
+				height: 100px;
+				background: skyblue;
+				/*flex-grow: 1;*/
+				flex-shrink: 1;
+			}
+			.test:nth-child(odd){
+				background: pink;
+			}
+			.test:nth-child(1){
+				order: 2;
+			}
+			.test:nth-child(2){
+				order: 1;
+			}
+			.test:nth-child(3){
+				order: 0;
+				flex-shrink: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			项目的属性
+				1.order定义项目的排列顺序。数值越小，排列越靠前，默认为0，允许负值
+				2.flex-grow:设置项目的放大比例,将剩余的宽度按设置的比例分给对应的一个项目。默认为0，即如果存在剩余空间，也不放大。
+				3.flex-shrink:设置项目的缩小比例。默认值为1，即如果空间不足，该项目将缩小。负值对该属性无效。
+				  当容器的空间不足的时候，按照设置的比例缩小对应的项目
+				  
+			  	4.flex-basis：设置项目的大小相当于width的值
+			  	5.flex:是flex-grow、flex-shrink、flex-basis的简写
+			  		默认值是：0 1 auto 快捷键： auto (1 1 auto) 和 none (0 0 auto) 1（1 1 0%）
+			  	6.align-self允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，
+			  			表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+			  			flex-start：交叉轴的起点对齐。
+						flex-end：交叉轴的终点对齐。
+						center：交叉轴的中点对齐。
+						baseline: 项目的第一行文字的基线对齐。
+						stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+ 		-->
+		<div class="web">
+			<div class="test">1</div>
+			<div class="test">2</div>
+			<div class="test">3</div>
+			<div class="test">4</div>
+			<div class="test">5</div>
+			<div class="test">6</div>
+			<div class="test">7</div>
+			<div class="test">8</div>
+			<div class="test">9</div>
+		</div>
+	</body>
+</html>

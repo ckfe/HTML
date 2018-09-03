@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="loader"></div>
+		<script src="js/preloadjs.min.js"></script>
+		<script src="js/my_ajax.js"></script>
+		<script type="text/javascript">
+			var load = document.querySelector(".loader");
+//			var xhr = new XMLHttpRequest();
+//			xhr.open("GET","js/img.json");
+//			xhr.send(null);
+//			xhr.addEventListener("readystatechange",function(){
+//				if(xhr.readyState == 4){
+//					if(xhr.status == 200){
+//						var  res = JSON.parse(xhr.responseText);
+//						console.log(res);
+//						var loading = new createjs.LoadQueue();
+//						loading.loadManifest(res);
+//						loading.on("progress",function(event){
+//							var num = Math.floor(event.progress*100);
+//							load.innerText = num +"%";
+//						})
+//					}
+//				}
+//			})
+
+			var baseUrl = "js/img.json";
+			my_ajax(baseUrl,"get",function(res){
+				var loading = new createjs.LoadQueue();
+				loading.loadManifest(res);
+				loading.on("progress",function(event){
+					var num = Math.floor(event.progress*100);
+					load.innerText = num +"%";
+				})
+				loading.on("complete",function(){
+					console.log("资源加载完成")
+				})
+				loading.on("error",function(){
+					console.log("资源加载错误")
+				})
+			})
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 *  箭头函数会绑定this的指向，是绑定触发该函数的对象。
+			 * 	所以在vue中少用箭头函数。
+			 * 
+			 * */
+			var vm = new Vue({
+				el:'.app',
+				data:{
+					name:"小明"
+				},
+				beforeCreate:function(){
+					//对象实例化出来后会马上触发beforeCreate钩子函数
+					//此时没有任何数据
+					console.log(this.$el,this.$data,this)
+				},
+				created:function(){
+					//可以获取到数据，el模板还没渲染到页面
+					//通常我们会在这个钩子函数中进行ajax请求
+					console.log(this.$el,this.$data)
+				},
+				beforeMount:function(){
+					//此时el模板已经渲染到页面了
+					console.log(this.$el)
+				},
+				mounted:function(){
+					//通过可以做一些事件监听
+					document.addEventListener("keydown",function(e){
+						console.log(e)
+					})
+				},
+				beforeUpdate:function(){
+					//数据更新前触发
+				},
+				updated:function(){
+					//数据更新后触发					
+				},
+				beforeDestroy:function(){
+					//vue实例销毁前触发
+				},
+				destroyed:function(){
+					//vue实例销毁后触发
+				}
+			})
+		</script>
+	</body>
+</html>

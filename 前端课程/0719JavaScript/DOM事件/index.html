@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 200px;
+				height: 200px;
+				background: #00BFFF;
+				position: relative;
+				margin-bottom: 1500px;
+			}
+			.wen{
+				width: 300px;
+				height: 100px;
+				resize: none;
+				position: relative;
+			}
+			p{
+				position: absolute;
+				right: -98px;
+				top: 85px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test">
+			<input type="text" class="user" value="" />
+			<textarea class="wen"></textarea>
+			<p>20</p>
+			
+			<form action="" method="post">
+				<input type="text" value="测试"/>
+				<input type="reset" value="重置"/>
+			</form>
+			
+		</div>
+		<div class="test2"></div>
+		<script type="text/javascript">
+			/**
+			 *  浏览器默认的事件过程是“事件冒泡”过程
+			 * 
+			 * 	事件冒泡：当给两个父子元素同事添加一个点击事件时，
+			 * 		当点击子元素的时候，同时会触发父元素的点击事件
+			 * 		触发过程是：先触发子元素的点击事件，再触发父元素
+			 * 		的点击事件，这个触发过程叫，冒泡过程
+			 * 
+			 * 	事件捕获：事件传递过程和事件冒泡相反，先触发父元素的事件，
+			 * 				再触发子元素的事件
+			 * 
+			 * 	事件对象：就是当用户在对网页进行操作的时候发生的事情，比如点击事件。。。
+			 * 			事件对象会以回调函数的第一参数形式传入给我们。
+			 * 		1.他是一个对象
+			 * 		2.在事件发生的过程产生
+			 * 		3.以回调函数参数的形式获取
+			 * 		不能监听到某个具体的元素
+			 * */
+			
+//			document.addEventListener("keydown",function(e){
+//				//console.log(event);
+//				if(e.key == "A"){
+//					console.log("你好");
+//				}
+//				if(e.keyCode == 37 ){
+//					console.log("你按下了左键");
+//				}
+//				if(e.keyCode == 38 ){
+//					console.log("你按下了上键");
+//				}
+//				if(e.keyCode == 39 ){
+//					console.log("你按下了右键");
+//				}
+//				if(e.keyCode == 40 ){
+//					console.log("你按下了下键");
+//				}
+//			})
+			var div =document.querySelector(".test");
+			var zidan= document.createElement("div");
+			div.appendChild(zidan);
+			zidan.style = "width:15px;height:40px;border-radius:5px;background:gray;opacity:0;transition:1s;position:absolute;right:0";
+			document.addEventListener("keydown",function(e){
+				if(e.keyCode == 37 ){
+					//transform能够通过+=来叠加，因为有多个参数。
+					div.style.transform += "translateX(-10px)";
+					//width不能通过+=来叠加，因为宽度只有一个参数
+					//div.style.width不能通过style方法获取元素的属性值
+				}
+				if(e.keyCode == 38 ){
+					div.style.transform += "translateY(-10px)";
+				}
+				if(e.keyCode == 39 ){
+					div.style.transform += "translateX(10px)";
+				}
+				if(e.keyCode == 40 ){
+					div.style.transform += "translateY(10px)";
+				}
+			})
+			
+			
+			window.addEventListener("resize",function(){
+				console.log("浏览器窗口大小改变了");
+			})
+			window.addEventListener("scroll",function(){
+				console.log(window.pageYOffset);
+			})
+			window.addEventListener("unload",function(){
+				localStorage.setItem("关闭页面");
+			})
+			
+			
+			/**
+			 * 表单事件
+			 *  blur:失去焦点时触发
+			 *  focus:获取焦点时触发
+			 *  change:当表单元素内容改变时（按回车键或失去焦点时）触发
+			 * 	input:当表单元素内容改变触发
+			 * 	select：当表单元素内容被选中时触发
+			 * */
+			var inp=document.querySelector(".user");
+			inp.addEventListener("blur",function(){
+				var res = confirm("nixiewanlema");
+				if(res == false){
+					setTimeout(function(){
+						inp.focus();
+					},100)
+				}else{
+					inp.blur();
+				}
+			})
+			
+			inp.addEventListener("focus",function(){
+				console.log("huoq");
+			})
+			inp.addEventListener("change",function(){
+				console.log(inp.value);
+			})
+			inp.addEventListener("select",function(){
+				console.log("那那那");
+			})
+			
+			/**
+			 * reset:当用户点击重置按钮时触发
+			 * 	注意：需要监听form
+			 * */
+			var btn = document.querySelector("form");
+			btn.addEventListener("reset",function(){
+				console.log(12)
+			})
+			
+			
+			/**
+			 * 剪贴板事件
+			 * 	copy：当用户复制内容的时候触发
+			 * 	cut:当用户剪切内容的时候触发
+			 * 	paste：当用户粘贴内容的时候触发
+			 * */
+			inp.addEventListener("copy",function(){
+				alert("qingbuy");
+			})
+			
+			
+			
+			//文本框文字限制
+			var wen =document.querySelector(".wen");
+			var num =document.querySelector(".test p");
+			var max=num.innerText;
+			wen.addEventListener("input",function(){
+				if(wen.value.length>20){
+					var txt = wen.value;
+					txt=txt.slice(0,20);
+					wen.value =txt;
+				}
+				var cur = wen.value.length;
+				num.innerText = max - cur;
+				
+			})
+			
+			
+		</script>
+	</body>
+</html>

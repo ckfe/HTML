@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<button v-for="(item,index) in titleList" @click="cut(index)">{{item}}</button>
+			<component :is="contList[idx]"></component>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component("cont1",{
+				template:"<div>{{msg}}</div>",
+				data:function(){
+					return {
+						msg:"html是超文本标记语言"
+					}
+				}
+			});
+			
+			Vue.component("cont2",{
+				template:"<div>{{msg}}</div>",
+				data:function(){
+					return {
+						msg:"css是层叠样式表"
+					}
+				}
+			});
+			
+			Vue.component("cont3",{
+				template:"<div>{{msg}}</div>",
+				data:function(){
+					return {
+						msg:"js弱类型脚本语言"
+					}
+				}
+			});
+			new Vue({
+				el:".app",
+				data:{
+					titleList:["html","css","JavaScript"],
+					contList:["cont1","cont2","cont3"],
+					idx:0
+				},
+				methods:{
+					cut:function(index){
+						this.idx = index;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

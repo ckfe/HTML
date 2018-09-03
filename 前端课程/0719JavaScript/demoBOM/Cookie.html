@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * cookie对象
+			 * 	用来存储web端用户信息的，信息直接存储到用户的硬盘里面的。
+			 * 
+			 * 	生命周期：
+			 * 	 没有设置过期时间，浏览器关闭清除
+			 * 	设置了过期时间，到达设置时间后清除
+			 * 	
+			 * 	cookie存储大小为4k
+			 * */
+			/**
+			 * cname是自己设置的cookie的名字
+			 * cvalue用户传入的值
+			 * exdays设置过期的时间。
+			 * */
+			//设置cookie
+			function setCookie(cname,cvalue,exdays){
+				var day= new Date();
+				day.setTime(day.getTime()+(exdays * 24*60*60*1000));
+				//计算过期时间
+				var  expires = "expires"+"="+day.toGMTString();
+				//设置cookie
+				document.cookie = cname + "=" + cvalue + ";" + expires;				
+			}
+			//获取cookie的内容
+			function getCookie(){
+				var userName = document.cookie;
+				console.log(userName);
+				var arr = userName.split("=");
+				console.log(arr);
+				return arr[1];
+			}
+			//检测是否已有cookie
+			function checkCookie(){
+				var data = getCookie();
+				if(data != "" && data !=null && data!="null"){
+					alert("欢迎"+data+ "回来");
+				}else{
+					var user = prompt("请输入用户名");
+					setCookie("userName",user,7);
+				}
+			}
+			checkCookie();
+		</script>
+	</body>
+</html>

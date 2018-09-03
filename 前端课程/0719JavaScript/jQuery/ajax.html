@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * ajax
+			 * 	1.$.get(url,data,success,datapType)
+			 * 
+			 * 	2.$.post(url,data,success,datapType)	
+			 * 
+			 * 	3.$.ajax(settings)
+			 * 		settings:对象，里面包含前面方法的四个参数
+			 * 
+			 * */
+			$.get("js/province.json",function(res){
+				console.log(res);
+			})
+			
+			//post不能够请求本地模拟的数据
+//			$.post("js/area.json",function(){
+//				console.log(res);
+//			})
+			
+			var baseUrl = "https://easy-mock.com/mock/5b7bc59b50a6182006a198f3/018test";
+			$.ajax({
+				"type":"post",
+				"url":baseUrl+"/lunbotu",
+				"success":function(res){
+					console.log(res);
+					//Object.keys()可以把键名提取出来，返回一个数组
+					var arr = Object.keys(res.data);
+					console.log(arr);
+					for(var i=0;i<arr.length;i++){
+						var img = $("<img>");
+						img.prop("src",res.data[arr[i]]);
+						$("body").append(img);
+					}
+				}
+			})
+			
+			$.ajax({
+				type:"post",
+//				data:{
+//					name:"小明",
+//					grade:"118"
+//				},
+				url:baseUrl+"/test?name=小白&grade=123",
+				"success":function(res){
+					console.log(res)
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,body,.app{
+				height: 100%;
+			}
+			.app{
+				overflow-y: scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app" @scroll.passive="scroll">
+			{{content}}
+			<div class="test" @click="test">
+				我是用来测试修饰符的
+				<p v-html="content" @click.stop="changCont('123',$event)"></p>
+			</div>
+			<img v-bind:src="src" v-bind:title="titl"/>
+			<h1 v-if="isShow" >我是h1标签</h1>
+			<h2 v-show="isShow">我是h2标签</h2>
+			<ul>
+				<li v-for="(item,index) in list">{{index}}--{{item}}</li>
+			</ul>
+			<input type="text" @keydown.enter="ent" />
+			<div class="sc" style="height: 1000px;"></div>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+//			var app = document.querySelector(".app");
+//			app.innerText = "hello world";
+
+			/**
+			 * 1.数据驱动试图（尽量减少DOM操作）
+			 * 
+			 * 2.通过new关键词实例化一个vue对象
+			 * 3.el:代表我们vue实例对象控制的DOM对象范围
+			 * 		值为CSS选择器或者DOM对象
+			 * 4.data:用来存储数据
+			 * 		1.通过{{}}符号来插入到页面（叫插值表达式）
+			 * 
+			 * 	methods:定义方法
+			 * 
+			 * 5.指令：v-html:可以将内容中的标签识别出来
+			 * 		   v-bind:property用于绑定元素属性，property属性名,
+			 * 			可简写为比如：v-bind：title=>:title
+			 * 		   v-on:用来注册事件监听，可简写为@
+			 * 			   比如：v-on:click=>@click
+			 * 		   v-if：用于判断一个结构是否被渲染到页面，判断的条件为true则渲染，
+			 * 			false则不渲染。
+			 * 		   v-show:判断一个结构是否显示在页面，是通过控制CSS的display属性来控制内容的显示隐藏
+			 * 					而v-if是直接移除或插入内容来达到显示隐藏的效果。
+			 * 			v-fo:循环数组或对象
+			 * 				比如：v-for="item in list"
+			 * 				表示循环list数组，并将数组里面的每一个元素赋值给item
+			 * 				v-for="(item,index) in list"
+			 * 					小括号里面的第一个值代表数组里面的元素，
+			 * 					第二个值代表数组元素的下标。
+			 * 	修饰符
+			 * 		.stop:阻止事件冒泡
+			 * 		.prevent：阻止默认事件
+			 * 		.capture:更改事件传递过程为事件捕获。
+			 * 		.self:阻止自身的点击事件
+			 * 		.once:一次事件
+			 * 		.passive 修饰符尤其能够提升移动端的性能
+			 * 按键修饰符
+			 * 		.enter
+			 * 		.tab
+			 * 		.esc
+			 * 		.exact,精确触发指定的一个事件
+			 * 		.space
+			 * 		.up
+			 * 		.down
+			 * 		.left
+			 * 		.right
+			 *  在vue中this的指向始终指向vue实例对象，除非手动更改.
+			 * 	vue中同样有事件对象
+			 * 	   1.如果调用函数没有传参，则可以直接使用事件对象
+			 * 		2.如果调用函数有传参，那么事件对象需要通过$event来传入。
+			 * 
+			 * 
+			 * 原生更改事件传递过程为事件捕获
+			 * 	addEventListener(eventType,callbakc,bool)
+			 * 	bool:用于设置事件传递过程，值为true，则为事件捕获
+			 * 		 false：事件冒泡（默认值 ）
+			 * */
+			var vm = new Vue({
+				el:'.app',
+				data:{
+					content:'<h1>hello world!</h1>',
+					src:"img/ft3.png",
+					titl:"QQ",
+					isShow:false,
+					list:[
+						"123456",
+						"6789"
+					],
+					objList:{
+						"name":"小明",
+						"sex":"nan",
+						"age":"18"
+					}
+				},
+				methods:{
+					changCont:function(index,e){
+						this.content = "goobye world!";
+						this.isShow = true;
+						console.log(e)
+						alert("我是子元素的点击事件")
+					},
+					test:function(){
+						alert("我是父级元素的点击事件")
+					},
+					scroll:function(){
+						console.log(132);
+					},
+					ent:function(){
+						console.log("asasadas")
+					}
+				}
+			})
+//			setTimeout(function(){
+//				vm.content="goodbye world!"
+//			},1000)
+			
+		</script>
+	</body>
+</html>

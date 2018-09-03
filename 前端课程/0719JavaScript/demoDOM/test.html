@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			i{
+				font-style: normal;
+				font-size: 12px;
+				transition: all 1s;
+			}
+			.test2{
+				font-size: 70px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test">
+			<p>第1段话</p>
+			<p>第2段话</p>
+			<p>第3段话</p>
+			<p>第4段话</p>
+			<p>第5段话</p>
+		</div>
+		<i>JavaScript</i>
+		
+		
+		<script type="text/javascript">
+			var test =document.getElementsByTagName("div")[0];
+			setInterval(function(){
+				var test1 = document.getElementsByTagName("p");
+				test.appendChild(test1[0]);
+			},1000);
+			
+			var pEle = document.querySelector("i");
+			setInterval(function(){
+				pEle.classList.toggle("test2");				
+			},1000)
+		</script>
+	</body>
+</html>

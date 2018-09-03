@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 *  布尔值对象（Boolean）
+			 * 	默认为false，可以传入true或false或其他值
+			 * 
+			 * 	方法：
+			 * 	valueOf()，返回布尔值的原始值
+			 * 	toString（），返回字符串类型的布尔值
+			 * */
+			var bool = new Boolean();
+			console.log(bool.valueOf());//false
+			var bool = new Boolean(true);
+			console.log(bool.valueOf());//true
+			var bool = new Boolean(null);
+			console.log(bool.toString());//false
+			console.log(typeof(bool));//object
+		</script>
+	</body>
+</html>

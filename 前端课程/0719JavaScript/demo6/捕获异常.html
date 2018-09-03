@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * try{
+			 * 	书写需要检测的代码
+			 * 	}catch（e）{
+			 * 	e代表当try语句中代码发生错误的时候，传递过来的参数
+			 * 	书写返回的错误
+			 * }
+			 * 
+			 * */
+//			try{
+//				//var str = "789";
+//				console.log(str);
+//			}catch(e){
+//				//自定义代码错误提示
+//				var err = e.message;
+//				var txt ="你的代码有误：";
+//				alert(txt+err);
+//			}
+			
+			function test () {
+				var num = prompt("请输入一个大于3的数");
+				try{
+					/**
+					 * 空字符串用于判断的时候会自动转换为数值0（另一个值为数值的情况下 ）
+					 * 所以需要把if(num=="")这个判断放到最前面
+					 * */
+					if(num == "") {throw "你没有输入数字";}
+					if(num ==null){ throw "你取消了";}
+					if(num <=3) {throw "请输入一个大于3的数";}
+					if(isNaN(num)) {throw "你输入的不是数字";}
+				}catch(e){
+					var txt ="你的代码有误：";
+					alert(txt+e);
+				}
+			}
+			test();
+		</script>
+	</body>
+</html>

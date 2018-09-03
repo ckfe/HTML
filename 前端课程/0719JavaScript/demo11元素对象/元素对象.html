@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.heig{
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				border: 2px solid black;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<div class="test" name="1">我是第1个div</div>
+			<div class="test" name="2">我是第2个div</div>
+			<div class="test" name="3">我是第3个div</div>
+		</div>
+		<input type="text" id="age"/>
+		<input type="checkbox"  id="check" checked="checked" />
+		
+		<div class="heig">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			/**
+			 * 插入新的元素
+			 * element.insertBefore(new,old)
+			 * new表示需要插入的新元素
+			 * old表示新元素要在old这个老元素之前插入。
+			 * */
+			var div = document.createElement("div");
+			var web = document.querySelector(".web");
+			var test = web.querySelectorAll(".test");
+			web.insertBefore(div,test[1]);
+			
+			
+			/*
+			 * removeAttribute()，移除指定的元素属性，没有返回值
+			 * 
+			 * removeAttributeNode(),移除属性节点，返回值为该属性节点。
+			 * 
+			 * */
+			
+			test[0].removeAttribute("name");//undefined
+			var att = document.createAttribute("id");
+			att.value="3";
+			test[2].setAttributeNode(att);
+			test[2].removeAttributeNode(att);
+			
+			/**
+			 * ele.removeChild:通过父元素移除子元素
+			 * 
+			 * ele.remove();移除元素本身
+			 * */
+			web.removeChild(test[1]);
+			//test[0].remove();
+			/**
+			 * replaceChild(new,old)替换元素
+			 * */
+			//创建一个标签
+			var p = document.createElement("p");
+			p.innerText = "我是p标签";
+			web.replaceChild(p,test[2]);
+			/**
+			 * ele.lastChild，获取元素最后一个子节点
+			 * ele.nextSibling 获取到元素的下一个兄弟节点
+			 * ele.parentNode 获取到元素的父节点
+			 * */
+			console.log(web.lastChild);
+			console.log(test[0].nextSibling);
+			console.log(test[0].parentNode);
+			
+			var inp =document.querySelector("#age");
+			inp.focus();//获取得焦点
+			//inp.blur();失去焦点
+			/**
+			 * getAttribute（）
+			 * 获取元素的属性值，这个值只有在HTML结构上写了，才能够获取到。
+			 * */
+			var inp2 = document.querySelector("#check");
+			console.log(check.getAttribute("checked"));
+			
+			/**
+			 * scrollWidth,scrollHeight获取元素的宽高，不包括边框
+			 * */
+			var heig = document.querySelector(".heig");
+			console.log(heig.scrollWidth);
+			console.log(heig.scrollHeight);
+			
+			heig.addEventListener("scroll",function(){
+				console.log(heig.scrollLeft);
+				console.log(heig.scrollTop);
+			})
+			
+			//添加一个元素到HTML结构
+			//1.document.createElement()
+			//2.innerHTML
+			
+//			var txt = "<table border='1' cellspacing='' cellpadding=''><tr><th>Header</th></tr><tr><td>Data</td></tr></table>"
+			var txt =`<table border="" cellspacing="" cellpadding="">
+						<tr><th>Header</th></tr>
+						<tr><td>Data</td></tr>
+					</table>`;
+			document.body.innerHTML = txt;
+		
+			
+		</script>
+	</body>
+</html>

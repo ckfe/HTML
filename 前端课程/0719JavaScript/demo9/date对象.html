@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<script type="text/javascript">
+			/**
+			 * Date()对象
+			 * */
+			
+			/**
+			 * 定时器
+			 * setTimeout（callback,time）;
+			 * callbakc:回调函数，定义我们需要做的事情
+			 * time：定义毫秒数
+			 * setTimeout指在time毫秒后来执行callback这个回调函数
+			 * 
+			 * setInterval（callback,time）;
+			 * 	 setInterval（）方法表示，每隔time毫秒执行一次callback函数。
+			 * 
+			 * 
+			 * 清除定时器：
+			 */
+			var  times=setTimeout(function(){
+				alert("恭喜你");
+				clearTimeout(times);
+			},3000);
+			
+			var  i =0;
+			var timer=setInterval(function(){
+				i++;
+				if(i>10){
+					clearInterval(timer);
+				}
+				console.log("恭喜你");
+			},1000)
+			
+			
+			//倒计时
+			//拿到h1标签
+			var h1=document.querySelector("h1");
+			var j =5;
+			var time=setInterval(function(){
+				//document.write(j);
+				//向h1标签添加文本
+				h1.innerText = j;
+				j--;
+				if(j<0){
+					clearInterval(time);
+				}
+			},1000)
+		</script>
+	</body>
+</html>

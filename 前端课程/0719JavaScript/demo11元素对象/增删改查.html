@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" class="userInfo" placeholder="请输入学号" />
+		<input type="text" class="userInfo" placeholder="请输入姓名" />
+		<input type="text" class="userInfo" placeholder="请输入性别" />
+		<input type="number" class="userInfo" placeholder="请输入班级" />
+		<input type="button" class="add" value="添加" />
+		<input type="text" class="search" placeholder="请输入搜索内容" />
+		<!--根据姓名搜索-->
+		<input type="button" class="searchBtn" value="搜索" />
+		<!--根据学号排序-->
+		<input type="button" class="sortBtn" value="排序" />
+		<table border="" width="600">
+			<tr><th>学号</th><th>姓名</th><th>性别</th><th>班级</th><th>操作</th></tr>
+		</table>
+		
+		<script type="text/javascript">
+			//添加条目
+			function getInfo(){
+				var inp = document.querySelectorAll(".userInfo"),
+					num = inp[0].value,
+					name = inp[1].value,
+					sex = inp[2].value,
+					clas = inp[3].value;
+					if(num=="" || name =="" || sex == ""||clas==""){
+						alert("请输入完整的信息");
+						return "";
+					}
+				//var tr = "<tr><td>"+num+"</td><td>"+name+"</td><td>"+sex+"</td><td>"+clas+"</td></tr>";
+				var tr =`
+						<tr>
+							<td>${num}</td>
+							<td>${name}</td>
+							<td>${sex}</td>
+							<td>${clas}</td>
+							<td align="center" ><button class="del">删除</button><button class="change">修改</button><button class="conf">确认修改</button></td>
+						</tr>
+					`
+				return tr;
+			}
+			var add =document.querySelector(".add");
+			var tab = document.querySelector("table");
+			add.addEventListener("click",function(){
+				//添加内容
+				tab.innerHTML += getInfo();
+				
+				//删除内容
+				var del = document.getElementsByClassName("del");
+				for(var i=0;i<del.length;i++){
+					del[i].addEventListener("click",function(){
+						this.parentNode.parentNode.remove();
+					})
+				}
+				change();//调用修改的函数
+			})
+			
+			function change(){
+				var cha = document.getElementsByClassName("change");
+				var conChange = document.getElementsByClassName("conf");
+				var leng = cha.length;
+				var conLeng = conChange.length;
+				//修改
+				for(var i=0;i<leng;i++){
+					cha[i].addEventListener("click",function(){
+						var atd = this.parentNode.parentNode.children;
+						var leng = atd.length-1;
+						for(var j=0;j<leng;j++){
+							atd[j].contentEditable = true;
+						}
+						atd[0].focus();
+					})
+				}
+				
+				//确认修改
+				for(var k=0;k<conLeng;k++){
+					conChange[k].addEventListener("click",function(){
+						var ttd = this.parentNode.parentNode.children;
+						var leng =ttd.length-1;
+						for(var j=0;j<leng;j++){
+							ttd[j].contentEditable = false;
+						}
+					})
+				}
+			}
+			
+			//搜索（根据姓名进行搜索）
+			function search(){
+				var searB = document.querySelector(".searBtn");
+				searB.addEventListener("click",function(){
+					var searVa = document.querySelector(".sea").value;
+					//trim()去除字符串前后空格
+					searVa = searVa.trim();
+					var tr = document.querySelectorAll("table tr");
+					var leng = tr.length;
+					var check = false;
+					for(var i=1;i<leng;i++){
+						if(searVa == tr[i].children[1].innerText){
+							tr[i].style.background = "#00BFFF";
+							check = true;
+						}else{
+							tr[i].style.background = "#fff";
+							
+						}
+					}
+					if(check == false){
+						alert("您搜索的内容不存在");
+					}
+				})
+			}
+			search();//调用查询的函数
+			
+			
+			//排序（根据学号来排序）
+			function sortNum(){
+				var tb = document.querySelector("table");
+				var sortBtn  = document.querySelector(".sortBtn");
+				sortBtn.addEventListener("click",function(){
+					var arr = [];
+					var tr = document.querySelectorAll("table tr");
+					var trL = tr.length;
+					for(var i=1;i<trL;i++){
+						arr.push(tr[i]);
+					}
+					for(var j=0;j<trL-1;j++){
+						for(var k=0;k<trL-1;k++){
+							var num1 = parseInt(arr[j].children[0].innerText);
+							var num2 = parseInt(arr[k].children[0].innerText);
+							if(num1<num2){
+								var tem = arr[k];
+								arr[k]=arr[j];
+								arr[j]=tem;
+							}
+						}
+					}
+					//将排序好的tr数组，重新渲染到页面。
+					for(var k=0;k<trL-1;k++){
+						tb.appendChild(arr[k]);
+					}
+				})
+			}
+			sortNum();
+			
+			
+		</script>
+		
+	</body>
+</html>

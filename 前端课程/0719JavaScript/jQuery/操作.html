@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li><a>首页1</a></li>
+			<li><a>首页2</a></li>
+			<li><a>首页3</a></li>
+			<li><a>首页4</a></li>
+		</ul>
+		<p>我是p标签</p>
+		<div class="test">我是div</div>
+		<div class="one">
+			<div class="two">我是dasd</div>
+		</div>
+		<h2>
+			<span>1</span><span>2</span>
+		</h2>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * clone(bool,deepBool):克隆
+			 * bool：（默认为false）表示是否会复制元素上的事件处理函数
+			 * deepBool:默认和第一个参数相同，是否克隆子元素上的动态数据
+			 * 
+			 * 因此：clone（true）=》clone（true，true）
+			 * 		clone（false）=》clone（false，false）=》clone（）
+			 * 		clone（true，false）=》可以复制事件，但不能复制动态数据
+			 * */
+			$("li:first a").on("click",function(){
+				$("li:first a").data("id","1");
+				console.log($("li:first a").data("id"));
+			})
+			var firsr_clone = $("li:first").clone();
+			$("ul").append(firsr_clone);
+//			console.log(firsr_clone.find("a").data("id"));
+//			console.log($("li:first a").data("id"));
+			
+			var firsr_clone1 = $("li:first").clone(true);
+			$("ul").append(firsr_clone1);
+			//console.log(firsr_clone1.find("a").data("id"));
+			
+			/**
+			 * oldEle.wrap(newEle)
+			 * 用newEle元素包裹oldEle元素
+			 * 
+			 * wrapAll(newEle)
+			 * 获取到的jq对象集合用一个newEle元素包裹起来
+			 * 
+			 * oldEle.wrapInner(newEle)
+			 * 用newEle元素插入oldEle元素里面
+			 * oldEle原来的子元素成为newEle的子元素
+			 * */
+			$("p").wrap($("<div>"));
+			
+			$("li").wrapAll($("<div>"));
+			
+			$("li").wrapInner($("<span>"));
+			
+			/**
+			 * append(newE)
+			 * 将newE插入到oldE元素里面最后面
+			 * 
+			 * newE,appendTo(oldE)
+			 * 将newE插入到oldE元素里面最后面
+			 * 
+			 * prepend（）,将内容插入到元素里面的最前面
+			 * prependTo(),将内容插入到元素里面的最前面
+			 * */
+			$("p").append($("<span>"));
+			$("<i>").appendTo($("p"));
+			
+			$("p").prepend($("<em>"));
+			/**
+			 * html(),获取或者设置元素的内容
+			 * 识别标签
+			 * text（）,获取或者设置元素的内容
+			 * 不识别标签
+			 * */
+			console.log($("p").html());
+			$("i").html("我是i标签");
+			$("i").text("我是xxxx");
+			
+			
+			/**
+			 * after（），将元素插入到目标元素的后面
+			 * before()将元素插入到目标元素的前面
+			 * 
+			 * insertAfter()和after功能相同，语法不同
+		     */
+			$("p").after($("<p>"));
+			$("p").before($("<p>"));
+			
+			$("<div>我插入到了p标签后面</div>").insertAfter($("p"));
+			
+			/**
+			 * detach()移除目标元素，并返回该元素
+			 * */
+			$(".test").detach();
+			//删除匹配到的第一li元素
+			$("li").detach("li:nth-child(1)");
+			
+			//empty()删除目标元素的所有子节点
+			$("ul").empty();
+			
+			//remove()移除目标元素，数据和事件都会删除掉（detach不会）
+			$("p:nth-of-type(1)").remove();
+			//unwrap()删除父级元素，保留自身和兄弟。
+			$(".two").unwrap();
+			//替换所有目标元素
+			$("<h1>123</h1>").replaceAll($(".two"));
+			//替换所有目标元素
+			$("h1").replaceWith($("<div>我又sdsa</div>"))
+			//事件代理
+			
+			/**
+			 * on（type,target,func）
+			 * type:事件类型
+			 * target：点击的目标元素
+			 * func：回调函数
+			 * */
+			$("h2").on("click","span",function(){
+				console.log($(this));
+			})
+		</script>
+	</body>
+</html>

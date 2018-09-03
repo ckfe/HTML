@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<test v-model="msg" @inp="getData"></test>
+			<p>{{msg}}</p>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 组件中实现表单的双向绑定
+			 * 	1.将父组件中的数据传递给子组件
+			 * 	2.监听子组件的input事件，将子组件中的数据传递给父组件
+			 * 	3.父组件中接受子组件中传递过来的参数，然后将数据赋值给绑定的变量。
+			 * 
+			 * 注意：
+			 * 	1.如果组件中有表单元素，则需要将父组件中传过来的数据用value这个参数来接收
+			 * 	2.模板中字符串的拼接问题
+			 * */
+			Vue.component("test",{
+				//如果组件中有表单元素，则需要将父组件中传过来的数据用value这个参数来接收
+				props:["value"],
+				template:"<input :value='value' @input='$emit(`inp`,$event.target.value)'/>",
+				
+			})
+			new Vue({
+				el:".app",
+				data:{
+					msg:"123"
+				},
+				methods:{
+					getData:function(res){
+						this.msg = res;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

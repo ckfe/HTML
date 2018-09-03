@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				background: #00BFFF;
+				transition: all 1s;
+			}
+			.test{
+				width: 100px;
+				height: 100px;
+				background: #00BFFF;
+			}
+			.test2{
+				width: 100px;
+				height: 100px;
+				background: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one"></div>
+		<div class="test"></div>
+		<div class="test2"></div>
+		<script type="text/javascript">
+			
+				var one = document.querySelector(".one");
+				var cli = true;
+				one.addEventListener("click",function(){
+					if(cli == true){
+						one.style.transform += "translateX(20px)";
+						cli=false;
+					}
+					one.addEventListener("transitionend",function(){
+						cli = true;
+					})
+					
+				})
+				
+				
+				/**
+				 * 添加事件监听
+				 * 	1.addEventListener()
+				 * 		可以注册多个事件监听
+				 * 		可以传入第三个参数，用来设置事件传递方法
+				 * 		值为true，则为捕获过程
+				 * 		值为false（默认值），则为冒泡过程
+				 * 	2.on~ 比如单击事件 onclick
+				 * 		只能注册一个相同类型的事件监听
+				 * 		后面的点击事件会覆盖前面的点击事件监听
+				 * */
+				
+				var test1 = document.querySelector(".test");
+				var test2 = document.querySelector(".test2");
+				test1.onclick = function(e){
+					//阻止事件捕获
+					e.stopPropagation();
+					console.log(e);
+					console.log("我是test");
+				}
+				test2.addEventListener("click",function(e){
+					console.log(e);
+					console.log("我是test2");
+				})
+				document.addEventListener("contextmenu",function(e){
+					//阻止默认事件
+					e.preventDefault();
+					console.log("3333333");
+				})
+		</script>
+	</body>
+</html>

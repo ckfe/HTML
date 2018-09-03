@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test {
+				width: 200px;
+				height: 200px;
+				background: skyblue;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="menu">菜单</p>
+		<div class="test" id="content">内容</div>
+		<p onclick="alert('hello，world!')">点击我弹出一个提示语</p>
+		<script>
+			//找到菜单，鼠标放到菜单上找到类名叫test的div
+			//给这个div添加一个style属性把display值变为block
+
+			//document getElementById
+			document.getElementById("menu").onmouseover = function() {
+				document.getElementById("content").style.display = "block"
+			}
+			/*
+			 *JavaScript是1995年产生的。
+			 * 
+			 * JavaScript是弱类型脚本语言
+			 * 		同一个变量可以改变其数据类型。
+			 * 		比如：变量Y一开始为数值类型，可以更改为字符串类型
+			 * 		
+			 * 		相反强类型语言的变量的数据类型是不可变的，比如：Java，c
+			 * 		
+			 * y=3+2=5;
+			 * 数学中Y代表的是未知数。
+			 * JavaScript中代表这个Y就代表一个变量，等号叫赋值运算符。
+			 * y=5;
+			 * y="文字"
+			 * 
+			 * 在JavaScript中像上面的"文字"用双引号括起来的东西叫字符串。
+			 * 
+			 * 
+			 * JavaScript由三个部分构成
+			 * 			ECMAScript：描述了JavaScript的核心语法
+			 * 			DOM(document object model)即文档对象模型，用来操作HTML文档
+			 * 			BOM(browser object model)即浏览器对象模型，用来操作浏览器。
+			 *
+			 * */
+
+			/*
+			 *怎么将JavaScript应用到网页中
+			 * 
+			 * 1.通过script标签插入到网页中，在script标签中来书写JavaScript代码。
+			 * 		可以插入head标签中或者body结束标签前面，一般建议把script标签插入到body结束标签前面。
+			 * 2.把JavaScript代码直接插入到标签中。
+			 * 
+			 * 3.通过script标签的src属性引入外部js脚本
+			 * */
+			/*
+			 * JavaScript的核心语法
+			 * 	1.变量的声明
+			 * 		通过关键字var来声明变量，语法：
+			 * 			var 变量名 =值;
+			 * 	在JavaScript中分号代表一句话的结束，是可选的，
+			 *  建议写上分号
+			 *  
+			 * 
+			 * 	变量的命名规则
+			 * 	1.第一个字符必须是字母、下划线、$
+			 * 	2.变量名中间不能使用空格或者其他特殊符号（下划线和美元符除外）
+			 * 	3.变量名区分大小写
+			 * 	4.不能使用关键字或保留字
+			 * */
+			var num = 1;
+			num = "文字";
+			/*
+			 *怎么在网页中查看声明变量的值
+			 * 1.alert（）；弹窗
+			 * 2.document.write();写入网页中
+			 * 3.console.log();将内容打印在浏览器控制台上
+			 * */
+			console.log(num);
+			document.write(num);
+			
+//			var -str ="123";
+//			console.log(-str); Uncaught SyntaxError语法错误
+			var _str = "789";
+			console.log(_str);
+			
+			var age ="18";
+			var Age ="19";
+			console.log(age,Age);
+			
+			var age = 18, sex="nan",userName="chaoren";
+			console.log(age,sex,userName);
+		</script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

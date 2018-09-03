@@ -1,0 +1,94 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.web{
+	width: 1000px;
+	margin: 0 auto;
+}
+header{
+	border-top:24px solid #00b7ee;
+	width: 1000px;
+	height: 516px;
+}
+.nav{
+	width: 1000px;
+	height: 116px;
+	overflow: hidden;
+}
+.nav-logo{
+	float: left;
+	margin:38px 0px 0px 73px;
+}
+.nav ul{
+	float: left;
+	margin: 76px 0px 0px 54px;
+}
+.nav li{
+	float: left;
+	text-align: center;
+	margin-left: 16px;
+}
+.nav li a{
+	font-size:14px;
+	color: #000000;
+}
+.nav li::after{
+	content: "";
+	width: 13px;
+	height: 1px;
+	background: black;
+	margin: 7px auto;
+	display: none;
+}
+.nav li:hover::after{
+	display: block;
+}
+.nav-search{
+	width: 214px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid black;
+	float: right;
+	margin: 68px 76px 0px 0px;
+	/*background: url(../img/t2.png)no-repeat;
+	background-position:181px 4px;*/
+}
+.nav-search input{	
+	vertical-align: middle;
+	border: none;
+	outline: none;
+}
+.nav-search input[type="text"]{
+	height: 27px;
+	padding-left: 5px;
+}
+.nav-search input[type="image"]{
+	/*margin: 4px 7px 0px 0px;*/
+	margin-left: 7px;
+}
+.nav-button{
+	font-size: 0;
+	position: relative;
+	margin-top: -33px;
+	margin-left: 446px;
+}
+.nav-button input{
+	width: 15px;
+	height: 15px;
+	border: 0;
+	margin-left: 12px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.nav-button input:first-child{
+	background: #828282;
+}
+.nav-button input:nth-child(2){
+	background: #395674;
+}
+.nav-button input:nth-child(3){
+	background: #395674;
+}

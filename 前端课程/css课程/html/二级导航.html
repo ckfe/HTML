@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/two.css"/>
+		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_710026_76wx4onmooh.css"/>
+		<style type="text/css">
+			.p1{
+				text-shadow:  2px 2px 5px #000000;
+			}
+			.inc{
+				font-size: 14px;
+				color: deepskyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<i class="iconfont icon-dianhua1 inc"></i>
+			<div class="web">
+			<ul class="clear_fix">
+				<li><a href="#">首页1</a></li>
+				<li>
+					<a href="#">首页2</a>
+					
+					<!--二级导航-->
+					<ul class="two">
+						<li><a href="#">二级导航1</a></li>
+						<li><a href="#">二级导航2</a></li>
+						<li><a href="#">二级导航3</a></li>
+						<li><a href="#">二级导航4</a></li>
+					</ul>
+				</li>
+				<li><a href="#">首页3</a></li>
+				<li><a href="#">首页4</a></li>
+				<li><a href="#">首页5</a></li>
+			</ul>
+		</div>
+		
+		
+		
+		
+		<!--
+			前提是外面的盒子需要position: relative;
+			图片居中方法
+			position：absolute；
+			top:-9999px;
+			left:-9999px;
+			right:-9999px;
+			bottom:-9999px;
+			margin:auto;
+			
+			方法二：
+			position：absolute；
+			top:0px;
+			left:0px;
+			right:0px;
+			bottom:0px;
+			margin:auto;
+		-->
+		
+		<!--
+			文字阴影text-shadow
+			    用四个值分别为水平方向上的偏移量，垂直方向上的偏移量，阴影模糊度，阴影颜色
+		-->
+		<p class="p1">我是p标签</p>
+		
+		
+		<style type="text/css">
+			/*盒子阴影box-shadow:inset外阴影*/
+			.box{
+				width: 100px;
+				height: 100px;
+				box-shadow: inset 3px 3px 3px 5px red,2px 2px 5px 5px blueviolet;
+			}
+		</style>
+		<div class="box"></div>
+		
+		<!--
+			渐变
+			线性渐变：linear-gradient()
+			  第一个值为渐变的方向，可以用方位词来定位，也可以用角度来定义，后面的值为渐变的颜色值，可以有多个颜色。
+			  
+			径向渐变：radial-gradient
+			  圆：第一组值为圆形大小和圆心的x轴和y轴的坐标轴，后面的值为渐变的颜色值
+			  椭圆:第一组值分别为椭圆的x轴焦点距离和y轴的焦点距离，圆心的x轴Y轴的坐标值，后面的值为渐变的颜色值。
+		-->
+		<style type="text/css">
+			.chage{
+				width: 200px;
+				height: 200px;
+				/*background: linear-gradient(to right bottom,red,blue);*/
+				background: linear-gradient(45deg,skyblue,red);
+			}
+			.chage2{
+				width: 200px;
+				height: 200px;
+				background: radial-gradient(circle at 100px 100px,skyblue,pink);
+			}
+		</style>
+		<div class="chage"></div>
+		<div class="chage2"></div>
+	</body>
+</html>

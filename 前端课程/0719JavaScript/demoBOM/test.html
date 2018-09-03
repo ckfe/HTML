@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//window.moveBy(150,150);
+			
+			var str="?username=admin&psw=admin123&sex=0&validity=1";
+			
+			function getString(str){
+					var obj={}; 
+					str=str.slice(1);
+					var arr = str.split("&");
+					var str1,str2;
+					for(var i=0;i<arr.length;i++){
+						str1=arr[i].split("=")[0];
+						str2=arr[i].split("=")[1];
+						console.log(str1,str2);
+						setobj(str1,str2);
+					}
+					function setobj(str1,str2){
+						obj[str1]=str2;
+					}
+					return obj;
+				}
+			   console.log(getString(str));
+			//下面代码请勿更改
+			var objStr = JSON.stringify(getString(str), null, 4);
+			var html = objStr.replace(/\n/g, '<br>').replace(/\s/g, '&nbsp');
+			document.body.innerHTML=html;
+			
+			
+			
+			var obj1 ={
+				"name":"小明",
+				"age":"12"
+			}
+			//以下两种方式同样可以获取到对象的属性值
+			console.log(obj1.name);
+			console.log(obj1["name"]);
+		</script>
+	</body>
+</html>

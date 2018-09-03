@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.menu{
+				width: 200px;
+				margin: 50px auto;
+			}
+			li{
+				width: 100%;
+				height: 35px;
+				border: 1px solid #000;
+				line-height: 35px;
+				padding: 0 10px;
+				box-sizing: border-box;
+				position: relative;
+			}
+			li span:nth-child(1){
+				float: left;
+			}
+			li span:nth-child(2){
+				position: absolute;
+				left: 0;
+				width: 100%;
+				z-index: 1;
+				text-align: right;
+				padding-right: 10px;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="menu">
+			<li><span>职称</span><span>id</span></li>
+		</ul>
+		<script type="text/javascript">
+			var base = "http://120.76.31.111/app/XhlGetSubjectTypeList";
+
+			var  dz = new XMLHttpRequest();//创建http请求
+			dz.open("GET",base);//设置请求地址和方式
+			dz.send(null);//发送请求
+			//监听请求过程
+			dz.addEventListener("readystatechange",function(){
+				if(dz.readyState == 4){
+					if(dz.status==200){
+						var res = JSON.parse(dz.responseText);
+						paiLie(res)
+					}else{
+						console.log("请求失败");
+					}
+				}
+				
+			})
+			var ul = document.querySelector(".menu");
+			function paiLie(res){
+				for(var i=0;i<res.length;i++){
+					//data-自定义元素属性，data是固定格式，data-后面接上自定义属性名
+					var li = "<li class='list' data-id="+res[i].Id+">"+res[i].Name+"</li>"
+//					var li = "<li class='list'><span>"+res[i].Name+"</span><span>"+res[i].Id+"</span></li>"
+					ul.innerHTML += li;
+				}
+//				getId();
+			}
+			
+			//请求第二个地址
+			function getD(typeId){
+				var Url="http://120.76.31.111/app/gettypeexercisesubject?typeId=";
+				var lib =new XMLHttpRequest();
+				lib.open("GET",Url+typeId);
+				lib.send(null);
+				lib.addEventListener("readystatechange",function(){
+					if(lib.readyState == 4){
+						if(lib.status==200){
+							var res = JSON.parse(lib.responseText);
+							console.log(res);
+						}else{
+							console.log("请求失败");
+						}
+					}
+				})
+				
+			}
+			//方法一
+//			function getId(){
+//				var ali = ul.querySelectorAll("li");
+//				for(var i=1;i<ali.length;i++){
+//					ali[i].addEventListener("click",function(){
+//						var id = this.children[1].innerText;
+//						getD(id);
+//					})
+//				}
+//			}
+			
+			//方法二,事件代理
+			ul.addEventListener("click",function(e){
+				var id = e.target.getAttribute("data-id");
+				getD(id);
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,155 +1,165 @@
 *{
 	margin: 0px;
 	padding: 0px;
+	text-decoration: none;
+	list-style: none;
+}
+a{
+	color: #000000;
 }
 #entirety{
 	width: 100%;
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
+	min-width: 1200px;
 }
-header{
-	width: 100%;
-	height: 55px;
-}
-.head-main{
-	width: 1000px;
-	height: 55px;
-	margin: 0px auto;
-}
-.head-main-logo{
-	width: 135px;
-	height: 50px;
-	float: left;
-	
-}
-.head-main-logo a{
-	display: inline-block;
-	margin-top: 5px;
-	width: 133px;
-	height: 44px;
-	background: url("https://nie.res.netease.com/comm/nie.topBar/images/logo_b5525b7.png")no-repeat;
-}
-.head-main-logo2{
-	width: 420px;
-	height: 56px;
-	float: left;
-	margin-left: 8px;
-}
-.head-main-logo2 img{
-	width: 420px;
-	height: 55px;
-}
-.head-main-menu{
-	float: left;
-	margin-left: 60px;
-}
-.head-main-menu ul{
-	list-style: none;
-	display: block;
-	height: 52px;
-}
-.head-main-menu li{
-	display: inline;
-	line-height: 51px;
-	margin-left: 17px;
-	
-}
-li:nth-child(3) a{
-	color: #bc2e2e;
-}
-.head-main-menu a{
-	text-decoration: none;
-	font-size: 12px;
-	font-family: "微软雅黑";
-	color: #333;
-}
+
 section{
-	margin: 0px;
-	padding: 0px;
-	display: inline-block;
 	width: 100%;
 	height: 1104px;
 	background: url("https://xyq.res.netease.com/qt/2015/0505_reg/images/bg_fbc10eb.jpg")no-repeat;
 	background-position: center;
 	background-position-y:top;
 }
-section{
-	float: left;
-	margin-left: 0px;
-	margin-top: 0px;
-}
 article{
 	width: 877px;
 	height: 780px;
-	padding-left: 123px;
-    margin: 220px auto;
+	margin: 0 auto;
+	padding-top: 225px;	
+	/*padding-left:153px;*/
 }
-.section-form{
-	float: left;
-	margin-top: 18px;
-	margin-left: 30px;
+.section-dw{
+	width: 265px;
+	height: 44px;
+	margin: 22px 0px 0px 157px;
 }
-.section-form table{
-	width: 210px;
-	height: 280px;
+.section-dw span{
+	font-size: 24px;
+	font-family: "微软雅黑";
+	color: red;
+}
+.section-dw a{
+	width: 96px;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+    text-align: center;
+    color: #fff;
+    background-color: #ff7366;
+    font-size: 16px;
+    border-radius: 20px;
+    font-family: "微软雅黑";
 }
 .section-reg{
 	width: 262px;
-	height: 35px;
-	margin: 10px 0px 0px 25px;
-}
-.section-form-uname{
-	font-size: 24px;
-	color:red;
-	width: 171px;
+	height: 166px;
+	margin: 6px 0px 0px 97px;
 	font-family: "微软雅黑";
-	border: 0;
-	outline: none;
+	
 }
-.section-form-dw{
-	border: 0;
-	outline: none;
-	width: 96px;
-	height: 30px;
-	background:#ff7366;
-	font-family: "微软雅黑";
-	border-radius: 20px;
-	color: white;
-	font-size: 16px;
-	text-align: center;
-	cursor: pointer;
+.section-reg input{
+	left: 0px;
+	display: block;
+	padding-left: 8px;
+	width: 252px;
+    height: 42px;
+    line-height: 41px;
+    border: 0.5px solid #CCCCCC;
+    font: 14px/1.14 "Microsoft YaHei","微软雅黑","宋体",helvetica,"Hiragino Sans GB";
 }
-.section-form-email{
+.reg{
+	display: block;
+    width: 100%;
+    margin-top: 14px;
+    height: 44px;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    background: #ff7366;
+    font-size: 18px;
+    line-height: 44px;
+}
+.section-reg-psw{
+	margin-top: 14px;
+}
+.agree{
 	width: 262px;
-	height: 44px;
+	height: 40px;
+	margin: 10px 0px 0px 99px;
+	font-size: 9px;
 	font-family: "微软雅黑";
-	font-size: 14px;
+	color: #999;
 }
-.section-form-psw{
-	width: 262px;
-	height: 44px;
+.agree a{
+	font-size: 9px;
 	font-family: "微软雅黑";
-	font-size: 14px;
-	
-	
+	color: #999;
 }
-.section-form-reg{
-	width: 262px;
-	height: 48px;
-	background:#ff7366;
-	font-family: "微软雅黑";
-	font-size: 18px;
-	color: white;
-	border: 0;
-	outline: none;
-	
-	
-}
-.section-form-pro{
-	width: 261px;
-	height: 37px;
+.agree a:hover{
 	color: #666;
-	font-family: "微软雅黑";
-	font-size: 12px;
+}
+/*用户同意协议*/
+#check{
+	display: none;
+}
+.agree span{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #aaa;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.agree span::before{  /*::before伪对象，相当于向HTML结构中动态添加的行内元素*/
+	content: "";
+	width: 6px;
+	height: 2px;
+	background: lawngreen;
+	/*旋转*/
+	transform: rotate(45deg);
+	float: left;
+	margin-top: 7px;
+	margin-left: 1px;
+	display: none;
+}
+.agree span::after{  /*::before伪对象，相当于向HTML结构中动态添加的行内元素*/
+	content: "";
+	width: 11px;
+	height: 2px;
+	background: lawngreen;
+	display: none;
+	/*旋转*/
+	transform: rotate(-45deg);
+	float: right;
+	margin-top: -4px;
+}
+#check:checked ~label span::after,#check:checked ~label span::before{
+	display: inline-block;
+}
+
+
+.section-link{
+	position: absolute;
+	top:965px;
+}
+.section-link a{
+	position: absolute;
+    width: 180px;
+    height: 49px;
+    background: url("../img/spr (1).jpg")no-repeat 0 -61px;
+}
+.a1{
+	left: 305px;
+}
+.section-link .a2{
+	left: 515px;
+    background-position: -200px -61px;
+}
+.section-link .a2:hover{
+	background-position: -620px -61px;
+}
+.section-link .a1:hover{
+	background-position: -420px -61px;
 }

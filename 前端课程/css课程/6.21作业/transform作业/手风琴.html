@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			.web{
+				width: 700px;
+				height: 800px;
+				margin: 0 auto;
+			}
+			#left dt{
+			  width: 200px;
+			  height: 30px;
+			  background: gray;
+			  text-align: center;
+			  line-height: 30PX;
+			 
+			}
+			#left dd{
+				width: 200px;
+			  	height: 0px;
+			  	background: cadetblue;
+			  	line-height: 30PX;
+				text-align: center;
+				transform: scaleY(0);
+				transition-property: transform;
+				transition-duration: 0.1s;
+				transition-delay: 100ms;
+				
+			}
+			#left> #left1 dt:hover~dd{
+				height: 30px;
+				transform: scaleY(1);
+				transition-property: transform;
+				transition-duration: 0.1s;
+				transition-delay: 100ms;
+			}
+			#left> #left2 dt:hover~dd{
+				height: 30px;
+				transform: scaleY(1);
+				transition-property: transform;
+				transition-duration: 0.1s;
+				transition-delay: 100ms;
+			}
+			#left> #left3 dt:hover~dd{
+				height: 30px;
+				transform: scaleY(1);
+				transition-property: transform;
+				transition-duration: 0.1s;
+				transition-delay: 100ms;
+			}
+			#left> #left4 dt:hover~dd{
+				height: 30px;
+				transform: scaleY(1);
+				transition-property: transform;
+				transition-duration: 0.1s;
+				transition-delay: 100ms;
+			}
+			
+			.right{
+				margin-left: 300px;
+			}
+			.right input{
+				font-style: normal;
+				display: none;
+			}
+			.right li{
+				display: block;
+			}
+			.right li span{
+				width: 200px;
+				height: 30px;
+				background: gray;
+				text-align: center;
+				display: block;
+				line-height: 30px;
+			}
+			.right2 li{
+				text-align: center;
+				width: 200px;
+				height: 0px;
+				background: white;
+				line-height: 30px;
+				overflow: hidden;
+				transition: 0.5s;
+			}
+			
+			input:nth-child(1):checked ~ .right2 li{
+				height: 30px;
+			
+			}
+				input:nth-child(2):checked ~ .right2 li{
+				height: 30px;
+			
+			}
+				input:nth-child(3):checked ~ .right2 li{
+				height: 30px;
+				
+			}
+				input:nth-child(4):checked ~ .right2 li{
+				height: 30px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+				<div id="left">
+				      <dl id="left1">
+					    <dt><a href="#">洋魔坊保障</a></dt>
+					   	<dd>申请支付宝</dd>
+						<dd>申请支付宝</dd>
+					  </dl>
+					   <dl id="left2">
+					    <dt><a href="#">新手帮助</a></dt>
+					    <dd>咨询</dd>
+						<dd>投诉</dd>
+						<dd>举报</dd>
+						<dd>退款</dd>
+					  </dl>
+					  <dl id="left3">
+					    <dt><a href="#">支付方式</a></dt>
+					    <dd>安全中心</dd>
+						<dd>物流中心</dd>
+			            <dd>资金流动</dd>
+						<dd>纠纷处理</dd>
+					  </dl>
+					   <dl id="left4">
+					    <dt><a href="#">商家支持</a></dt>
+					    <dd>资金流动</dd>
+					    <dd>纠纷处理</dd>
+					   </dl>
+				</div>
+				
+				
+				
+				<div class="right">
+					<ul>
+						<li>
+							<input type="radio"  id="right1" name="nav"/>
+							<label for="right1"><span>洋魔坊保障</span></label>
+							<ul class="right2">
+								<li><a href="#">申请支付宝</a></li>
+								<li><a href="#">申请支付宝</a></li>
+							</ul>
+						</li>
+						<li>
+							<input type="radio" id="right2" name="nav"/>
+							<label for="right2"><span>新手帮助</span></label>
+							<ul class="right2">
+								<li><a href="#">申请支付宝</a></li>
+								<li><a href="#">申请支付宝</a></li>
+							</ul>
+						</li>
+						<li>
+							<input type="radio" id="right3"name="nav"/>
+							<label for="right3"><span>支付方式</span></label>
+							<ul class="right2">
+								<li><a href="#">申请支付宝</a></li>
+								<li><a href="#">申请支付宝</a></li>
+							</ul>
+						</li>
+						<li>
+							<input type="radio" id="right4"name="nav"/>
+							<label for="right4"><span>商家支持</span></label>
+							<ul class="right2">
+								<li><a href="#">申请支付宝</a></li>
+								<li><a href="#">申请支付宝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+		</div>
+	</body>
+</html>

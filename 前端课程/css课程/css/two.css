@@ -1,0 +1,38 @@
+*{
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+/*二级导航*/
+.web{
+	height: 800px;
+}
+.web li{
+	width: 70px;
+	height: 35px;
+	text-align: center;
+   	line-height: 35px;
+   	background: #C0C0C0;
+   	float: left;
+   	position: relative;
+}
+.web a{
+	color: white;
+}
+
+.web li:hover{
+	background: red;
+}
+.two{
+	position: absolute;
+	top: 35px;
+	left: 0;
+}
+.two li{
+	display: none;
+	width: 150px;
+}
+.web li:hover >.two li{
+	display: block;
+}

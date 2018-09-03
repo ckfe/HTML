@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,p{
+				color: red;
+			}
+			.test{
+				background: blue;
+			}
+			.nav>a{
+				font-style: italic;
+			}
+			.nav ul~a{
+				color:yellow;
+			}
+			.nav ul+a{
+				background: #AAEAFA;
+			}
+			/*a标签的四个状态,书写时需按顺序来link》visited》hover》active*/
+			.test2:link{ /*鼠标未点击的状态*/
+				color:#000000;
+			}
+			.test2:visited{ /*鼠标点击后的状态*/
+				color: #008000;
+			}
+			.test2:hover{/*鼠标停上去的状态*/
+				color:#FF0000;
+			}
+			.test2:active{/*鼠标按下的状态*/
+				color: #CCCCCC;
+			}
+			.web div:nth-child(2n){
+				color: red;
+			}
+			.web div:nth-child(2n+1){
+				color: blue;
+			}
+			.web div:first-child{
+				background: skyblue;
+			}
+			.web div:last-child{
+				background: violet;
+			}
+			.web p:nth-of-type(2){
+				color: cornflowerblue;
+			}
+			.text:focus{
+				background:#6495ED;
+			}
+			.cbox:checked ~ img{
+				display: none;
+			}
+			.cbox{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+			css选择符：
+      			群组选择符：用逗号表示，当需要选择到多个不同类型到元素时，可以用群组表示。
+      		关系选择符：
+      			1.包含选择符：用空格表示
+      			2.子选择符：用大于号表示，用于选择到目标元素到直接子元素(只能选到儿子，不能选孙子)
+      			3.兄弟选择符：用一个波浪线“~”来表示，可以用于选择到目标元素的兄弟元素,只能往后选
+      			4.相邻选择符：用一个+号表示，用于选择到目标元素的相邻元素,只能往后选
+      		伪类选择符：
+				:nth-child(n),用来选择目标元素的父级元素的第N个元素
+				:first-child:匹配到父元素的第一个子元素
+				:last-child:匹配到父元素的最后一个子元素
+				
+				:nth-of-type:匹配同类型中的第n个同级兄弟元素。
+				:first-of-type:匹配同类型中的第一个同级兄弟元素。
+				:last-of-type:匹配同类型中的最后一个同级兄弟元素。
+				
+				:focus,当元素获取焦点时发生当样式改变
+				
+		-->
+		
+		<input type="text" class="text" />
+		<input type="checkbox" class="cbox" id="check" />
+		<label for="check"><span>点我切换图片状态</span></label>
+		<img src="img/zhao01.jpg" class="check" />
+		
+		
+		
+		<div class="web">
+			<div>我是第1个div</div>
+			<div>我是第2个div</div>
+			<div>我是第3个div</div>
+			<p>我是第一个P标签</p>
+			<div>我是第4个div</div>
+			<div>我是第5个div</div>
+			<p>我是第二个P标签</p>
+			<div>我是第6个div</div>
+		</div>
+		<a href="zhaopin.html" class="test2">首页</a>
+		<div class="test">我是div</div>
+		<p class="test">我是p标签</p>
+		<div class="nav">
+			<a href="">我是ul外面的a标签</a>
+			<ul>
+				<li><a href="zhaopin.html">首页</a></li>
+			</ul>
+			<a href="">我是ul外面的a标签</a>
+			<a href="">我是ul外面的a标签</a>
+		</div>
+	</body>
+</html>

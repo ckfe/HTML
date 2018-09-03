@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="#top">测试锚点</a>
+		<div class="btn">按钮</div>
+		
+		<form action="" method="get">
+			<input type="text" name="userName" value="123" />
+			<input type="text" name="pw" id="" value="123545" />
+			<input type="submit" id="sub" value="提交" name="" />
+		</form>
+		<!--<div id="sub">获取提交内容</div>-->
+		<script type="text/javascript">
+			/**
+			 * Location对象
+			 * 	用来获取地址栏的信息
+			 * 属性：
+			 * hash：获取锚点信息
+			 * search:获取？后面的内容
+			 * host:获取主机名和端口号
+			 * hostname：返回当前的主机名
+			 * href:返回完整的URL地址
+			 * pathname:返回当前页面的URL路径部分
+			 * port:端口号
+			 * protocol：返回当前的URL协议
+			 * */
+			console.log(location.hash);
+			var btn=document.querySelector(".btn");
+			btn.addEventListener("click",function(){
+				console.log(location.hash);
+			})
+			
+			var sub = document.getElementById("sub");
+			sub.addEventListener("click",function(){
+				console.log(location.search);
+			})
+			
+			console.log(location.host);
+			console.log(location.href);
+			//location.href = "BOM.html";
+			
+		</script>
+	</body>
+</html>

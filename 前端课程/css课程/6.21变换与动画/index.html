@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}
+			.test{
+				width: 100px;
+				height: 100px;
+				background: royalblue;
+				/*transform: translate(30px,30px);*/
+				float: left;
+			}
+			.test:nth-child(odd){
+				background: fuchsia;
+			}
+			.test:first-child{
+				/*margin-left: 30px;*/
+				transform: translateX(30px);
+			}
+			.test:nth-child(1):hover{
+				transform: translate(10px,10px);
+				box-shadow: 0px 3px 5px 1px #000000;
+			}
+			.test:nth-child(2){
+				transform: scale(1);
+			}
+			.test:nth-child(2):hover{
+				transform: scale(0.8);
+			}
+			.test1:hover img{
+				transform: scale(1.5) rotate(45deg);
+				transform-origin: top;
+			}
+			.test1{
+				width: 300px;
+				height: 350px;
+				overflow: hidden;
+			}
+			.test1 img{
+				width: 100%;
+				margin: 0 auto;
+			}
+			.test:nth-child(3){
+				transform: skew(45deg);
+			}
+			.test:nth-child(4){
+				/*transform: rotate(30deg,45deg); 不能同时有两个值*/
+				transform: rotateX(30deg);
+			}
+			.test:nth-child(5):hover{
+				transform:rotate(40deg) skewY(12deg) ;
+			}
+			.test:nth-child(6){
+				transform: translateX(50px) rotate(45deg);
+			}
+			.test:nth-child(6):hover{
+				transform:rotate(45deg) translateX(50px);
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			变换(transform):注意：变换的是坐标轴，而不是元素
+			    1.位移translate（x，y）,x和y分别代表水平方向和垂直方向上的位移。
+			            也可以分开写：translateX()，translateY()；
+			             注意：位移的像素是不占位置的，元素只占自身原有的位置大小。
+			             
+			    2.缩放scale（x,y）,x,y分别代表水平方向和垂直方向上的缩放。
+			            也可以分开写：tscalX()，scalY()；
+			            
+			    3.斜切skew(x,y),x,y分别代表水平方向和垂直方向上的斜切程度
+			    	注意：当skewX或者skewY当值为90度的时候，有些浏览器会出现白屏问题。
+			    	
+			    4.旋转rotate（n）n代表元素旋转的角度
+			    	rotateX（）：环绕着X轴旋转；
+			    	rotateY（）：环绕着Y轴旋转；
+			    
+			    
+			      transform-origin：设置元素变换的中心点位置。
+				    默认值：center。
+				    有两个值：分别为水平向和垂直方向上的缩放中心点，值可以是 方位词，也可以像素值。
+			    
+		-->
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		<div class="test"></div>
+		
+		
+		<div class="test1"><img src="img/04.jpg" alt="" /></div>
+	</body>
+</html>

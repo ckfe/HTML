@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="web">
+			我是web的内容
+			<ul class="L1">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<ul class="L2">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<ul class="L3">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+					</ul>
+				</ul>
+			</ul>
+			<p>12345</p>
+		</div>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * add(ele)：将元素ele添加到目标对象的集合中，和not（）方法相反
+			 * 	ele：选择器
+			 * 	
+			 * contents()：获取到元素的所有子节点，包括文本节点
+			 * 
+			 * 	each(func(index,item))：用于遍历jq对象选中的每一个元素
+			 * 	func(index,item)：回调函数
+			 * 		index：代表遍历对象里面的元素下标值
+			 * 		item：代表遍历对象里面的每一个元素
+			 * 
+			 * 
+			 *  end（）：终止在当前链的最新过滤操作。并返回匹配的元素的以前的状态
+			 * 
+			 * */
+			
+			
+			//addBack()返回目标元素和用来查找他的元素
+			$(".web").find("p").addBack().css({
+				"font-weight":"bold",
+				"margin-top":"50px"
+			});
+			//find（）找到目标元素的所有条件符合的后代元素（即标签相同的元素）
+			console.log($(".web").find("p").addBack());
+			//children()返回目标元素的所有子元素
+			console.log($("ul").children())
+			//next()返回目标元素的下一个兄弟元素
+			console.log($("li:first").next());
+			//nextAll()返回目标元素的后面的所有兄弟元素，不包括自己
+			console.log($("li:first").nextAll());
+			
+			/**
+			 * nextUntil(ele,checkEle);
+			 *  ele：终止条件
+			 * 	checkEle：要匹配的内容
+			 * 	他们都是代表一个选择器
+			 * 
+			 * */
+			$("li:nth-child(2)").nextUntil("li:nth-child(4)","li").css("font-style","oblique")
+			
+			/**
+			 * parent()找到目标元素的父级元素
+			 * parents()找到目标元素的所有祖先元素
+			 * parentsUntil(el,checkEl)
+			 * el：终止条件
+			 * 	checkEl：需要查找的祖宗元素
+			 * 		他们都代表选择器
+			 * */
+			console.log($("li").parent());
+			console.log($("li").parents());
+			
+			console.log($(".L3 li").parentsUntil(".L1","ul"));
+			
+			/**
+			 * prev()查找到目标元素前面的那一个兄弟元素
+			 * 
+			 * */
+			console.log($(".L3 li:nth-child(3)").prev().index());
+			//只找到第三个和第四个li元素
+			console.log($(".L3 li:last-child").prevUntil(".L1 li:nth-child(2)","li"))
+			
+			//找到最后一个元素之前的所有兄弟元素
+			console.log($("li:last-child").prevAll());
+		</script>
+	</body>
+</html>

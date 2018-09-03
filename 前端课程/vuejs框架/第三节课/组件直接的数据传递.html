@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<test1></test1>
+			<test2></test2>
+		</div>		
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 组件直接的数据传递
+			 * 		实例化一个vue对象
+			 * 		在组件中通过实例化的对象调用$emit方法自定义一个事件
+			 * 		在另一个组件中通过实例化的对象调用$on方法接收数据
+			 * 		 $on（event,callback）
+			 * 			event:是$emit中自定义的事件名称
+			 * 			callback:是回调函数，用于接收另一个组件传递过来的数据
+			 * 
+			 * 注意：组件根元素只能有一个：例如<p @click='toOther'>{{content}}</p>
+			 * */
+			var vm = new Vue();
+			Vue.component("test1",{
+				template:"<p @click='toOther'>{{content}}</p>",
+				data:function(){
+					return {
+						content:"组件一"
+					}
+				},
+				methods:{
+					toOther:function(){
+						vm.$emit("receiveData",this.content)
+					}
+				}
+			})
+			Vue.component("test2",{
+				template:"<h2>{{message}}</h2>",
+				data:function(){
+					return {
+						message:"组件二"
+					}
+				},
+				created:function(){
+					var  that = this;
+					vm.$on("receiveData",function(res){
+						//注意这里的this是指向vm这个对象的
+						that.message = res;
+					})
+				}
+			})
+			new Vue({
+				el:".app",
+				data:{
+					msg:"123"
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 100px;
+				height: 100px;
+				background: skyblue;
+			}
+			.chan{
+				width: 100px;
+				height: 100px;
+				background: #00BFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test abc  fff"></div>
+		<div>123</div>
+		<input type="checkbox" checked="checked"/>
+		<input type="text" value="12345" />
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 属性：
+			 * 获取/设置元素属性
+			 * 1.attr(property，value),prop(property,value)
+			 * property:表示属性名
+			 * value:可选，当设置了value值时，表示用来设置该属性。
+			 * attr获取到的属性是写死在HTML结构上的值，
+			 * 		不会随着复选框的状态改变而改变	
+			 * prop()获取到的属性值是动态的，
+			 * 		可以随着复选框的状态改变而改变
+			 * 
+			 * 原生获取动态的复选框状态值，可以用原生对象加checked
+			 * 比如：var inp =inp.checked;
+			 * 
+			 * 2.removeAttr(property)移除元素属性
+			 * 	property表示需要移除的属性
+			 * 
+			 * 3.val()获取表单元素值
+			 * */
+			$("input[type=checkbox]").attr("checked",false);
+			//$("input[type=checkbox]").removeAttr("checked");
+			console.log($("input[type=checkbox]").prop("checked"));
+			$("input[type=checkbox]").change(function(){
+				var inp = $("input[type=checkbox]").attr("checked");
+				var inp1 = $("input[type=checkbox]").prop("checked");
+				console.log(inp,inp1);
+			})
+			$("input[type=checkbox]")[0].onchange = function(){
+				//获取静态属性值
+				var inp = $("input[type=checkbox]")[0].getAttribute("checked");
+				console.log(inp);
+			}
+			$("input[type=checkbox]")[0].onchange = function(){
+				var inp = $("input[type=checkbox]")[0].checked;
+				console.log(inp);
+			}
+			var inpt = $("input[type=text]").val();
+			console.log(inpt);
+			
+			/**
+			 *  val(func)
+			 * 	func:表示回调函数，接收两个参数，返回一个jq对象。
+			 * 	第一个值表示下标值
+			 * 	第二个值表示元素的值
+			 * 		可以设置表单元素的值
+			 * */
+			var inpt1 = $("input[type=text]").val(function(index,value){
+				value = value+1
+				return index+"+"+value;
+			})
+			console.log(inpt1);
+			$("input[type=text]")[0].value += "ass";
+			
+			/**
+			 * addClass（property/func）添加类名
+			 *  property:表示需要添加的类名
+			 *  func：表示回调函数，接收两个参数，返回一个jq对象。
+			 * 		第一个参数表示下标值
+			 * 	          第二个参数表示当前的类名
+			 * */
+			//点击切换类名 
+//			$("div").on("click",function(){
+//				//$(".test").addClass("chan");
+//				$("div").addClass(function(index,currentClass){
+//					console.log(index,currentClass);
+//					var newClass = currentClass == "test"?"chan":"test";
+//					$("div").removeClass(currentClass);
+//					return newClass;
+//				})
+//			})
+			
+			/**
+			 * css()用来设置元素样式
+			 * 
+			 * */
+			//用法一
+			//$(".test").css("background","gray");
+			//用法二
+//			$(".test").css({
+//				"background":"gold",
+//				"opacity":".3"
+//			})
+			
+			//用法三
+			//方法一随机生成所有颜色
+			//var zu = ["a","b","c","d","e","f",1,2,3,4,5,6,7,8,9];
+//			$(".test").css("background",function(){
+//				var res ="";
+//				for(var i=0;i<6;i++){
+//					var num2 = Math.floor(Math.random()*zu.length);
+//					res += zu[num2];
+//				}
+//				return "#"+res;
+//			})
+
+			//方法二
+//			$(".test").css("background",function(){
+//				var res ="";
+//				for(var i=0;i<6;i++){
+//					var num2 = Math.floor(Math.random()*16).toString(16);
+//					res += num2;
+//				}
+//				return "#"+res;
+//			})
+			
+			
+			//用法四
+//			var i = 100;
+//			setInterval(function(){
+//				 i<300?i++:i-=5;
+//				$(".test").css({
+//					"width":function(){
+//						return i+"px";
+//					},
+//					"height":function(){
+//						return i+"px";
+//					}
+//				})
+//			},1000/60)
+			
+			/**
+			 * hasClass()
+			 * 	检查元素是否具有某个类名
+			 * removeClass（）移除某个类名
+			 * 
+			 * */
+//			console.log($("div").hasClass("c"));
+//			//以下写为链式写法
+//			$("div").removeClass("abc fff").addClass("chang");
+//			$("div").removeClass(function(index,classN){
+//				console.log(index,classN);
+//				return classN;
+//			}).addClass("test")
+			
+			/**
+			 * toggleClass()
+			 * 切换类名
+			 * 
+			 * */
+//			$("div").on("click",function(){
+//				$("div").toggleClass("chang abc");
+//			})
+//			
+			
+			$("div").on("click",function(){
+				$("div").toggleClass(function(){
+					return "chang"
+				});
+			})
+		</script>
+	</body>
+</html>

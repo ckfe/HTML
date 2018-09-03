@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 *  面向对象(JavaScript是一门面向对象的编程语言)
+			 * 	什么是对象
+			 * 		对象是一个独立的个体，他有属性和方法。
+			 * 
+			 * 	什么是面向对象？
+			 * 		面向对象是一种编程思想。
+			 * 		
+			 * 		面向过程：比如做一道题，需要分析题目的要求以及已知条件，
+			 * 		根据这些条件进行，一步一步进行编写。
+			 * 
+			 * 		面向对象，是从结果出发，将过程封装在一起，形成一个方法。
+			 * */
+			var str = new String();
+			//JavaScript的设计模式,
+			/**
+			 * 1.字面量对象
+			 * 	优点：简单明了
+			 * 	缺点：不能够复用
+			 * **/
+			var obj={
+				name:"小明",
+				age:"16",
+				skill:function(){
+					console.log("吃");
+				}
+			}
+			
+			/**
+			 *  2.工厂模式
+			 * 
+			 * 		优点：可以批量生产
+			 * 
+			 * 		缺点：该模式不能识别到自己是由谁生产出来的
+			 * 
+			 * **/
+			function factory(name,age,callback){
+				return {
+					"name":name,
+					"age":age,
+					"skill":function(){
+						console.log("123");
+					},
+					"callback":callback
+				}
+			}
+			var xiaofang = factory("小芳","12",function () {
+				alert("hello")
+			});
+			console.log(xiaofang.name);
+			console.log(xiaofang.skill());
+			xiaofang.callback();
+			
+			
+			
+			function car(name,price,fasert){
+				return {
+					"name":name,
+					"price":price,
+					"skill":function(){
+						console.log("gogogo!");
+					},
+					"fasert":fasert
+				}
+			}
+			var thiscar = car("兰博基尼","15000000",function(){
+				alert("我的速度很快")
+			})
+			console.log(thiscar);
+			//thiscar.fasert();
+			//instanceof是有JavaScript提供的，
+			//一种用于检测对象是谁生产出来的方法
+			console.log(thiscar instanceof car);//false
+			
+			
+			//3.构造函数模式
+			
+			/**
+			 * 	优点：解决了批量生产和多个对象相关性查询的问题，
+			 * 		 能用instanceof识别对象类型。
+			 * 
+			 * 	缺点：同一个方法，实例化对象的时候会创建不同的空间。
+			 * 		会造成内存浪费。
+			 * 	
+			 * 	new实例化对象时发生以下四个过程：
+			 * 		1.创建一个对象，
+			 * 		2.将构造函数的作用域赋值给新对象（即this指向新对象）
+			 * 		3.执行构造函数中的代码（即，将构造函数中的属性和方法赋值给新对象）
+			 * 		4.返回新对象。
+			 * */
+			function Person(name,age,sex,skill){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+				this.skill=skill;
+				this.pSkill=function(){
+					console.log("吃");
+				}
+			}
+			var friend =new Person("刘亦菲","22","女",function(){
+				console.log("舞蹈");
+			})
+			console.log(friend);
+			friend.skill();
+			console.log(friend instanceof Person);//true;
+			console.log(friend.constructor);//指向对象的构造函数
+			
+			/*console.log(Date.prototype);
+			console.log(Date.prototype.constructor);
+			console.log(data1.__proto__ ==Date.prototype);*/
+			/**
+			 * 实例化对象是如何继承构造函数的方法和属性的?
+			 * 	通过原型链(__proto__)来找到其构造函数的原型对象
+			 * 	从而继承其构造函数的方法与属性
+			 * 
+			 *  4.原型模式。
+			 * 
+			 * 	实例化对象
+			 *
+			 * 
+			 * 	优点：解决了构造函数模式的空间浪费问题
+			 * 	缺点：
+			 * 		1.省略了为构造函数传递初始化参数这一环节，
+			 * 		结果所有实例在默认情况下都将取得相同的属性值（不能批量生产）。
+			 * 
+			 * 		2.原型中所有属性是被很多实例共享的，
+			 * 		这中共享适用于函数，但对于包含引用类型值的属性就很成问题。
+			 * */
+			
+			function fun(){};
+			fun.prototype.name = "小明";
+			fun.prototype.age = "13";
+			fun.skill=function(){
+				console.log("吃");
+			}
+			
+			var fun1 =new fun();
+			console.log(fun1);
+			var fun2 =new fun();
+			console.log(fun2);
+			console.log(fun1.skill == fun2.skill);//true
+			//Date.prototype ->指向构造函数的原型对象
+			/*Date.prototype.toLocaleString=function(){
+				return ~
+			}*/
+			
+//			var data1 = new Date();
+//			var data2 = new Date();
+//			console.log(data1.__proto__);//实例化对象的原型链
+			
+			
+			
+			
+			
+			/**
+			 *  5.混合模式（构造函数和原型模式结合）
+			 * 
+			 * 	
+			 * 
+			 * */
+			
+			function People(name,age,sex){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			People.prototype.skill = function(){
+				console.log("吃");
+			}
+			var people1= new People("小明",12,"男");
+			var people2= new People("小芳",15,"女");
+			console.log(people1.skill == people2.skill);//true
+			
+			//es6
+			 class Obj{
+			 	constructor(name,age,sex){
+			 		this.name =name;
+			 		this.age=age;
+			 		this.sex=sex;
+			 	}
+			 	skill(){
+			 		console.log("我是es6定义的对象");
+			 	}
+			 }
+			 Obj.prototype.fa ="吃饭";
+			 var obj=new Obj("小学",15,"男");
+			 var obj2=new Obj("小白",15,"女");
+			 console.log(obj);
+			 console.log(obj.skill == obj2.skill);//true
+			 console.log(obj.__proto__);
+			 //in 操作符，用于检测对象中是否有某个属性，
+			 //有返回true，没有返回false
+			 console.log("name" in obj);//true
+			 console.log("name" in Obj);//true
+			 console.log("skill" in obj);//true
+			 //in方法无法检测到构造函数的原型对象中的方法
+			 console.log("skill" in Obj);//false
+			 console.log("fa" in Obj);//false
+			 //hasOwnProperty()检测实例化对象中是否有某个属性或方法。
+			 //通过原型链上继承过来的方法或属性无法通过hasOwnProperty来检测。
+			 console.log(obj.hasOwnProperty("age"));//true
+			 console.log(obj.hasOwnProperty("skill"));//false
+			 
+			 //delete 删除对象中的属性
+			 //不能够直接删除构造函数中的属性，因为对象还没实例化出来
+			 //所有this还不知道指向谁。
+			 delete obj.name;
+			 console.log(obj);
+			 console.log(obj2);
+			 
+			 /**
+			  *  JavaScript由三部分构成
+			  *   1.ECMAScript  核心语法 ----》完
+			  * 
+			  *   2.BOM     浏览器对象模型
+			  *   3.DOM     文档对象模型
+			  * 
+			  * 
+			  * 
+			  * */
+			 
+			 
+			 /********************
+			1.请为网吧做一套系统，用于凭借身份证号码检测一个人是否成年，成年则欢迎，不成年则请出。
+			提示：new Date();获取时间
+				 string.sub();截取字符串
+			********************/
+			
+			
+			
+			
+			/********************
+			2.用至少两种定义对象的方式来定义一辆车，车有对应的属性（例如有尺寸，颜色，马力）和方法（行驶，开车灯）
+			（请至少写出8个属性，5种方法）
+			********************/
+			function car(name,color,size,horsepower,price,drivingLight,wiper){
+				this.name=name;
+				this.color=color;
+				this.size=size;
+				this.horsepower=horsepower;
+				this.price=price;
+				this.drivingLight=drivingLight;
+				this.wiper=wiper;
+			}
+			car.prototype ={
+				skill:function(){
+					console.log("我正在行驶中");
+				},
+				comeOn:function(){
+					console.log("我没油了，在加油");
+				}
+			}
+			var car =new car("兰博基尼","银白色","5112mm","305 km/h","720000",function(){
+				var dor = "我打开了车灯";
+				console.log(dor);
+			},function(){
+				console.log("我打开了雨刷器");
+			});
+			console.log(car,car.drivingLight(),car.wiper());
+			car.skill();car.comeOn();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			权重值=>选择符优先级问题
+				选择符              								权重值
+				
+			1.行内样式										1000
+			2.ID选择符									100
+			3.类选择符（伪类选择符或属性选择符）				    10
+			4.元素选择符，伪对象选择符						    1
+			
+			权重值越大优先级越高
+			在属性值后面添加一个“!important”，此时该属性的优先级是最高的。
+		-->
+		<style type="text/css">
+			.test{
+				color: red !important;
+			}
+			div.test{/*11*/
+				color: skyblue;
+			}
+			.web .test{
+				color:pink;
+			}
+		</style>
+		<div class="web">
+			<div class="test">我是div</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+				font-size: 0;
+			}
+			.warp{
+				width: 200px;
+				height: 275px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+			.imgBox{
+				width: 1000px;	
+			}
+			.imgBox::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.imgBox li{
+				float: left;
+				width: 200px;
+				height: 275px;
+			}
+			.imgBox li img{
+				width: 100%;
+			}
+			.next,.pre{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background: rgba(0,0,0,0.2);
+				font-size: 20px;
+				line-height: 30px;
+				text-align: center;
+				color: #fff;
+				cursor: pointer;
+			}
+			.next:hover,.pre:hover{
+				background: rgba(0,0,0,0.5);
+			}
+			.next{
+				right: 0;
+			}
+			.pre{
+				left: 0;
+			}
+			.tran{
+				transition: 500ms;
+			}
+			.pager{
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.pager span{
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #fff;
+				margin: 0 3px;
+				cursor: pointer;
+			}
+			.pager .active{
+				background: #00BFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<!--图片区-->
+			<ul class="imgBox">
+				<li><img src="img/02.jpg"/></li>
+				<li><img src="img/04.jpg"/></li>
+				<li><img src="img/11.jpg"/></li>
+			</ul>
+			<!--左右按钮-->
+			<div class="next">&gt;</div>
+			<div class="pre">&lt;</div>
+			<!--分页器-->
+			<div class="pager">
+				<!--<span class="active"></span>
+				<span></span>
+				<span></span>-->
+			</div>
+		</div>
+		<script type="text/javascript">
+			var warp = document.querySelector(".warp"),
+				imgBox = document.querySelector(".imgBox"),
+				next = document.querySelector(".next"),
+				pre = document.querySelector(".pre"),
+				ali = imgBox.querySelectorAll("li");
+				
+			//获取图片的宽度
+			var imgW = ali[0].offsetWidth;
+			var index = 1;//图片下标值的初始值
+			var isc = true;
+			imgBox.style.transform = "translateX(-"+imgW*index+"px)";
+			//克隆第一张和最后一张图片，放到图片列表的最后和最前
+			var liclone = ali[0].cloneNode(true);
+			var liclone2 = ali[ali.length-1].cloneNode(true);
+			imgBox.appendChild(liclone);
+			imgBox.insertBefore(liclone2,ali[0]);
+			//右边按钮，向左移动
+			next.addEventListener("click",function(){
+				re();
+				addColor(index);
+			});
+			var re =function(){
+				if(isc){
+					index++;
+					imgBox.style.transform = "translateX(-"+imgW*index+"px)";
+					if(!imgBox.classList.contains("tran")){
+						imgBox.classList.add("tran");
+					}
+					addColor(index);
+				}
+				isc = false;
+			}
+			//左边按钮
+			pre.addEventListener("click",function(){
+				if(isc==true){
+					index--;
+					if(!imgBox.classList.contains("tran")){
+						imgBox.classList.add("tran");
+					}
+					imgBox.style.transform = "translateX(-"+imgW*index+"px)";
+					addColor(index);
+				}
+				isc = false;
+			})
+			
+			//边界的判断
+			imgBox.addEventListener("transitionend",function(){
+				//右边界
+				if(index == ali.length+1){
+					index = 1;
+					imgBox.style.transform = "translateX(-"+imgW*index+"px)";
+					imgBox.classList.remove("tran");
+				}
+				//左边界
+				if(index==0){
+					index=ali.length;
+					imgBox.style.transform = "translateX(-"+imgW*index+"px)";
+					imgBox.classList.remove("tran");
+				}
+				isc = true;
+			})
+			setInterval(re,1500);
+			
+			//点击圆点图片切换
+			var por = document.querySelector(".pager");
+			for(var i=0;i<3;i++){
+				var span = document.createElement("span");
+				por.appendChild(span);
+					if(i==0){
+						span.classList.add("active");
+					}
+			}
+			var aSpan = por.children;
+			for(var i=0;i<aSpan.length;i++){
+				(function(k){
+					aSpan[k].addEventListener("click",function(){
+						if(!imgBox.classList.contains("tran")){
+							imgBox.classList.add("tran");
+						}
+						imgBox.style.transform = "translateX(-"+imgW*(k+1)+"px)";
+						for(var j=0;j<aSpan.length;j++){
+							aSpan[j].classList.remove("active");
+						}
+						aSpan[k].classList.add("active");
+						index = k+1;
+					})
+				})(i)
+			}
+			
+			function addColor(k){
+				k = k-1;
+				if(k>aSpan.length-1){//右边界
+					k=0;
+				}else if(k<0){//左边界
+					k=2;
+				}
+				for(var j=0;j<aSpan.length;j++){
+					aSpan[j].classList.remove("active");
+				}
+				aSpan[k].classList.add("active");
+			}
+		</script>
+	</body>
+</html>

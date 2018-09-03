@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/g2.png"/>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script type="text/javascript">
+			/**
+			 *  ready()
+			 * 	当DOM准备就绪的时候来触发
+			 * 
+			 * 	one()只能触发一次事件
+			 * 
+			 * 	hover(func1,func2)
+			 * 
+			 * 	func1:鼠标移入的回调函数
+			 * 	func2:鼠标移出的回调函数
+			 * */
+			$(document).ready(function(){
+				var imgH = document.querySelector("img");
+				console.log(imgH.offsetHeight);
+			})
+			$(function(){
+				var imgH = document.querySelector("img");
+				console.log(imgH.offsetHeight);
+			})
+			window.onload = function(){
+				console.log($("img").height());
+			}
+			
+			$("img").one("click",function(){
+				console.log("123")
+			})
+			$("img").hover(function(){
+				$(this).css({
+					transform:"scale(1.5)",
+					transition:"1s"
+				});
+			},function(){
+				$(this).css({
+					transform:"scale(1)",
+					transition:"1s"
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<button v-for="(item,index) in list" @click="changBtn(index)">{{item}}</button>
+			<component :is="sel[index]"></component>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component("test",{
+				template:"<p>{{msg}}</p>",
+				data:function(){
+					return {
+						msg:"组件1"
+					}
+				}
+			});
+			
+			Vue.component("test2",{
+				template:"<p>{{msg}}</p>",
+				data:function(){
+					return {
+						msg:"组件2"
+					}
+				}
+			})
+			
+			Vue.component("test3",{
+				template:"<p>{{msg}}</p>",
+				data:function(){
+					return {
+						msg:"组件3"
+					}
+				}
+			})
+			new Vue({
+				el:".app",
+				data:{
+					list:["html","css","js"],
+					sel:["test","test2","test3"],
+					index:0
+					
+				},
+				methods:{
+					changBtn:function(val){
+						this.index = val
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

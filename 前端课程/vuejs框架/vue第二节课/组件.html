@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="app">
+			<test></test>
+			<test2></test2>
+			<input type="text"  v-model="inpValue"/>
+			<button @click="add">添加</button>
+			<ul>
+				<test v-for="item in list" :content="item"></test>
+			</ul>
+		</div>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			//全局组件
+			Vue.component("test",{
+				props:["content"],
+				template:"<li>{{content}}</li>"
+			})
+			
+			/**
+			 * 局部组件,需要在vue实例中进行注册
+			 * 组件具有和vue实例对象一样的功能
+			 * 不同点在于data类型不一样，组件里面的data必须是一个函数。
+			 * */
+			var test2 = {
+				template:"<p>789</p>",
+//				data:function(){
+//					return {
+//						
+//					}
+//				}
+			}
+			var vm = new Vue({
+				el:".app",
+				data:{
+					inpValue:"",
+					list:[]
+				},
+				methods:{
+					add:function(){
+						//获取用户输入的内容
+						this.list.push(this.inpValue)
+					}
+				},
+				components:{//注册局部组件
+					test2:test2
+				},
+			})
+		</script>
+	</body>
+</html>

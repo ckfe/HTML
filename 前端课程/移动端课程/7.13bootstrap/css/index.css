@@ -1,0 +1,12 @@
+.container{
+	height: 50px;
+	background: skyblue;
+}
+.container-fluid{
+	height: 50px;
+	background: gray;
+}
+.col-1,.col-4,.col-6{
+	border: 1px solid #000;
+}
+

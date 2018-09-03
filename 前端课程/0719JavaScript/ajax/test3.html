@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 请求报以下错误
+			 * No 'Access-Control-Allow-Origin'
+			 * 表示我们进行了跨域请求
+			 * 
+			 * 什么叫跨域？
+			 * 	1.请求的同协议
+			 * 	2.请求的同域名
+			 * 	3.请求的同端口号（默认端口号:8080）
+			 *  只要请求地址的不满足以上三个条件的其中一个，都是跨域请求
+			 * 
+			 * 	同源策略：
+			 * 	同源：指的是同协议，同域名，同端口号
+			 * */
+			var Url = "http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice";
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET",Url);
+			xhr.send();
+			xhr.addEventListener("readystatechange",function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var res =xhr.responseText;
+						console.log(res);
+						refreshPrice(res);
+					}else{
+						console.log("请求失败")
+					}
+				}
+			})
+			function refreshPrice(res){
+				var res = eval(res);
+				if(res!=undefined){
+					console.log(res["1399001"].name);
+				}
+			}
+			/**
+			 * 解决跨域问题
+			 * 1.jsonp
+			 * 	a.动态创建script标签
+			 *  b.把请求地址赋值给创建的script的src属性
+			 *  c.把创建的标签添加到HTML文档
+			 * 
+			 * jsonp不是全能的，因为能不能跨域请求最终决定权在后台人员手中
+			 * 
+			 * */
+//			var scr = document.createElement("script");
+//			scr.src = "http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice";
+//			document.body.appendChild(scr);
+//			function refreshPrice(res){
+//				console.log(res);
+//			}
+			
+			
+		//封装jsonp请求
+		//创建元素函数
+//		function creat(urls,el,parentEl){
+//			var spt = document.createElement(el);
+//			var ptEl = document.querySelector(parentEl);
+//			spt.src = urls;
+//			ptEl.appendChild(spt);
+//		}
+//		creat(Url,"script","body");
+//		function refreshPrice(res){
+//			console.log(res);
+//		}
+		</script>
+		
+		<!--<script src="http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice" ></script>-->
+	</body>
+</html>

@@ -1,0 +1,131 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.web{
+	width: 1000px;
+}
+section{
+	width:654px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.section-top{
+    text-align: center;
+    width: 339px;	
+    margin: 0px auto;
+	border-top: 1px solid #6db6ff;  
+	font-size: 0;
+	margin-top: 64px;  
+}
+.section-top h1{
+	font-size: 14px;
+	font-family: "微软雅黑";
+	letter-spacing: 8px;
+	position: relative;
+	top: -13px;
+	width: 129px;
+	margin: 0 auto;
+	background: white;
+}
+.section-top p{
+	font-size: 9px;
+	font-family: arial;
+	word-spacing: 1px;
+	position: relative;
+	top: -8px;
+	width: 129px;
+	margin: 0 auto;
+}
+.p1{
+	margin-top: 20px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+	text-align: center;
+}
+.section-form{
+	margin-top: 41px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+.section-form li{
+	margin-top: 23px;
+}
+.section-form-input{
+	width: 209px;
+	height: 16px;
+	border: 1px solid #9ac1c0;
+	text-align: left;
+}
+.section-form span{
+	width: 77px;
+	display: inline-block;
+}
+.section-form-select{
+	width: 167px;
+	height: 18px;
+	border: 1px solid #9ac1c0;
+	margin-right: 22px;
+}
+.section-form li:nth-child(8) input{
+	margin:0px 7px;
+}
+.section-form-text{
+	width: 63px;
+	height: 16px;
+	border: 1px solid #9ac1c0;
+}
+.section-form li:nth-child(9) input,img{
+	margin-right: 5px;
+}
+.section-form li:nth-child(9) a{
+	color: red;
+}
+.section-form li:nth-child(10) i{
+	font-style: normal;
+	vertical-align: top;
+}
+.section-form-agr ol{
+	width: 549px;
+	height: 116px;
+	border: 1px solid #9ac1c0;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	float: right;
+	/*margin-top: 9px;*/
+	/*padding-right: 33px;*/
+}
+.section-form-agr li{
+	width: 503px;
+	margin-top: 0px;
+	line-height: 17px;
+}
+.section-form-agr p{
+	margin: 110px 0px 0px 92px;
+}
+.section-form-agr img{
+	margin-right: 27px;
+}
+.section-form li:last-child{
+	margin-top: 0;
+	text-align: center;
+}
+.section-form-reg input{
+	font-style: normal;
+	margin-top: 34px;
+	border: 0;
+	width: 121px;
+	height: 33px;
+	background: #6db6ff;
+	border-radius: 4px 4px;
+	color: #ffffff;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+em{
+	font-style: normal;
+	color: red;
+	margin-left: 22px;
+}

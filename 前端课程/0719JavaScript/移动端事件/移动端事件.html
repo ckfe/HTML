@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div class="test">df</div>
+		<script src="js/vconsole.js"></script>
+		<script type="text/javascript">
+			/**
+			 * 移动端事件
+			 * 
+			 * 	touchstart()
+			 * 		事件对象
+			 * 		e.touchs:记录用户用几个手指同时点击屏幕，
+			 * 				已经他们点击的位置等等。
+			 * 		e.target:指向被点击的元素
+			 * 	
+			 * 	touchmove():手指在屏幕上移动时触发
+			 * 	
+			 * 	touchend():当手指离开屏幕时触发
+			 * 
+			 * 	touchcancel():当有高级事件发生时会取消touch事件
+			 * 		比如：来电，信息,游戏存档
+			 * 
+			 * 
+			 * 	勾股定理：（指的是直角三角形的三边关系）
+			 * 		直角边的平方和等于第三边（斜边）的平方
+			 * */
+			document.addEventListener("touchstart",function(e){
+				e = window.event || e;
+				console.log(e);
+			})
+			
+			var test =document.querySelector(".test");
+			test.addEventListener("touchstart",function(e){
+				console.log(e.target);
+			})
+			document.addEventListener("touchmove",function(){
+				console.log("我在移动");
+			})
+			document.addEventListener("touchend",function(){
+				console.log("我在移动2");
+			})
+		</script>
+	</body>
+</html>

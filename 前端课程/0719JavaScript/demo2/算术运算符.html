@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 1.算术运算符
+			 *  +  -  *  / % ++  --
+			 * 
+			 * +号运算符：
+			 *   1.如果加号左右两边都为数值类型，则进行加法运算
+			 *   2.如果加号左右有其中一个为字符串类型的数据，则进行字符串拼接
+			 *   3.如果在字符串前面加一个+好，会隐私的将字符串转换为数值类型。
+			 * 
+			 * */
+			var num1 = 23;
+			var num2 = 27;
+			console.log(num1+num2);//50
+			
+			var num3 = "10";
+			console.log(+num3 + num2);//37
+			
+			var num1=0.1;
+			var num2=0.2;
+			console.log((num1 + num2).toFixed(1));//0.3
+			
+			/*
+			 * 减法运算符
+			 * 		1.可以进行减法运算
+			 * 		2.在字符串前面加一个（-）减号，可以将该字符串转换为数值类型
+			 * 		  注意转换后的值为原来值的相反数
+			 * 		 即：-"12" => -12
+			 * */
+			 var num1 = 12;
+			 var num2 = 10;
+			 console.log(num2 - num1);
+			 
+			 console.log(num1 - true);//11
+			 console.log(num1 - null);//12
+			 console.log(num1 - "");//12
+			 
+			 
+			 /*
+			  * 乘法运算符（*）
+			  *   
+			  * 
+			  * */
+			 var num1 = 2;
+			 var num2 = 3;
+			 var num3 = "10",
+			 	 num4 = "8";
+			 
+			 console.log(num1 * num2);//6
+			 console.log(num3 * num4);//80
+			 
+			 /*
+			  * 除法运算符（/）
+			  *   JavaScript中分母是可以为0，且分母为0时得到的结果为Infinity
+			  * 
+			  * */
+			  var num =0;
+			  var num1 = 5;
+			  console.log(num / num1);//0
+			  console.log(num1 / num);//Infinity 无穷大
+			  
+			  var num3 = "20";
+			  console.log(num1/num3);//0.25
+			  
+			  /*
+			   * 求余（%）
+			   * 	分母不能为0
+			   * */
+			  var num1=10,num2=2, num3 = 3;
+			  console.log(num1%num2);
+			  console.log(num1%num3);
+			  
+			  
+			  /*
+			   * 前增量/后增量（++i,i++）
+			   *  后增量的优先级是比较低的，基本上和其他运算符一起运算的时候，
+			   *  后增量都是最后计算的。
+			   *  前增量和后增量相反，他的优先级是比较高的，
+			   *  和其他运算符一起运算的时候，前增量基本是最先计算的
+			   * */
+			  
+			  var i=10;
+			  i++; //自增1
+//			  console.log(i);
+			  console.log(i++);
+			  var a=i++;
+			  console.log(a);
+			  
+			  
+			  /*
+			   * 前减量/后减量（--i,i--）
+			   * 	自减1
+			   * */
+			  var i=10;
+			  i--;
+			  console.log(--i);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单版</title>
+	</head>
+	<body>
+		<div class="app">
+			<test v-model="msg"></test>
+			<p>{{msg}}</p>
+		</div>
+		<script src="js/vue.js" ></script>
+		<script type="text/javascript">
+			Vue.component("test",{
+				template:"<input @input='$emit(`input`,$event.target.value)'/>"
+			})
+			new Vue({
+				el:".app",
+				data:{
+					msg:""
+				}
+			})
+		</script>
+	</body>
+</html>

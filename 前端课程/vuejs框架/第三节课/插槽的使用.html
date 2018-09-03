@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app" v-cloak>
+			<test>
+				<p>1321</p>
+			</test>
+			<test2>
+				<p slot="section">我是插在section里面的</p>
+				<h2>我是h2</h2>
+			</test2>
+		</div>
+		<div id="myItem" style="display: none;">
+			<div>12345</div>
+		</div>
+		<script src="js/vue.js"></script>
+		<!--<script type="text/template" id="myItem">
+			<div>12345</div>
+		</script>-->
+		<script type="text/javascript">
+			/**
+			 * 插槽(slot)
+			 * 	作用：使得组件能够嵌套其他标签。
+			 * 	用法一：直接在组件的模板里面插入一个标签就可以了。
+			 * 	用法二：当模板里面有很多子元素时，我想将标签插入其中一个元素里面
+			 * 	那么可以在该元素里面插入一该插槽，并给该插槽添加一个名字，
+			 * 	使用时只要在插入的标签里面添加属性solt=“name”即可
+			 * 
+			 * */
+			Vue.component("test",{
+				template:"<div>{{msg}}<slot></slot></div>",
+				data:function(){
+					return {
+						msg:"html是超文本标记语言!"
+					}
+				}
+			})
+			
+			Vue.component("test2",{
+				template:`<div class='conta'>
+						<header></header>
+						<section>
+							<slot name="section"></slot>
+						</section>
+						<footer>
+							<slot></slot>
+						</footer>
+						</div>`
+			})
+			
+			
+			new Vue({
+				el:".app"
+			})
+		</script>
+	</body>
+</html>

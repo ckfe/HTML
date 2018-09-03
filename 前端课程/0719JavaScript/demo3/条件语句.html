@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 *  条件语句
+			 * 		1.if（条件判断语句）{
+			 * 		语句一
+			 * 		}
+			 * 如果条件语句成立则执行语句一,
+			 * 
+			 * 
+			 * 	2.if（条件判断语句）{
+			 * 		语句一
+			 * 		}else{
+			 * 		语句二
+			 * 		}
+			 * 如果条件语句成立则执行语句一,否则执行语句二
+			 * 	3.if（条件判断语句）{
+			 * 		语句一
+			 * 		}else if{
+			 * 		语句二
+			 * 		}else{
+			 * 		语句三
+			 * 		}
+			 * 	如果条件语句成立则执行语句一,结束判断，
+			 * 	如果不成立继续判断条件语句二，如果成立，则执行语句二，否则执行语句三
+			 * 
+			 * 	4.switch语句
+			 * 	语法：
+			 *   switch(参数){
+			 * 		case 匹配参数1 ：
+			 * 		       执行语句1
+			 * 			break;
+			 * 		case 匹配参数2 ：
+			 * 		       执行语句2
+			 * 			break;
+			 * 		case 匹配参数3 ：
+			 * 		       执行语句3
+			 * 			break;
+			 * 		default：
+			 * 			默认执行语句；
+			 * 	}
+			 * */
+			
+			var price = 12;
+			if(price <=15-3){
+				console.log("去吃饭")
+			}else{
+				console.log("不去吃饭")
+			}
+			
+			/*
+			 * 在JavaScript中判断语句不能连写，例如  
+			 * 错误写法：100>= grade>=90，正确写法：grade<=100 && grade >=90
+			 * */
+			
+			//判断闰年
+			var year=2018;
+			if(year%400==0 ||(year%4==0 && year%100 !=0)){
+				console.log("是闰年")
+			}else{
+				console.log("不是闰年")
+			}
+			
+			
+		</script>
+	</body>
+</html>
